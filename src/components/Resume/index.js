@@ -30,6 +30,7 @@ export const Company = styled.div`
 
 	&:after {
 		content: ',';
+		font-weight: normal;
 	}
 `;
 
@@ -41,8 +42,12 @@ export const Date = styled.span`
 `;
 
 export const Position = styled.span`
-	font-size: 0.95rem;
-	display: block;
+	font-weight: bold;
+
+	&:after {
+		content: ' at ';
+		font-weight: normal;
+	}
 `;
 
 export const Location = styled.span`
@@ -56,21 +61,21 @@ export const Tools = styled.span`
 	display: block;
 
 	&:before {
-		content: 'Tools: ';
+		/* content: 'Tools: '; */
 	}
 `;
 
 export const CompanyContent = styled.div`
 	margin-top: 0.5rem;
 	display: flex;
-	/* flex-direction: row-reverse; */
+	flex-direction: row-reverse;
 	justify-content: space-between;
 `;
 
 export const CompanyDetails = styled.div`
 	width: 25%;
-	padding-right: 1.5rem;
-	text-align: right;
+	padding-left: 1.5rem;
+	/* text-align: right; */
 `;
 
 export const BulletPoints = styled.div`
@@ -119,118 +124,113 @@ export default class Resume extends Component {
 							</Block>
 						</Block>
 						<Block mv={1}>
-							I specialize in frontend product development with 5+
-							years of cumulative work experience.
-							<Block>
-								I've most recently worked with Javascript using
-								React.js, Next.js, styled-components, Apollo,
-								and GraphQL.
-							</Block>
+							5+ years of frontend product development. I am
+							motivated by user pain and inefficiencies. I am
+							looking for opportunities in healthcare, edtech, or
+							social good. I value companies that have kind,
+							emphathetic cultures.
+							{/* (see Glitch for inspo). */}
 						</Block>
-						<Block display='none'>
-							I am looking for opportunities in healthcare,
-							edtech, or social good. I value companies that have
-							kind, emphathetic cultures, are transparent, and ...
-							(see Glitch for inspo).
-						</Block>
+						<Position>Founding Engineer</Position>
 						<Company>Agora Systems</Company>
 						<CompanySummary>
-							a material and supply chain management software
-							platform for the construction industry.
+							materials and supply chain management software for
+							construction.
 						</CompanySummary>
 						<CompanyContent>
 							<CompanyDetails>
-								<Position>Founding Engineer</Position>
 								<Date>Dec 2018 - Aug 2019</Date>
 								<Location>San Francisco</Location>
 								<Tools>
-									Ant Design System, React, Next,
-									styled-components, ES6, webpack, babel,
-									node, GraphQL, Apollo
+									ReactJS, NextJS, ES6
+									<br />
+									Ant Design, styled-components
+									<br />
+									Apollo, GraphQL
 								</Tools>
 							</CompanyDetails>
 							<BulletPoints>
 								<BulletPoint>
-									Owner and sole engineer of the frontend
-									domain, architected and implemented the
-									entire frontend codebase from scratch.
+									Owned all of the frontend, architected from
+									scratch.
 								</BulletPoint>
 								<BulletPoint>
-									Gathered copious amounts of user data
-									through 10 full-time onsite research days.
-									Drove further user testing through regular
-									video check-ins. This data informed
-									iterations of the product from scratch to
-									launch, and was used to secure early paid
-									contracts.
+									Synthesized over 20 hours of user interview
+									data with Product & Design, iterating
+									through 3 versions of fully implemented,
+									then dismantled, prototypes.
 								</BulletPoint>
 								<BulletPoint>
-									Built out three iterations of the product in
-									4 months, evolving the platform from a demo
-									used for client sales to a fully launched
-									and feature-rich platform in 4 months.
-								</BulletPoint>
-								<BulletPoint>
-									Led recruiting for first Design role, worked
-									heavily on candidate sourcing and screening,
-									entirely responsible for first candidate
-									on-site.
+									Led recruiting for Founding Designer role in
+									all areas: requirements, sourcing,
+									screening, and crafting interview process.
 								</BulletPoint>
 							</BulletPoints>
 						</CompanyContent>
+						<Position>
+							<a
+								href='https://levels.patreon.com'
+								target='_blank'
+							>
+								Senior Frontend Engineer
+							</a>
+						</Position>
 						<Company>Patreon</Company>
 						<CompanySummary>
-							a membership platform for creators to connect and
-							get funding directly from their fans.
+							where creatives connect with and earn money directly
+							from their fans.
 						</CompanySummary>
 						<CompanyContent>
 							<CompanyDetails>
-								<Position>
-									Senior Frontend Engineer{' '}
-									<a
-										href='https://levels.patreon.com'
-										target='_blank'
-									>
-										(IC3)
-									</a>
-								</Position>
 								<Date>Apr 2017 - Dec 2018</Date>
 								<Location>San Francisco</Location>
 								<Tools>
-									React, ES6 Redux (NION), styled-components,
+									ReactJS, ES6, Redux (
+									<a
+										href='https://github.com/Patreon/nion'
+										target='_blank'
+									>
+										NION
+									</a>
+									)
+									<br />
+									styled-components
+									<br />
 									Flask, Python, JSON API
 								</Tools>
 							</CompanyDetails>
 							<BulletPoints>
 								<BulletPoint>
-									Rearchitected company-wide email template
-									infrastructure, created a workflow where
-									email templates constructed with React
-									components are automatically compiled to
-									email-safe HTML and deployed via CircleCI.
+									Rearchitected email infrastructure so that
+									templates are built in React, then compiled
+									to email-safe HTML and deployed via
+									CircleCI. 200+ hosted email templates were
+									standardized to 50, and finally version
+									controlled.
 									<br />
-									Cleaned up and standardized 200+
-									unmaintained email templates, reduced to 50.
-									<br />
-									Streamlined developer workflows and greatly
-									reduced future email incidents by creating
-									an internal test tool to preview and send
-									emails.
-									{/* TODO talk about how I did this in 3 weeks (1 month?), 1 month after starting. */}
-									<br />
-									Till present, this work directly impacts 30+
-									million emails sent every month. This work
-									paved the way for further architectural
-									improvements a year later that resulted in
-									decreased spending of ~$22,000 monthly.
+									<em>
+										This impacts 30+ million emails monthly,
+										and paved the way for an email provider
+										upgrade that saved ~$22,000/month and
+										drastically improved sending
+										reliability.
+									</em>
+								</BulletPoint>
+								<BulletPoint>
+									Greatly reduced email-related unease and
+									incidents by creating detailed documentation
+									for the above work, accompanied by an
+									internal test tool to preview and send
+									emails safely using live data.
 								</BulletPoint>
 								<BulletPoint>
 									Sole web engineer on{' '}
 									<a href='https://techcrunch.com/2018/02/06/patreon-lens/'>
 										Lens
-									</a>
-									, Patreon's ephemeral "snapchat stories"
-									feature.
+									</a>{' '}
+									(ephemeral content), allowing the feature to
+									become Patreon's first cross-platform
+									(mobile x web) launch.
 								</BulletPoint>
 								{/* <BulletPoint>
 									The Lens web feature was incredibly complex
@@ -248,10 +248,12 @@ export default class Resume extends Component {
 									all with grace and ease.
 								</BulletPoint> */}
 								<BulletPoint>
-									Owner of the pair programming interview
-									question at Patreon, authored training
-									documentation and participated heavily in
-									candidate interviews and screening.
+									Owner of pair programming interview question
+									asked to all engineering candidates.
+									Authored training docs, iterated on a
+									framework agnostic code skeleton based on
+									candidate feedback, and conducted 30+ hours
+									of interviews.
 								</BulletPoint>
 								{/* <BulletPoint>Make a post redesign</BulletPoint>
 								<BulletPoint>
@@ -272,11 +274,10 @@ export default class Resume extends Component {
 								</BulletPoint>
 							*/}
 								<BulletPoint>
-									Piloted a Waterloo internship/co-op program
-									at Patreon, led to 2 intern hires, one of
-									whom returned for a second internship and
-									both of whom accepted full-time return
-									offers after graduation.
+									Piloted a Waterloo intern (co-op) program,
+									coordinated hiring and mentorship of two
+									interns, both of whom accepted full-time
+									return offers after graduation.
 								</BulletPoint>
 								{/* <BulletPoint>
 									Xenia's execution of getting this done
@@ -296,36 +297,34 @@ export default class Resume extends Component {
 								{/* levels.patreon.com */}
 							</BulletPoints>
 						</CompanyContent>
+						<Position>Frontend Engineer</Position>
 						<Company>Zenreach</Company>
 						<CompanySummary>
-							a white-labeled Wifi platform enabling physical
-							stores to engage customers through online marketing.
+							a Wifi platform that enables digital marketing to
+							brick-and-mortar customers.
 						</CompanySummary>
 						<CompanyContent>
 							<CompanyDetails>
-								<Position>Frontend Engineer</Position>
 								<Date>Dec 2015 - Dec 2016</Date>
 								<Location>San Francisco</Location>
 								<Tools>
-									React, Express Webpack, Babel, ES6, Django,
-									Python
+									ReactJS, Express, Webpack, Babel, ES6
+									<br />
+									Django, Python
 								</Tools>
 							</CompanyDetails>
 							<BulletPoints>
 								<BulletPoint>
-									Sole frontend engineer on a Zenreach core
-									feature named Web Widgets, a tool that
-									creates white-label embedded mailing list
-									forms. This was customers’ most requested
-									feature over 2 years, and I delivered it in
-									2 months.
+									Owned Web Widgets, a tool that creates
+									white-label embedded mailing list forms.
+									Customers’ most requested feature for two
+									years, delivered in two months.
 								</BulletPoint>
 								<BulletPoint>
-									Built a WYSIWYG email composer on par with
-									MailChimp, with features like drag-and-drop
-									email components, undo/redo, and
-									customizable templates supported across all
-									email clients.
+									Built two WYSIWYG platforms: email composer
+									and Wifi portal customizer, with features
+									like drag-and-drop, undo/redo, and custom
+									templates across all devices.
 								</BulletPoint>
 								{/* Portal Customizer */}
 							</BulletPoints>
