@@ -163,16 +163,16 @@ palette = {
 // from _ant-theme.less
 const typography = {
 	fontSizeSm: '12px',
-	fontSizeBase: '14px',
+	fontSizeBase: '16px',
 	fontSizeMd: '14px',
 	fontSizeLg: '16px',
 	fontSizeXl: '18px',
-	fontSizeXxl: '20px',
+	fontSizeXxl: '24px',
 	bold: 600,
 	helvetica: 'Helvetica',
 	helveticaBold: 'Helvetica-Bold',
 	fontFamily:
-		"'Comic Sans MS', 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'"
+		"'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'"
 };
 
 // Specific to PDF rendering

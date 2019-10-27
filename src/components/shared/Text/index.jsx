@@ -18,7 +18,7 @@ const StyledText = styled.span`
 	font-family: ${p.theme.typography.fontFamily} !important;
 	${p.lineHeight ? `line-height: ${p.lineHeight};` : ''}
 ${p.italic ? 'font-style: italic;' : ''}
-        ${p.bold ? 'font-weight: 500;' : `font-weight: ${p.fontWeight};`}
+        ${p.bold ? 'font-weight: bold;' : `font-weight: ${p.fontWeight};`}
         ${p.align ? `text-align: ${p.align};` : ''}
         ${p.display ? `display: ${p.display};` : ''}
 				${p.textOverflow ? `text-overflow: ${p.textOverflow};` : ''}
@@ -36,7 +36,7 @@ StyledText.defaultProps = {
 	size: 'md',
 	el: 'span',
 	fontWeight: 'unset',
-	theme,
+	theme
 };
 
 StyledText.propTypes = {
@@ -50,7 +50,10 @@ StyledText.propTypes = {
 	 * Font Weight
 	 * Can be a number, `normal`, `bold`, or `unset`.
 	 */
-	fontWeight: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf(['normal', 'bold', 'unset'])]),
+	fontWeight: PropTypes.oneOfType([
+		PropTypes.number,
+		PropTypes.oneOf(['normal', 'bold', 'unset'])
+	]),
 
 	/**
 	 * Italic font style
@@ -111,7 +114,7 @@ StyledText.propTypes = {
 		'table-row',
 		'none',
 		'initial',
-		'inherit',
+		'inherit'
 	]),
 
 	/**
@@ -128,7 +131,7 @@ StyledText.propTypes = {
 		'super',
 		'text-bottom',
 		'text-top',
-		'top',
+		'top'
 	]),
 
 	/* Text line height */
@@ -138,7 +141,10 @@ StyledText.propTypes = {
 	 * Font size
 	 * If font-size value is not a theme variable, the component will respect that custom value.
 	 */
-	size: PropTypes.oneOfType([PropTypes.string, PropTypes.oneOf(['sm', 'md', 'lg', 'xl', 'xxl'])]),
+	size: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.oneOf(['sm', 'md', 'lg', 'xl', 'xxl'])
+	]),
 
 	/**
 	 * Text Overflow
@@ -148,7 +154,14 @@ StyledText.propTypes = {
 	/**
 	 * Overflow
 	 */
-	overflow: PropTypes.oneOf(['auto', 'inherit', 'initial', 'hidden', 'scroll', 'visible']),
+	overflow: PropTypes.oneOf([
+		'auto',
+		'inherit',
+		'initial',
+		'hidden',
+		'scroll',
+		'visible'
+	]),
 
 	/**
 	 * Whitespace
@@ -161,20 +174,20 @@ StyledText.propTypes = {
 		'pre-line',
 		'pre-wrap',
 		'pre',
-		'unset',
+		'unset'
 	]),
 
 	/**
 	 * Title attribute, specifies extra information about an element.
 	 * Most often shown as a tooltip text when the mouse moves over the element.
 	 */
-	title: PropTypes.string,
+	title: PropTypes.string
 };
 
 const getColor = props => {
 	const {
 		color,
-		theme: { palette: p },
+		theme: { palette: p }
 	} = props;
 
 	if (p[color]) {
@@ -189,7 +202,7 @@ const getColor = props => {
 const getFontSize = props => {
 	const {
 		size,
-		theme: { typography: t },
+		theme: { typography: t }
 	} = props;
 
 	switch (size) {
