@@ -25,7 +25,7 @@ const Block = ({ children, ...props }) => (
 );
 
 Block.defaultProps = {
-	backgroundColor: 'white',
+	backgroundColor: 'transparent',
 	borderColor: 'gray4',
 	borderWidth: 0,
 	display: 'block',
