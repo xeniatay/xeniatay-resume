@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import styled, { ThemeProvider } from 'styled-components';
-
-import theme from 'theme';
+import styled from 'styled-components';
 
 import Block from 'components/shared/Block';
 import Text from 'components/shared/Text';
@@ -11,9 +9,7 @@ const GITHUB = 'github.com/xeniatay';
 const WEBSITE = 'xeniatay.com';
 
 export const Body = styled.div`
-	width: 800px;
-	margin: 2rem auto;
-	line-height: 1.5;
+	width: 8in;
 `;
 
 export const Contact = styled.a`
@@ -23,20 +19,25 @@ export const Contact = styled.a`
 `;
 
 export const Company = styled.div`
-	display: inline-block;
-	margin-right: 0.3rem;
-	font-weight: bold;
-	margin-top: 1rem;
-
-	&:after {
-		content: ',';
-		font-weight: normal;
-	}
+	margin-bottom: 1rem;
 `;
 
-export const CompanySummary = styled.span``;
+export const CompanyName = styled.span`
+	margin-right: 0.3rem;
+	font-weight: bold;
+
+	/* &:after {
+		content: ',';
+		font-weight: normal;
+	} */
+`;
+
+export const CompanySummary = styled.span`
+	display: block;
+`;
 
 export const Date = styled.span`
+	font-weight: bold;
 	font-size: 0.9rem;
 	display: block;
 `;
@@ -52,13 +53,14 @@ export const Position = styled.span`
 
 export const Location = styled.span`
 	font-size: 0.9rem;
-	display: block;
+	display: none;
 `;
 
 export const Tools = styled.span`
 	margin-top: 0.5rem;
 	font-size: 0.9rem;
 	display: block;
+	line-height: 1.8;
 
 	&:before {
 		/* content: 'Tools: '; */
@@ -73,78 +75,83 @@ export const CompanyContent = styled.div`
 `;
 
 export const CompanyDetails = styled.div`
-	width: 25%;
+	width: 20%;
 	padding-left: 1.5rem;
 	/* text-align: right; */
 `;
 
 export const BulletPoints = styled.div`
-	width: 75%;
+	width: 80%;
 `;
 
 export const BulletPoint = styled.div`
-	display: list-item;
+	&:before {
+		content: '‣ ';
+	}
+
+	/* display: list-item;
 	text-indent: 1.2rem;
-	list-style-type: square;
+	list-style-type: square; */
 	line-height: 1.4;
-	margin-bottom: 0.4rem;
+	margin-bottom: 0.7rem;
+`;
+
+export const PageBreak = styled.div`
+	@media print {
+		height: 0;
+		page-break-before: always;
+		margin: 0;
+		border-top: none;
+	}
 `;
 
 export default class Resume extends Component {
 	render() {
 		return (
-			<ThemeProvider theme={theme}>
-				<Body>
-					<Text>
-						<Block
-							flex
-							alignItems='center'
-							justifyContent='space-between'
-						>
-							<Text size='xxl'>Xenia Tay</Text>
-							<Block>
-								<Contact
-									href={`mailto:${EMAIL}`}
-									target='_blank'
-								>
-									{EMAIL}
-								</Contact>
-								<Contact
-									href={`http://${GITHUB}`}
-									target='_blank'
-								>
-									{GITHUB}
-								</Contact>
-								<Contact
-									href={`http://${WEBSITE}`}
-									target='_blank'
-								>
-									{WEBSITE}
-								</Contact>
-							</Block>
+			<Body>
+				<Text>
+					<Block
+						flex
+						alignItems='center'
+						justifyContent='space-between'
+					>
+						<Text size='xxl'>Xenia Tay</Text>
+						<Block>
+							<Contact href={`mailto:${EMAIL}`} target='_blank'>
+								{EMAIL}
+							</Contact>
+							<Contact href={`http://${GITHUB}`} target='_blank'>
+								{GITHUB}
+							</Contact>
+							<Contact href={`http://${WEBSITE}`} target='_blank'>
+								{WEBSITE}
+							</Contact>
 						</Block>
-						<Block mv={1}>
-							5+ years of frontend product development. I am
-							motivated by user pain and inefficiencies. I am
-							looking for opportunities in healthcare, edtech, or
-							social good. I value companies that have kind,
-							emphathetic cultures.
-							{/* (see Glitch for inspo). */}
-						</Block>
+					</Block>
+					<Block mv={1}>
+						5+ years of frontend product development. I am motivated
+						by user pain and inefficiencies. I am looking for
+						opportunities in healthcare, edtech, or social good. I
+						value companies that have kind, empathetic cultures.
+						{/* (see Glitch for inspo). */}
+					</Block>
+					<Company>
 						<Position>Founding Engineer</Position>
-						<Company>Agora Systems</Company>
+						<CompanyName>Agora Systems</CompanyName>
 						<CompanySummary>
-							materials and supply chain management software for
-							construction.
+							Materials and supply chain management software for
+							the construction industry.
 						</CompanySummary>
 						<CompanyContent>
 							<CompanyDetails>
-								<Date>Dec 2018 - Aug 2019</Date>
+								<Date>2019</Date>
 								<Location>San Francisco</Location>
 								<Tools>
-									ReactJS, NextJS, ES6
+									NextJS, ES6
 									<br />
-									Ant Design, styled-components
+									styled-components
+									<br />
+									Ant Design System
 									<br />
 									Apollo, GraphQL
 								</Tools>
@@ -152,13 +159,15 @@ export default class Resume extends Component {
 							<BulletPoints>
 								<BulletPoint>
 									Owned all of the frontend, architected from
-									scratch.
+									scratch. Heavily involved in product
+									strategy, user experience & research, design
+									mentorship, and recruiting.
 								</BulletPoint>
 								<BulletPoint>
-									Synthesized over 20 hours of user interview
-									data with Product & Design, iterating
-									through 3 versions of fully implemented,
-									then dismantled, prototypes.
+									Synthesized over 20 hours of user research
+									with Product & Design, iterating through 3
+									prototypes over 4 months to lock down
+									product/market fit through user testing.
 								</BulletPoint>
 								<BulletPoint>
 									Led recruiting for Founding Designer role in
@@ -167,6 +176,9 @@ export default class Resume extends Component {
 								</BulletPoint>
 							</BulletPoints>
 						</CompanyContent>
+					</Company>
+
+					<Company>
 						<Position>
 							<a
 								href='https://levels.patreon.com'
@@ -175,17 +187,19 @@ export default class Resume extends Component {
 								Senior Frontend Engineer
 							</a>
 						</Position>
-						<Company>Patreon</Company>
+						<CompanyName>Patreon</CompanyName>
 						<CompanySummary>
-							where creatives connect with and earn money directly
-							from their fans.
+							A platform where creatives connect with and earn
+							money directly from their fans.
 						</CompanySummary>
 						<CompanyContent>
 							<CompanyDetails>
-								<Date>Apr 2017 - Dec 2018</Date>
+								<Date>2017 - 2018</Date>
 								<Location>San Francisco</Location>
 								<Tools>
-									ReactJS, ES6, Redux (
+									ReactJS, ES6
+									<br />
+									Redux (
 									<a
 										href='https://github.com/Patreon/nion'
 										target='_blank'
@@ -194,23 +208,23 @@ export default class Resume extends Component {
 									</a>
 									)
 									<br />
+									JSON API
+									<br />
 									styled-components
 									<br />
-									Flask, Python, JSON API
+									Flask, Python
 								</Tools>
 							</CompanyDetails>
 							<BulletPoints>
 								<BulletPoint>
-									Rearchitected email infrastructure so that
-									templates are built in React, then compiled
-									to email-safe HTML and deployed via
-									CircleCI. 200+ hosted email templates were
-									standardized to 50, and finally version
-									controlled.
+									Rearchitected email infrastructure, so that
+									200+ HTML email templates were standardized
+									to 50 React templates, version controlled,
+									and deployed via CircleCI.
 									<br />
 									<em>
-										This impacts 30+ million emails monthly,
-										and paved the way for an email provider
+										Impacts 30+ million emails monthly, and
+										paved the way for an email provider
 										upgrade that saved ~$22,000/month and
 										drastically improved sending
 										reliability.
@@ -219,18 +233,17 @@ export default class Resume extends Component {
 								<BulletPoint>
 									Greatly reduced email-related unease and
 									incidents by creating detailed documentation
-									for the above work, accompanied by an
-									internal test tool to preview and send
-									emails safely using live data.
+									and a tool to preview and send emails safely
+									using live data.
 								</BulletPoint>
 								<BulletPoint>
 									Sole web engineer on{' '}
 									<a href='https://techcrunch.com/2018/02/06/patreon-lens/'>
 										Lens
 									</a>{' '}
-									(ephemeral content), allowing the feature to
-									become Patreon's first cross-platform
-									(mobile x web) launch.
+									(ephemeral content), launching Patreon's
+									first cross-platform (mobile x web) feature
+									with zero bug reports.
 								</BulletPoint>
 								{/* <BulletPoint>
 									The Lens web feature was incredibly complex
@@ -297,18 +310,23 @@ export default class Resume extends Component {
 								{/* levels.patreon.com */}
 							</BulletPoints>
 						</CompanyContent>
+					</Company>
+
+					<Company>
 						<Position>Frontend Engineer</Position>
-						<Company>Zenreach</Company>
+						<CompanyName>Zenreach</CompanyName>
 						<CompanySummary>
-							a Wifi platform that enables digital marketing to
+							A Wifi platform that enables digital marketing to
 							brick-and-mortar customers.
 						</CompanySummary>
 						<CompanyContent>
 							<CompanyDetails>
-								<Date>Dec 2015 - Dec 2016</Date>
+								<Date>2016</Date>
 								<Location>San Francisco</Location>
 								<Tools>
-									ReactJS, Express, Webpack, Babel, ES6
+									ReactJS, ExpressJS
+									<br />
+									Webpack, Babel, ES6
 									<br />
 									Django, Python
 								</Tools>
@@ -326,298 +344,41 @@ export default class Resume extends Component {
 									like drag-and-drop, undo/redo, and custom
 									templates across all devices.
 								</BulletPoint>
-								{/* Portal Customizer */}
 							</BulletPoints>
 						</CompanyContent>
+					</Company>
 
-						<Company>BandPage</Company>
-						<CompanySummary>
-							a centralized platform for musicians to engage and
-							sell to fans across distributed music services.
-						</CompanySummary>
-						<CompanyContent>
-							<CompanyDetails>
-								<Position>Frontend Intern </Position>
-								<Date>Sept - Dec 2014</Date>
-								<Location>San Francisco, California</Location>
-								<Tools>Node, Backbone, Mustache, Stylus</Tools>
-							</CompanyDetails>
-							<BulletPoints>
-								<BulletPoint>
-									Led frontend for an email campaign that
-									offered users exclusive VIP deals from their
-									favourite musicians, based on user’s music
-									streaming data
-								</BulletPoint>
-								<BulletPoint>
-									Resolved all bugs from the entire backlog in
-									one month, completely blowing the team out
-									of the water and carving out unprecedented
-									bandwidth for new features
-								</BulletPoint>
-							</BulletPoints>
-						</CompanyContent>
-						<Company>Wanderable</Company>
-						<CompanySummary>
-							an online platform that enables couples to fund and
-							arrange honeymoon trips.
-						</CompanySummary>
-						<CompanyContent>
-							<CompanyDetails>
-								<Position>Software Intern</Position>
-								<Date>Jan - Apr 2014</Date>
-								<Location>Redwood City, California</Location>
-								<Tools>
-									Adobe CS6 Suite, Ruby on Rails, PostgreSQL,
-									LESS
-								</Tools>
-							</CompanyDetails>
-							<BulletPoints>
-								<BulletPoint>
-									Led and launched responsive site redesign,
-									increased mobile signup by 80%
-								</BulletPoint>
-								<BulletPoint>
-									Improved site load time by 35%+ through
-									asset precompilation and caching
-								</BulletPoint>
-								<BulletPoint>
-									Created Merchant self-service tool to
-									optimize international partnerships,
-									resulting in increased product margin
-								</BulletPoint>
-							</BulletPoints>
-						</CompanyContent>
-						<Block mv={2}>
-							<Text bold>
-								Bachelor of Computer Science (Honours) and Fine
-								Arts Studio Minor
-							</Text>
-							<Block>University of Waterloo, 2015 </Block>
+					<Block mv={2}>
+						<Text bold>
+							Bachelor of Computer Science (Honours) and Fine Arts
+							Studio Minor
+						</Text>
+						<Block>University of Waterloo, 2015 </Block>
+						<Block>
+							<small>
+								Interned at{' '}
+								<strong>
+									Bandpage, Wanderable, Indochino,
+									BazaarVoice, WatrHub and Dash Internet Group
+								</strong>{' '}
+								<br />
+								as part of the Waterloo co-op program.
+							</small>
 						</Block>
-						{/* <Block>
+					</Block>
+					<Block>
+						<Text bold>
 							Canadian University Software Engineering Conference
-							(CUSEC){' '}
-						</Block>
-						<Block>Aug 2013 - Jan 2015 </Block>
-						<Block>
-							• Director of Sponsorship for CUSEC 2015, secured
-							sponsorship from 15 companies including Google,
-							Amazon, Yelp, Khan Academy, Mandrill, Shopify,
-							Genetec, Morgan Stanley, and Microsoft.{' '}
-						</Block>
-						<Block>
-							• Built 2014.cusec.net and pioneered a resume upload
-							tool, allowing candidates to submit resumes prior to
-							the conference to 18 sponsor companies.
-						</Block> */}
-						<Block display='none'>
-							<Block>
-								Execution and productivity: producing high
-								quality work (in the context of time
-								constraints)
-							</Block>
-							<Block>
-								Ownership: taking the lead and showing ownership
-								of issues.
-							</Block>
-							<Block>
-								Approachable: being easy to approach and talk to
-							</Block>
-							<Block>
-								Team player: willing to help with things that
-								may be outside of my role
-							</Block>
-							<Block>Documentation</Block>
-							<Block>Execution</Block>
-							<Block mv={1}>
-								Past co-workers have agreed that I excel in:
-							</Block>
-							<Block flex>
-								<Block>
-									<Block mv={1}>Overall</Block>
-									<Block mv={1}>
-										Xenia is professional beyond her years,
-										technically and intuitively smart, an
-										efficient and effective communicator,
-										and fun to work with. I've never been
-										prouder of our product, thanks not just
-										to her improvement suggestions and
-										fixes, but her capacity to deliver
-										quick, intelligent feedback, and set
-										proper expectations. We were very lucky
-										to have her, and I would love to hire
-										her for real. - Director of Design
-									</Block>
-									<Block mv={1}>
-										Xenia is the definition of an
-										independent worker - she always owns
-										issues no matter how challenging or
-										frustrating, and is pretty much a
-										guarantee to get it done. She's
-										consistently delivered both excellent
-										engineering work and thorough and
-										thoughtful documentation /
-										communication.
-									</Block>
-									<Block mv={1}>
-										She constantly demonstrates an ability
-										to remain steadfast in her judgment and
-										ability to deliver great work when
-										there’s chaos around her. All these
-										qualities are remarkably encouraging,
-										especially when you consider how early
-										in her career she is. When things would
-										go wrong, she would course correct and
-										get on the right track before I could
-										even get involved and provide feedback
-										or guidance. The quality of being
-										“adaptable” to situations comes to mind
-										as another key strength of Xenia's.
-									</Block>
-									<Block mv={1}>
-										Xenia embodies “seek learning” really
-										well. She gets up to speed on new areas
-										quickly, she’s constantly inquiring
-										about things, and asks hard, poignant
-										questions. These further feed back into
-										her ability to have great judgment.
-										Xenia is fun and joyful, enjoyable to be
-										around, and is able to deliver excellent
-										work with an easeful attitude. I have
-										learned a lot from watching her operate.
-									</Block>
-								</Block>
-								<Block>
-									<Block mv={1}>Documentation</Block>
-									<Block mv={1}>
-										Xenia created some of the best QA
-										documentation I've seen at Patreon. It
-										was incredibly thorough and made testing
-										Lens Web easy even though there were 50+
-										states that we tested across user state
-										/ browser / device / user type
-										(creator/patron/follower) etc.
-									</Block>
-									<Block mv={1}>
-										The artifacts of your actual work, such
-										as documentation and presentations, show
-										an immense amount of care. You clearly
-										invest energy into these aspects of the
-										job, and they reflect really well on
-										your ability."
-									</Block>
-								</Block>
-								<Block>
-									<Block mv={1}>
-										Product Thinking & User Experience
-									</Block>
-									<Block mv={1}>
-										I really love working with you and
-										appreciate your practical approach to
-										design and development. You really
-										advocate for creators and care a lot
-										about design and user experience in the
-										product. In particular, I really value
-										all the comments and feedback on my
-										design work from you, especially your
-										comments in my Figma files. Please keep
-										doing more of that! You always surface
-										issues I didn't consider, call out
-										things that are confusing to you, and
-										are very up front on what is
-										possible/not possible to build and
-										suggest alternatives. - Designer
-									</Block>
-								</Block>
-								<Block>
-									<Block mv={1}>Mentorship</Block>
-									<Block mv={1}>
-										Xenia is an extremely detail oriented
-										engineer, and a very good teacher. She
-										onboarded me at Patreon, and onto the
-										massive [team's] frontend codebase. She
-										has taught me really great debugging
-										techniques, she writes amazing tests,
-										and is generally an excellent technical
-										leader. She communicates very clearly,
-										and is always approachable and willing
-										to help, even during a time crunch.
-									</Block>
-									<Block mv={1}>
-										Xenia is amazing, and I feel so lucky to
-										have her on my team.
-									</Block>
-									<Block mv={1}>
-										- Xenia is a great communicator. She
-										explains things in a honest, concise,
-										and easy to understand way. I always go
-										to Xenia first when I have questions
-										about a project.
-									</Block>
-									<Block mv={1}>
-										- She is reliable. If you ask her to do
-										something, she will do it. You never
-										need to follow up!
-									</Block>
-								</Block>
-								<Block>
-									<Block mv={1}>
-										Execution and Productivity
-									</Block>
-									<Block mv={1}>
-										- Even when we are in crunch time, Xenia
-										produces high quality work. This has
-										been so clear over the past two quarters
-										with the work we have been doing on Make
-										a Post and Posts on Tiers. That section
-										of the codebase was very difficult to
-										work with, but Xenia led the way and
-										made a plan on how to tackle the
-										problem. I attribute the success of both
-										of these projects to her!
-									</Block>
-									<Block mv={1}>
-										Your code delivery is strong. You are
-										conscientious of your time constraints
-										more than many of your peers, and you
-										commit to getting high quality work
-										delivered within these constraints
-										without cutting corners.
-									</Block>
-									<Block mv={1}>
-										[The] final deliverable was superb. Our
-										usage on Lens Web is equal to that of
-										Android and iOS, but I haven’t seen a
-										single bug report roll in. Kudos! For
-										important, high-stakes projects at
-										Patreon, Xenia is one of the first
-										people I would look to staffing." -
-										Manager on Lens team
-									</Block>
-								</Block>
-								<Block>
-									<Block mv={1}>Communication</Block>
-									<Block mv={1}>
-										While Lens Web didn't have immediate
-										dependencies with most of the other
-										mobile engineers on the team, Xenia
-										still excelled at informing and
-										communicating her current status of the
-										lens web project into digestible and
-										understandable chunks. I always felt
-										informed about what was currently
-										happening, what she was blocked on, and
-										what was coming up next, even though the
-										feature itself was extremely complicated
-										and I don't know a whole lot about web.
-									</Block>
-								</Block>
-							</Block>
-						</Block>
-					</Text>
-				</Body>
-			</ThemeProvider>
+							(CUSEC)
+						</Text>
+						<br />
+						<small>
+							Director of Sponsorship (2015), Website & Resume
+							Upload (2014)
+						</small>
+					</Block>
+				</Text>
+			</Body>
 		);
 	}
 }
