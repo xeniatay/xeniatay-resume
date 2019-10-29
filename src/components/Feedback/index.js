@@ -9,7 +9,7 @@ import { TAGS, FEEDBACK } from "./constants";
 export const shouldDisplayFeedback = (tags, selectedTags) => {
 	// If no tags are selected, display all feedback
 	if (selectedTags.length === 0) {
-		return true;
+		// return true;
 	}
 
 	// Display this piece of feedback if it matches any selected tags
@@ -26,8 +26,8 @@ export const isTagSelected = (tag, selectedTags) => (selectedTags.length === 0 ?
 export const Container = styled.div`
     transition: all ease-in-out 200ms;
     width: 100%;
-	border-top: 1px solid ${p => p.theme.palette.gray4};
-	border-bottom: 1px solid ${p => p.theme.palette.gray4};
+	/* border-top: 1px solid ${p => p.theme.palette.gray4}; */
+	/* border-bottom: 1px solid ${p => p.theme.palette.gray4}; */
     /* background-color: ${p => p.theme.palette.geekblue1}; */
 	padding: 1rem;
     margin-bottom: 2rem;
@@ -40,16 +40,16 @@ export const Container = styled.div`
 
 export const Tag = styled.div`
 	transition: all ease-in-out 200ms;
-	margin: 0.25rem 0.5rem 0.5rem 0;
+	margin: 0.5rem 0.5rem 0.5rem 0;
 	/* border-bottom: 2px solid ${p => p.theme.palette.primaryComplement}; */
 	cursor: pointer;
 
     font-size: 0.9rem;
     padding: 0.1rem 0.4rem;
-    background-color: ${p => p.theme.palette.gray3};
-    border: 1px solid transparent;
+    background-color: ${p => p.theme.palette.gray1};
+    border: 1px solid ${p => p.theme.palette.transparent};
 
-    ${p => (isTagSelected(p.tag, p.selectedTags) ? '' : `opacity: 0.3;`)}
+    ${p => (isTagSelected(p.tag, p.selectedTags) ? "" : `opacity: 0.3;`)}
 
 	&:hover {
         /* background-color: ${p => p.theme.palette.tertiaryComplement}; */
@@ -60,8 +60,26 @@ export const Tag = styled.div`
 export const BulletPointContainer = styled.div`
 	margin: 1rem 0;
 	${p => (shouldDisplayFeedback(p.tags, p.selectedTags) ? "" : "display: none;")};
-    max-width: 300px;
-    padding: 0 1.5rem;
+	max-width: 300px;
+	padding: 0 1.5rem;
+
+	&:nth-child(even) {
+		em {
+			/* color: ${p => p.theme.palette.primary}; */
+            background-image: linear-gradient(-100deg, transparent, ${p => p.theme.palette.tertiaryComplement} 85%, transparent);
+		}
+	}
+
+	&:nth-child(odd) {
+		em {
+            /* color: ${p => p.theme.palette.secondary}; */
+            background-image: linear-gradient(-100deg, transparent, ${p => p.theme.palette.tertiary} 85%, transparent);
+		}
+	}
+
+	em {
+		font-weight: bold;
+	}
 `;
 
 export const BulletPoint = styled.div`
@@ -69,17 +87,20 @@ export const BulletPoint = styled.div`
 		content: "‣ ";
 	}
 
-	line-height: 1.4;
+	line-height: 1.5;
+	font-size: 0.8rem;
+	color: ${p => p.theme.palette.gray8};
 `;
 
 export const AttributedTo = styled.div`
 	&:before {
-		content: "- ";
+		content: "— ";
 	}
 
 	margin-top: 0.5rem;
 	text-align: right;
 	font-size: 0.8rem;
+	color: ${p => p.theme.palette.gray8};
 	/* max-width: 60%;
     float: right; */
 `;
@@ -128,7 +149,7 @@ export default class Feedback extends Component {
 
 		return (
 			<Container>
-				<Block maxWidth="8in" mh="auto">
+				<Block maxWidth="9in" mh="auto">
 					<Block>Previous teammates agree that I excel in:</Block>
 					<Block flex flexWrap="wrap">
 						{Object.keys(TAGS).map(key => {
@@ -149,9 +170,10 @@ export default class Feedback extends Component {
 							<BulletPointContainer key={point.content} tags={point.tags} selectedTags={this.state.selectedTags}>
 								<BulletPoint>{point.content}</BulletPoint>
 								<AttributedTo>
-									{point.author}, {point.company}
-									<br />
-									<em>{point.tags.join(", ")}</em>
+									{point.author}
+									{/* , {point.company} */}
+									{/* <br /> */}
+									{/* <em>{point.tags.join(", ")}</em> */}
 								</AttributedTo>
 							</BulletPointContainer>
 						);

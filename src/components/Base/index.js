@@ -5,6 +5,7 @@ import theme from "theme";
 
 import Block from "components/shared/Block";
 import Text from "components/shared/Text";
+import Header from "components/Header";
 import Resume from "components/Resume";
 import Feedback from "components/Feedback";
 
@@ -13,27 +14,25 @@ const GITHUB = "github.com/xeniatay";
 const WEBSITE = "xeniatay.com";
 
 export const Body = styled.div`
-	background-color: ${p => p.theme.palette.gray1};
 	line-height: 1.5;
 	margin: 0 auto;
 
 	@media screen {
+		background-color: #ffffff;
+		background-image: url("https://www.transparenttextures.com/patterns/beige-paper.png");
+		background-image: url("https://www.transparenttextures.com/patterns/cardboard.png");
+		background-image: url("https://www.transparenttextures.com/patterns/brick-wall.png");
 		padding: 10mm;
+
+		a {
+			text-decoration: none;
+			color: ${p => p.theme.palette.secondary};
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
 	}
-`;
-
-export const Header = styled.div`
-	margin: 0 auto;
-
-	@media screen {
-		max-width: 8in;
-	}
-`;
-
-export const Contact = styled.a`
-	display: block;
-	float: right;
-	margin-right: 1rem;
 `;
 
 export default class Base extends Component {
@@ -42,27 +41,7 @@ export default class Base extends Component {
 			<ThemeProvider theme={theme}>
 				<Text>
 					<Body>
-						<Header>
-							<Block flex alignItems="center" justifyContent="space-between">
-								<Text size="xxl">Xenia Tay</Text>
-								<Block>
-									<Contact href={`mailto:${EMAIL}`} target="_blank">
-										{EMAIL}
-									</Contact>
-									<Contact href={`http://${GITHUB}`} target="_blank">
-										{GITHUB}
-									</Contact>
-									<Contact href={`http://${WEBSITE}`} target="_blank">
-										{WEBSITE}
-									</Contact>
-								</Block>
-							</Block>
-							<Block mv={1}>
-								5+ years of frontend product development. I enjoy building consumer products that relieve user pain and industrial inefficiencies. I value companies with kind, empathetic and diverse cultures.
-								{/* (see Glitch for inspo). */}
-							</Block>
-						</Header>
-
+						<Header />
 						<Block flex flexWrap="wrap-reverse" justifyContent="center">
 							<Resume />
 							<Feedback />

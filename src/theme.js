@@ -174,17 +174,8 @@ const typography = {
 	fontSizeXl: "18px",
 	fontSizeXxl: "24px",
 	// https://www.canva.com/learn/resume-fonts/
-	fontFamily: "Cambria, Garamond, Constantia, serif"
-	// fontFamily: "Calibri, Arial, sans-serif"
-};
-
-// Specific to PDF rendering
-const pdf = {
-	fontSizeSm: "7pt",
-	fontSizeBase: "9pt",
-	fontSizeMd: "10pt",
-	fontSizeLg: "11pt",
-	fontSizeXl: "16pt"
+	fontFamilySerif: "Cambria, Garamond, Constantia, serif",
+	fontFamily: "Raleway, Calibri, Arial, sans-serif"
 };
 
 const values = {
@@ -210,7 +201,6 @@ export default {
 		sidebarColor: "#001529" // antdesign @layout-header-background
 	},
 	typography,
-	pdf,
 	values,
 	zIndex
 };

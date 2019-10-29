@@ -5,16 +5,42 @@ import Block from "components/shared/Block";
 import Text from "components/shared/Text";
 
 export const Container = styled.div`
-	max-width: 8in;
+	@media screen {
+		max-width: 9in;
+		padding: 3rem;
+		/* border: 0.5rem solid ${p => p.theme.palette.primaryComplement}; */
+		background-color: ${p => p.theme.palette.gray1};
+		box-shadow: 0 0 10px 0px ${p => p.theme.palette.gray5};
+		margin-bottom: 5rem;
+	}
 `;
 
 export const Company = styled.div`
 	margin-bottom: 1rem;
+
+	@media screen {
+		margin-bottom: 2rem;
+	}
+
+	/* @media screen {
+		&:after {
+			display: block;
+			content: "";
+			height: 2px;
+			margin: 1rem auto;
+			width: 2rem;
+			background-color: ${p => p.theme.palette.secondary};
+		}
+	} */
 `;
 
 export const CompanyName = styled.span`
 	margin-right: 0.3rem;
 	font-weight: bold;
+
+	@media screen {
+		/* color: ${p => p.theme.palette.primary}; */
+	}
 
 	/* &:after {
 		content: ',';
@@ -30,13 +56,23 @@ export const Date = styled.span`
 	font-weight: bold;
 	font-size: 0.9rem;
 	display: block;
+
+	@media screen {
+		color: ${p => p.theme.palette.secondary};
+	}
 `;
 
 export const Position = styled.span`
 	font-weight: bold;
 
+	@media screen {
+		color: ${p => p.theme.palette.secondary};
+		/* color: ${p => p.theme.palette.primary}; */
+	}
+
 	&:after {
 		content: " at ";
+		color: black;
 		font-weight: normal;
 	}
 `;
@@ -66,8 +102,8 @@ export const CompanyContent = styled.div`
 
 export const CompanyDetails = styled.div`
 	width: 20%;
-	padding-left: 1.5rem;
-	/* text-align: right; */
+	padding-left: 1rem;
+	margin-left: 0.5rem;
 `;
 
 export const BulletPoints = styled.div`
@@ -126,11 +162,7 @@ export default class Resume extends Component {
 				</Company>
 
 				<Company>
-					<Position>
-						<a href="https://levels.patreon.com" target="_blank">
-							Senior Frontend Engineer
-						</a>
-					</Position>
+					<Position>Senior Frontend Engineer</Position>
 					<CompanyName>Patreon</CompanyName>
 					<CompanySummary>A platform where creatives connect with and earn money directly from their fans.</CompanySummary>
 					<CompanyContent>
@@ -160,69 +192,26 @@ export default class Resume extends Component {
 								<em>Impacts 30+ million emails monthly, and paved the way for an email provider upgrade that saved ~$22,000/month and drastically improved sending reliability.</em>
 							</BulletPoint>
 							<BulletPoint>Greatly reduced email-related unease and incidents by creating detailed documentation and a tool to preview and send emails safely using live data.</BulletPoint>
+							<BulletPoint>Executed an immense technical cleanup and UI redesign of Make A Post, the main channel of communication on Patreon. Methodically removed 2 years of tech debt, freeing teams from technical constraints that were blocking core product strategy.</BulletPoint>
 							<BulletPoint>
-								Sole web engineer on <a href="https://techcrunch.com/2018/02/06/patreon-lens/">Lens</a> (ephemeral content), launching Patreon's first cross-platform (mobile/web) feature across three user types (creator/patron/follower) with zero bugs reported post-launch.
+								Sole web engineer on <a href="https://techcrunch.com/2018/02/06/patreon-lens/">Lens</a> (ephemeral content), launching a complex cross-platform (mobile/web) feature across three user types (creator/patron/follower) with zero bugs reported post-launch.
 							</BulletPoint>
-							{/* <BulletPoint>
-									The Lens web feature was incredibly complex
-									and the requirements continued to change
-									basically through to the end. Xenia's
-									organizational skills in keeping track of
-									all of the use cases and requirements and
-									test cases were nothing short of amazing.
-									When I went to one of the Lens web QAs,
-									Xenia had everything ready to go and
-									provided detailed instructions to each of
-									the testers to test everything. I don't
-									think it's an easy task to have all of that
-									as nailed down as Xenia did, and she did it
-									all with grace and ease.
-								</BulletPoint> */}
 							<BulletPoint>Owner of pair programming interview question asked to all engineering candidates. Authored training docs, iterated on a framework agnostic code skeleton based on candidate feedback, and conducted 30+ hours of interviews.</BulletPoint>
-							{/* <BulletPoint>Make a post redesign</BulletPoint>
-								<BulletPoint>
-									On average, this feature was used by 60% of
-									active $100+ creators, weekly. This feature
-									is the main channel used by creators to
-									communicate with their patrons. One of the
-									hardest features across Patreon to maintain,
-									contained 2 years worth of tech debt and
-									haphazard code additions.
-								</BulletPoint>
-								<BulletPoint>
-									> insert snippets from Slack
-								</BulletPoint>
-								<BulletPoint>Post on tiers</BulletPoint>
-								<BulletPoint>
-									> insert snippet from Slack screenshot
-								</BulletPoint>
-							*/}
+							<BulletPoint>
+								Improved clarity about promotions, accountability of managers, and recognition of teammates as one of the authors of{" "}
+								<a href="http://levels.patreon.com" target="_blank">
+									Patreon's Engineering Levels
+								</a>
+								.
+							</BulletPoint>
 							<BulletPoint>Piloted a Waterloo intern (co-op) program, coordinated hiring and mentorship of two interns, both of whom accepted full-time return offers after graduation.</BulletPoint>
-							{/* <BulletPoint>
-									Xenia's execution of getting this done
-									should be applauded. Her idea of doing a
-									pilot [internship program] shows that she
-									understood the risk and hesitance that we've
-									had as an engineering org towards interns in
-									the past. She convinced key people that
-									having one intern for the summer is low-risk
-									and took on the task of leading this
-									project, and not only am I so glad that she
-									did (because we have 2!! interns now!) but
-									it really shows how strategically she was
-									thinking through all this to instill
-									positive change within engineering.
-								</BulletPoint> */}
-							{/* levels.patreon.com */}
 						</BulletPoints>
 					</CompanyContent>
 				</Company>
-
-				<PageBreak />
 				<Company>
 					<Position>Frontend Engineer</Position>
 					<CompanyName>Zenreach</CompanyName>
-					<CompanySummary>A Wifi platform that enables digital marketing to brick-and-mortar customers.</CompanySummary>
+					<CompanySummary>A WiFi platform that enables digital marketing to brick-and-mortar customers.</CompanySummary>
 					<CompanyContent>
 						<CompanyDetails>
 							<Date>2016</Date>

@@ -16,6 +16,11 @@ import withDynamicElement from './utilities/withDynamicElement';
 const StyledText = styled.span`
 	${p => `
 	font-family: ${p.theme.typography.fontFamily} !important;
+
+	@media print {
+		font-family: ${p.theme.typography.fontFamilySerif} !important;
+	}
+
 	${p.lineHeight ? `line-height: ${p.lineHeight};` : ''}
 ${p.italic ? 'font-style: italic;' : ''}
         ${p.bold ? 'font-weight: bold;' : `font-weight: ${p.fontWeight};`}
