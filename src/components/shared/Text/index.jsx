@@ -6,30 +6,32 @@
  *
  */
 
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import PropTypes from "prop-types";
+import styled from "styled-components";
 
-import theme from 'theme';
+import theme from "theme";
 
-import withDynamicElement from './utilities/withDynamicElement';
+import withDynamicElement from "./utilities/withDynamicElement";
 
 const StyledText = styled.span`
 	${p => `
-	font-family: ${p.theme.typography.fontFamily} !important;
+	font-family: ${p.header ? p.theme.typography.fontFamilyHeader : p.theme.typography.fontFamily} !important;
 
 	@media print {
 		font-family: ${p.theme.typography.fontFamilySerif} !important;
 	}
 
-	${p.lineHeight ? `line-height: ${p.lineHeight};` : ''}
-${p.italic ? 'font-style: italic;' : ''}
-        ${p.bold ? 'font-weight: bold;' : `font-weight: ${p.fontWeight};`}
-        ${p.align ? `text-align: ${p.align};` : ''}
-        ${p.display ? `display: ${p.display};` : ''}
-				${p.textOverflow ? `text-overflow: ${p.textOverflow};` : ''}
-				${p.overflow ? `overflow: ${p.overflow};` : ''}
-				${p.verticalAlign ? `vertical-align: ${p.verticalAlign};` : ''}
-				${p.whiteSpace ? `white-space: ${p.whiteSpace};` : ''}
+	${p.fontVariant ? `font-variant: ${p.fontVariant};` : ""}
+	${p.letterSpacing ? `letter-spacing: ${p.letterSpacing};` : ""}
+	${p.lineHeight ? `line-height: ${p.lineHeight};` : ""}
+${p.italic ? "font-style: italic;" : ""}
+        ${p.bold ? "font-weight: bold;" : `font-weight: ${p.fontWeight};`}
+        ${p.align ? `text-align: ${p.align};` : ""}
+        ${p.display ? `display: ${p.display};` : ""}
+				${p.textOverflow ? `text-overflow: ${p.textOverflow};` : ""}
+				${p.overflow ? `overflow: ${p.overflow};` : ""}
+				${p.verticalAlign ? `vertical-align: ${p.verticalAlign};` : ""}
+				${p.whiteSpace ? `white-space: ${p.whiteSpace};` : ""}
 		${getColor(p)}
         ${getFontSize(p)}
 			`}
@@ -37,10 +39,10 @@ ${p.italic ? 'font-style: italic;' : ''}
 
 StyledText.defaultProps = {
 	bold: false,
-	align: 'left',
-	size: 'md',
-	el: 'span',
-	fontWeight: 'unset',
+	align: "left",
+	size: "md",
+	el: "span",
+	fontWeight: "unset",
 	theme
 };
 
@@ -55,10 +57,7 @@ StyledText.propTypes = {
 	 * Font Weight
 	 * Can be a number, `normal`, `bold`, or `unset`.
 	 */
-	fontWeight: PropTypes.oneOfType([
-		PropTypes.number,
-		PropTypes.oneOf(['normal', 'bold', 'unset'])
-	]),
+	fontWeight: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf(["normal", "bold", "unset"])]),
 
 	/**
 	 * Italic font style
@@ -78,12 +77,12 @@ StyledText.propTypes = {
 	 * Element
 	 * Can be: `p`, `span`, `div`
 	 */
-	el: PropTypes.oneOf(['p', 'span', 'div']),
+	el: PropTypes.oneOf(["p", "span", "div"]),
 
 	/**
 	 * Text align
 	 */
-	align: PropTypes.oneOf(['left', 'center', 'right']),
+	align: PropTypes.oneOf(["left", "center", "right"]),
 
 	/**
 	 * Display
@@ -95,31 +94,31 @@ StyledText.propTypes = {
 	 * For now we just throw a warning when using those properties
 	 */
 	display: PropTypes.oneOf([
-		'inline',
-		'block',
+		"inline",
+		"block",
 		/*
 		 *'contents',
 		 *'flex',
 		 */
-		'grid',
-		'inline-block',
+		"grid",
+		"inline-block",
 		//'inline-flex',
-		'inline-grid',
-		'inline-table',
-		'list-item',
-		'run-in',
-		'table',
-		'table-caption',
-		'table-column-group',
-		'table-header-group',
-		'table-footer-group',
-		'table-row-group',
-		'table-cell',
-		'table-column',
-		'table-row',
-		'none',
-		'initial',
-		'inherit'
+		"inline-grid",
+		"inline-table",
+		"list-item",
+		"run-in",
+		"table",
+		"table-caption",
+		"table-column-group",
+		"table-header-group",
+		"table-footer-group",
+		"table-row-group",
+		"table-cell",
+		"table-column",
+		"table-row",
+		"none",
+		"initial",
+		"inherit"
 	]),
 
 	/**
@@ -128,16 +127,7 @@ StyledText.propTypes = {
 	 * `middle`, `top`, `bottom`
 	 *
 	 */
-	verticalAlign: PropTypes.oneOf([
-		'baseline',
-		'bottom',
-		'middle',
-		'sub',
-		'super',
-		'text-bottom',
-		'text-top',
-		'top'
-	]),
+	verticalAlign: PropTypes.oneOf(["baseline", "bottom", "middle", "sub", "super", "text-bottom", "text-top", "top"]),
 
 	/* Text line height */
 	lineHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
@@ -146,41 +136,22 @@ StyledText.propTypes = {
 	 * Font size
 	 * If font-size value is not a theme variable, the component will respect that custom value.
 	 */
-	size: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.oneOf(['sm', 'md', 'lg', 'xl', 'xxl'])
-	]),
+	size: PropTypes.oneOfType([PropTypes.string, PropTypes.oneOf(["sm", "md", "lg", "xl", "xxl"])]),
 
 	/**
 	 * Text Overflow
 	 */
-	textOverflow: PropTypes.oneOf(['clip', 'ellipsis']),
+	textOverflow: PropTypes.oneOf(["clip", "ellipsis"]),
 
 	/**
 	 * Overflow
 	 */
-	overflow: PropTypes.oneOf([
-		'auto',
-		'inherit',
-		'initial',
-		'hidden',
-		'scroll',
-		'visible'
-	]),
+	overflow: PropTypes.oneOf(["auto", "inherit", "initial", "hidden", "scroll", "visible"]),
 
 	/**
 	 * Whitespace
 	 */
-	whiteSpace: PropTypes.oneOf([
-		'inherit',
-		'initial',
-		'normal',
-		'nowrap',
-		'pre-line',
-		'pre-wrap',
-		'pre',
-		'unset'
-	]),
+	whiteSpace: PropTypes.oneOf(["inherit", "initial", "normal", "nowrap", "pre-line", "pre-wrap", "pre", "unset"]),
 
 	/**
 	 * Title attribute, specifies extra information about an element.
@@ -200,7 +171,7 @@ const getColor = props => {
 	} else if (color) {
 		return `color: ${color};`;
 	} else {
-		return '';
+		return `color: ${p.gray9};`;
 	}
 };
 
@@ -211,15 +182,15 @@ const getFontSize = props => {
 	} = props;
 
 	switch (size) {
-		case 'sm':
+		case "sm":
 			return `font-size: ${t.fontSizeSm};`;
-		case 'md':
+		case "md":
 			return `font-size: ${t.fontSizeBase};`;
-		case 'lg':
+		case "lg":
 			return `font-size: ${t.fontSizeLg};`;
-		case 'xl':
+		case "xl":
 			return `font-size: ${t.fontSizeXl};`;
-		case 'xxl':
+		case "xxl":
 			return `font-size: ${t.fontSizeXxl};`;
 		default:
 			return `font-size: ${size};`;

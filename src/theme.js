@@ -133,6 +133,7 @@ let palette = {
 	magenta9: "#780650",
 	magenta10: "#520339",
 	white: "#FFFFFF",
+	black: "#000000",
 	gray1: "#ffffff",
 	gray2: "#fafafa",
 	gray3: "#f5f5f5",
@@ -172,8 +173,9 @@ const typography = {
 	fontSizeMd: "14px",
 	fontSizeLg: "16px",
 	fontSizeXl: "18px",
-	fontSizeXxl: "24px",
+	fontSizeXxl: "20px",
 	// https://www.canva.com/learn/resume-fonts/
+	fontFamilyHeader: "'Indie Flower', sans-serif",
 	fontFamilySerif: "Cambria, Garamond, Constantia, serif",
 	fontFamily: "Raleway, Calibri, Arial, sans-serif"
 };
