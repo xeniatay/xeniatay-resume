@@ -154,18 +154,23 @@ export default class Feedback extends Component {
 		const { selectedTags } = this.state;
 
 		// If tag was selected, remove it
-		if (selectedTags.indexOf(key) !== -1) {
-			const selectedIndex = selectedTags.indexOf(key);
+		// if (selectedTags.indexOf(key) !== -1) {
+		// 	const selectedIndex = selectedTags.indexOf(key);
 
-			selectedTags.splice(selectedIndex, 1);
-			this.setState({
-				selectedTags
-			});
-		} else {
-			this.setState({
-				selectedTags: [...selectedTags, key]
-			});
-		}
+		// 	selectedTags.splice(selectedIndex, 1);
+		// 	this.setState({
+		// 		selectedTags
+		// 	});
+		// } else {
+		// 	this.setState({
+		// 		selectedTags: [...selectedTags, key]
+		// 	});
+		// }
+
+		// Just allow selection of one tag
+		this.setState({
+			selectedTags: [key]
+		});
 	};
 
 	getTagStats = () => {

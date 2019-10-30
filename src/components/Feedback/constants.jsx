@@ -1,8 +1,7 @@
 import React from "react";
 
 export const TAGS = {
-	EXECUTION: "Execution", // producing high quality work (in the context of time constraints)
-	OWNERSHIP: "Ownership", // Ownership: taking the lead and showing ownership of issues.
+	EXECUTION: "Execution and Ownership", // producing high quality work (in the context of time constraints)
 	APPROACHABLE: "Being great to be around", // Approachable: being easy to approach and talk to
 	DOCUMENTATION: "Documentation",
 	COMMUNICATION: "Communication",
@@ -19,7 +18,7 @@ export const FEEDBACK = [
 		),
 		author: "Engineering Manager",
 		company: "Patreon",
-		tags: [TAGS.EXECUTION, TAGS.OWNERSHIP, TAGS.DOCUMENTATION, TAGS.COMMUNICATION]
+		tags: [TAGS.EXECUTION, TAGS.DOCUMENTATION, TAGS.COMMUNICATION]
 	},
 	{
 		content: (
@@ -42,7 +41,7 @@ export const FEEDBACK = [
 		),
 		author: "Engineering Manager",
 		company: "Patreon",
-		tags: [TAGS.OWNERSHIP, TAGS.EXECUTION, TAGS.STRATEGIC]
+		tags: [TAGS.EXECUTION, TAGS.STRATEGIC]
 	},
 	{
 		content: (
@@ -103,7 +102,7 @@ export const FEEDBACK = [
 		),
 		author: "Engineering Teammate",
 		company: "Patreon",
-		tags: [TAGS.OWNERSHIP, TAGS.STRATEGIC, TAGS.EXECUTION, TAGS.PRODUCT]
+		tags: [TAGS.STRATEGIC, TAGS.EXECUTION, TAGS.PRODUCT]
 	},
 	{
 		content: (
@@ -124,7 +123,7 @@ export const FEEDBACK = [
 		),
 		author: "Engineering Teammate",
 		company: "Patreon",
-		tags: [TAGS.EXECUTION, TAGS.OWNERSHIP, TAGS.STRATEGIC]
+		tags: [TAGS.EXECUTION, TAGS.STRATEGIC]
 	},
 
 	{
@@ -135,7 +134,7 @@ export const FEEDBACK = [
 		),
 		author: "Engineering Manager",
 		company: "Patreon",
-		tags: [TAGS.EXECUTION, TAGS.OWNERSHIP, TAGS.PRODUCT]
+		tags: [TAGS.EXECUTION, TAGS.PRODUCT]
 	},
 	{
 		content: (
@@ -156,7 +155,7 @@ export const FEEDBACK = [
 		),
 		author: "Engineering Teammate",
 		company: "Patreon",
-		tags: [TAGS.COMMUNICATION, TAGS.OWNERSHIP]
+		tags: [TAGS.COMMUNICATION]
 	},
 	{
 		content: (
