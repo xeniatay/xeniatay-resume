@@ -8,10 +8,7 @@ import Text from "components/shared/Text";
 import Header from "components/Header";
 import Resume from "components/Resume";
 import Feedback from "components/Feedback";
-
-const EMAIL = "tay.xenia@gmail.com";
-const GITHUB = "github.com/xeniatay";
-const WEBSITE = "xeniatay.com";
+import Background from "./images/beige-paper.png";
 
 export const Body = styled.div`
 	line-height: 1.5;
@@ -19,9 +16,7 @@ export const Body = styled.div`
 
 	@media screen {
 		background-color: #ffffff;
-		background-image: url("https://www.transparenttextures.com/patterns/beige-paper.png");
-		background-image: url("https://www.transparenttextures.com/patterns/cardboard.png");
-		background-image: url("https://www.transparenttextures.com/patterns/brick-wall.png");
+		background-image: url(${Background});
 		padding: 10mm;
 
 		a {

@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 
 export const TAGS = {
 	EXECUTION: "Execution", // producing high quality work (in the context of time constraints)

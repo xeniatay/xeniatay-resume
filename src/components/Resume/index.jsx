@@ -6,13 +6,15 @@ import Text from "components/shared/Text";
 
 
 export const Container = styled.div`
+	position: relative;
+
 	@media screen {
 		max-width: 9in;
 		padding: 3rem;
 		/* border: 0.5rem solid ${p => p.theme.palette.primaryComplement}; */
 		background-color: ${p => p.theme.palette.gray1};
 		box-shadow: 0 0 10px 0px ${p => p.theme.palette.gray5};
-		margin-bottom: 5rem;
+		margin: 5rem auto;
 		
 		/* Corner Effect */
 		&:after,
@@ -21,18 +23,18 @@ export const Container = styled.div`
 			content: "";
 			height: 50px;
 			position: absolute;
-			top: 3rem;
+			top: -1rem;
 			width: 100px;
 			box-shadow: 0 5px 10px -7px hsla(0, 0%, 0%, 0.5);
 		}
 
 		&:after {
-			left: 3rem;
+			left: -2.5rem;
 			transform: rotate(-45deg);
 		}
 		
 		&:before {
-			right: 3rem;
+			right: -2.5rem;
 			transform: rotate(45deg);
 		}
 	}
@@ -196,7 +198,7 @@ export default class Resume extends Component {
 								ReactJS, ES6
 								<br />
 								Redux (
-								<a href="https://github.com/Patreon/nion" target="_blank">
+								<a href="https://github.com/Patreon/nion" target="_blank" rel="noopener noreferrer">
 									NION
 								</a>
 								)
@@ -222,7 +224,7 @@ export default class Resume extends Component {
 							<BulletPoint>Owner of pair programming interview question asked to all engineering candidates. Authored training docs, iterated on a framework agnostic code skeleton based on candidate feedback, and conducted 30+ hours of interviews.</BulletPoint>
 							<BulletPoint>
 								Improved clarity about promotions, accountability of managers, and recognition of teammates as one of the authors of{" "}
-								<a href="http://levels.patreon.com" target="_blank">
+								<a href="http://levels.patreon.com" target="_blank" rel="noopener noreferrer">
 									Patreon's Engineering Levels
 								</a>
 								.

@@ -419,6 +419,8 @@ const getResponsiveValues = ({ value: responsiveValues, unit = '', style }) => {
 				return LG_SCREEN_AND_UP(styleRule);
 			case 'xl':
 				return XL_SCREEN_AND_UP(styleRule);
+			default: 
+				return '';
 		}
 	});
 

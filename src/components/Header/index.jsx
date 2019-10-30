@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import theme from "theme";
 import styled from "styled-components";
 
 import Block from "components/shared/Block";
@@ -93,13 +92,13 @@ export default class Header extends Component {
 								</Block>
 							</Block>
 							<Block flex flexDirection="column" textAlign="left">
-								<FancyLink href={`http://${LINKEDIN}`} target="_blank">
+								<FancyLink href={`http://${LINKEDIN}`} target="_blank" rel="noopener noreferrer">
 									LinkedIn
 								</FancyLink>
-								<FancyLink href={`http://${GITHUB}`} target="_blank" title="GitHub @xeniatay">
+								<FancyLink href={`http://${GITHUB}`} target="_blank" rel="noopener noreferrer" title="GitHub @xeniatay">
 									GitHub
 								</FancyLink>
-								<FancyLink href={`mailto:${EMAIL}`} target="_blank" title="xeniatzy@gmail.com">
+								<FancyLink href={`mailto:${EMAIL}`} target="_blank" rel="noopener noreferrer" title="xeniatzy@gmail.com">
 									Email
 								</FancyLink>
 							</Block>
@@ -111,13 +110,13 @@ export default class Header extends Component {
 								Xenia Tay
 							</Text>
 							<Block flex flexGrow={1} justifyContent="space-between" maxWidth="420px" mr={1}>
-								<a href={`mailto:${EMAIL}`} target="_blank">
+								<a href={`mailto:${EMAIL}`} target="_blank" rel="noopener noreferrer">
 									{EMAIL}
 								</a>
-								<a href={`http://${GITHUB}`} target="_blank">
+								<a href={`http://${GITHUB}`} target="_blank" rel="noopener noreferrer">
 									{GITHUB}
 								</a>
-								<a href={`http://${WEBSITE}`} target="_blank">
+								<a href={`http://${WEBSITE}`} target="_blank" rel="noopener noreferrer">
 									{WEBSITE}
 								</a>
 							</Block>
