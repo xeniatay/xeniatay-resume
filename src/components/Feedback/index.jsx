@@ -29,7 +29,7 @@ export const Container = styled.div`
 	/* border-bottom: 1px solid ${p => p.theme.palette.gray4}; */
     /* background-color: ${p => p.theme.palette.geekblue1}; */
 	padding: 1rem;
-    margin: 3rem auto;
+    margin: 1rem auto 3rem auto;
     max-width: 1100px;
 
 	@media print {
@@ -66,7 +66,14 @@ export const Tag = styled.div`
 	box-shadow: 1px 1px 1px 0 ${p => p.theme.palette.gray8};
 	opacity: 0.9;
 
-    ${p => (isTagSelected(p.tag, p.selectedTags) ? "" : `opacity: 0.3;`)}
+	${p =>
+		isTagSelected(p.tag, p.selectedTags)
+			? `
+				box-shadow: 1px 1px 1px 0 ${p.theme.palette.secondary};
+	`
+			: `
+				opacity: 0.3;
+	`}
 
 	&:hover {
         /* background-color: ${p => p.theme.palette.tertiaryComplement}; */
@@ -79,7 +86,9 @@ export const Tag = styled.div`
 export const BulletPointContainer = styled.div`
 	/* background-image: radial-gradient(circle, ${p => p.theme.palette.gray2}, transparent 80%); */
 	margin: 1rem 0;
-	max-width: 300px;
+	flex-basis: 300px;
+	flex-grow: 1;
+
 	padding: 0 1.5rem;
 
 	${p =>
@@ -136,7 +145,8 @@ export default class Feedback extends Component {
 		super(props);
 
 		this.state = {
-			selectedTags: Object.keys(TAGS)
+			// selectedTags: Object.keys(TAGS)
+			selectedTags: [Object.keys(TAGS)[0]]
 		};
 	}
 

@@ -168,12 +168,12 @@ palette = {
 
 // from _ant-theme.less
 const typography = {
-	fontSizeSm: "12px",
-	fontSizeBase: "16px",
-	fontSizeMd: "14px",
-	fontSizeLg: "16px",
-	fontSizeXl: "18px",
-	fontSizeXxl: "20px",
+	fontSizeSm: "0.9rem",
+	fontSizeBase: "1rem",
+	fontSizeMd: "1rem",
+	fontSizeLg: "1.1rem",
+	fontSizeXl: "1.2rem",
+	fontSizeXxl: "1.3rem",
 	// https://www.canva.com/learn/resume-fonts/
 	fontFamilyHeader: "'Indie Flower', sans-serif",
 	fontFamilySerif: "Cambria, Garamond, Constantia, serif",

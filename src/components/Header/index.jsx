@@ -29,7 +29,6 @@ export const Container = styled.div`
 
         > div {
 			background-image: radial-gradient(circle, ${p => p.theme.palette.volcano1}, transparent 95%, ${p => p.theme.palette.gray9});
-            backdrop-filter: blur(5px);
 			height: 100vh;
 			box-shadow: 0 0 8px 0 black;
         }

@@ -4,39 +4,17 @@ import styled from "styled-components";
 import Block from "components/shared/Block";
 import Text from "components/shared/Text";
 
-
 export const Container = styled.div`
 	position: relative;
 
 	@media screen {
+		zoom: 0.9;
 		max-width: 9in;
 		padding: 3rem;
 		/* border: 0.5rem solid ${p => p.theme.palette.primaryComplement}; */
 		background-color: ${p => p.theme.palette.gray1};
 		box-shadow: 0 0 10px 0px ${p => p.theme.palette.gray5};
-		margin: 5rem auto;
-		
-		/* Corner Effect */
-		&:after,
-		&:before {
-			background: ${p => p.theme.palette.gray1};
-			content: "";
-			height: 50px;
-			position: absolute;
-			top: -1rem;
-			width: 100px;
-			box-shadow: 0 5px 10px -7px hsla(0, 0%, 0%, 0.5);
-		}
-
-		&:after {
-			left: -2.5rem;
-			transform: rotate(-45deg);
-		}
-		
-		&:before {
-			right: -2.5rem;
-			transform: rotate(45deg);
-		}
+		margin: 1rem auto 3rem auto;
 	}
 `;
 

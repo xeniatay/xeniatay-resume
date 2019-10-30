@@ -37,9 +37,13 @@ export default class Base extends Component {
 				<Text>
 					<Header />
 					<Body>
-						<Block flex flexWrap="wrap-reverse" justifyContent="center">
-							<Resume />
-							<Feedback />
+						<Block flex justifyContent="space-around">
+							<Block flexShrink={1} mr={1}>
+								<Resume />
+							</Block>
+							<Block flexShrink={3}>
+								<Feedback />
+							</Block>
 						</Block>
 					</Body>
 				</Text>

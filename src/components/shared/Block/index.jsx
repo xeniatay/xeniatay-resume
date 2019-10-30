@@ -492,6 +492,7 @@ const StyledBlock = styled.div`
         ${p.flex ? 'display: flex;' : ''}
         ${p.alignItems ? `align-items: ${p.alignItems};` : ''}
         ${p.flexDirection ? `flex-direction: ${p.flexDirection};` : ''}
+        ${p.flexShrink ? `flex-shrink: ${p.flexShrink};` : ''}
         ${p.flexGrow ? `flex-grow: ${p.flexGrow};` : ''}
         ${p.flexWrap ? `flex-wrap: ${p.flexWrap};` : ''}
         ${p.justifyContent ? `justify-content: ${p.justifyContent};` : ''}
