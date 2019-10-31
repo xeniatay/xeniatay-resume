@@ -56,7 +56,7 @@ export const FEEDBACK = [
 	{
 		content: (
 			<span>
-				The Lens web <em>feature was incredibly complex</em> and the requirements continued to change basically through to the end. Xenia's <em>organizational skills in keeping track> of all of the use cases and requirements and test cases were nothing short of amazing</em>. When I went to one of the Lens web QAs, Xenia had everything ready to go and <em>provided detailed instructions to each of the testers</em> to test everything. I don't think it's an easy task to have all of that as
+				The Lens web <em>feature was incredibly complex</em> and the requirements continued to change basically through to the end. Xenia's <em>organizational skills in keeping track of all of the use cases and requirements and test cases were nothing short of amazing</em>. When I went to one of the Lens web QAs, Xenia had everything ready to go and <em>provided detailed instructions to each of the testers</em> to test everything. I don't think it's an easy task to have all of that as
 				nailed down as Xenia did, and she did it all with grace and ease.
 			</span>
 		),

@@ -39,15 +39,14 @@ export const FancyLink = styled.a`
 	padding: 0.3rem 1rem;
 	margin: 1rem;
 	font-weight: bold;
-	font-variant: small-caps;
-	letter-spacing: 2px;
+	letter-spacing: 1px;
 	background-image: linear-gradient(-100deg, transparent, ${p => p.theme.palette.tertiary} 55%, ${p => p.theme.palette.tertiaryComplement} 85%, transparent);
 	text-decoration: none;
-	color: ${p => p.theme.palette.gray8};
+	color: ${p => p.theme.palette.volcano9};
 	font-size: 0.9rem;
 
 	&:hover {
-		color: ${p => p.theme.palette.blue9};
+		color: ${p => p.theme.palette.geekblue8};
 		text-decoration: underline;
 		padding-left: 1.5rem;
 		padding-right: 0.5rem;
