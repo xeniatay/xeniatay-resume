@@ -15,6 +15,8 @@ const EMAIL = "tay.xenia@gmail.com";
 const GITHUB = "github.com/xeniatay";
 const WEBSITE = "xeniatay.com";
 const LINKEDIN = "linkedin.com/in/xeniatay/";
+const RESUME = "#resume";
+const TESTIMONIALS = "#strengths";
 const EXPERIENCE = "5+ years of frontend product development. ";
 const CULTURE = "I value empathetic and inclusive work cultures. ";
 const PRODUCT = "I enjoy building product that relieves user pain and domain inefficiencies. ";
@@ -63,6 +65,7 @@ export const XeniaTay = styled.div`
 export const Summary = styled.div`
 	color: ${p => p.theme.palette.volcano1};
 	text-shadow: 0 0 3px black;
+	max-width: 500px;
 	${getResponsiveValues({ value: { xs: "1.5", lg: "2" }, style: "line-height" })}
 	${p =>
 		getResponsiveValues({
@@ -77,26 +80,34 @@ export const Summary = styled.div`
 export const FancyLink = styled.a`
 	transition: all ease-in-out 100ms;
 	display: block;
-	padding: 0.3rem 1rem;
-	margin: 1rem;
+	padding: 0.2rem 1rem;
+	margin-right: 2rem;
+	${getResponsiveValues({ value: { xs: "1rem", lg: "2rem" }, style: "margin-right" })}
+	margin-bottom: 0.5rem;
 	font-weight: bold;
 	letter-spacing: 1px;
 	background-image: linear-gradient(
 		-100deg,
 		transparent,
-		${p => p.theme.palette.tertiary} 55%,
+		${p => p.theme.palette.volcano2} 35%,
 		${p => p.theme.palette.tertiaryComplement} 85%,
 		transparent
 	);
 	text-decoration: none;
-	color: ${p => p.theme.palette.volcano9};
-	font-size: 0.9rem;
+	color: ${p => p.theme.palette.gray9};
+	${p =>
+		getResponsiveValues({
+			value: {
+				xs: p.theme.typography.fontSizeXs,
+				lg: p.theme.typography.fontSizeSm
+			},
+			style: "font-size"
+		})}
 
 	&:hover {
-		color: ${p => p.theme.palette.geekblue8};
 		text-decoration: underline;
-		padding-left: 1.5rem;
-		padding-right: 0.5rem;
+		padding-left: 1.1rem;
+		padding-right: 0.9rem;
 	}
 `;
 
@@ -105,7 +116,7 @@ export default class Header extends Component {
 		return (
 			<Container>
 				<ScreenHeader>
-					<Block flex flexDirection="column">
+					<Block flex flexDirection="column" fluidWidth>
 						<XeniaTay>Xenia Tay</XeniaTay>
 						<Block mv={1} textAlign="left" maxWidth={{ md: "500px" }}>
 							<Summary>
@@ -114,31 +125,33 @@ export default class Header extends Component {
 								{PRODUCT}
 							</Summary>
 						</Block>
-					</Block>
-					<Block flex flexDirection="column" textAlign="left" ml={4}>
-						<FancyLink
-							href={`http://${LINKEDIN}`}
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							LinkedIn
-						</FancyLink>
-						<FancyLink
-							href={`http://${GITHUB}`}
-							target="_blank"
-							rel="noopener noreferrer"
-							title="GitHub @xeniatay"
-						>
-							GitHub
-						</FancyLink>
-						<FancyLink
-							href={`mailto:${EMAIL}`}
-							target="_blank"
-							rel="noopener noreferrer"
-							title="xeniatzy@gmail.com"
-						>
-							Email
-						</FancyLink>
+						<Block flex flexWrap="wrap">
+							<FancyLink href={RESUME}>Resume</FancyLink>
+							<FancyLink href={TESTIMONIALS}>Reviews</FancyLink>
+							<FancyLink
+								href={`http://${GITHUB}`}
+								target="_blank"
+								rel="noopener noreferrer"
+								title="GitHub @xeniatay"
+							>
+								GitHub
+							</FancyLink>
+							<FancyLink
+								href={`mailto:${EMAIL}`}
+								target="_blank"
+								rel="noopener noreferrer"
+								title="xeniatzy@gmail.com"
+							>
+								Email
+							</FancyLink>
+							<FancyLink
+								href={`http://${LINKEDIN}`}
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								LinkedIn
+							</FancyLink>
+						</Block>
 					</Block>
 				</ScreenHeader>
 				<Block print>

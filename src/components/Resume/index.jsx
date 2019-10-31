@@ -147,7 +147,7 @@ export const PageBreak = styled.div`
 export default class Resume extends Component {
 	render() {
 		return (
-			<Container>
+			<Container id="resume">
 				<Company>
 					<Position>Founding Engineer</Position>
 					<CompanyName>Agora Systems</CompanyName>

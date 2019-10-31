@@ -58,7 +58,7 @@ export const SeeAll = styled.div`
 	color: ${p => p.theme.palette.gray8};
 	cursor: pointer;
 
-	${p => (p.disabled ? `opacity: 0.5; pointer-events: none;` : "")}
+	${p => (p.disabled ? `opacity: 0.4; cursor: not-allowed;` : "")}
 
 	&:hover {
 		text-decoration: underline;
@@ -74,8 +74,8 @@ export const TagWrapper = styled.div`
 
 export const Tag = styled.div`
 	transition: all ease-in-out 100ms;
-	${getResponsiveValues({ value: { xs: "0.25rem", lg: "0.5rem" }, style: "margin" })}
-	margin-left: 0;
+	${getResponsiveValues({ value: { xs: "0.25rem", lg: "0.25rem 0.5rem" }, style: "margin" })}
+	margin-left: 0 !important;
 	padding: 0.1rem 0.4rem;
 	background-color: ${p => p.theme.palette.gray1};
 	border: 1px solid ${p => p.theme.palette.transparent};
@@ -103,8 +103,7 @@ export const Tag = styled.div`
 export const BulletPointContainer = styled.div`
 	flex-basis: 300px;
 	flex-grow: 1;
-	${getResponsiveValues({ value: { xs: "0.5rem 0", lg: "1rem 0" }, style: "margin" })}
-	${getResponsiveValues({ value: { xs: "0.5rem", lg: "1.5rem" }, style: "padding" })}
+	${getResponsiveValues({ value: { xs: "0.5rem", lg: "1rem" }, style: "padding" })}
 
 	${p =>
 		shouldDisplayFeedback(p.tags, p.selectedTags)
@@ -241,7 +240,7 @@ export default class Feedback extends Component {
 		const { selectedTags } = this.state;
 
 		return (
-			<Container>
+			<Container id="strengths">
 				<Block mh="auto" mb="2">
 					<Block backgroundColor="gray1">
 						<Title>Past teammates appreciate that I am good at:</Title>
