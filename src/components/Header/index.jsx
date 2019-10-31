@@ -126,13 +126,17 @@ export default class Header extends Component {
 							</Summary>
 						</Block>
 						<Block flex flexWrap="wrap">
-							<FancyLink href={RESUME}>Resume</FancyLink>
-							<FancyLink href={TESTIMONIALS}>Reviews</FancyLink>
+							<FancyLink href={RESUME} title="Scroll to Resume">
+								Resume
+							</FancyLink>
+							<FancyLink href={TESTIMONIALS} title="Scroll to Reviews">
+								Reviews
+							</FancyLink>
 							<FancyLink
 								href={`http://${GITHUB}`}
 								target="_blank"
 								rel="noopener noreferrer"
-								title="GitHub @xeniatay"
+								title="Side projects"
 							>
 								GitHub
 							</FancyLink>
@@ -140,7 +144,7 @@ export default class Header extends Component {
 								href={`mailto:${EMAIL}`}
 								target="_blank"
 								rel="noopener noreferrer"
-								title="xeniatzy@gmail.com"
+								title="Contact me for recruiting, volunteering, or advice"
 							>
 								Email
 							</FancyLink>
@@ -148,6 +152,7 @@ export default class Header extends Component {
 								href={`http://${LINKEDIN}`}
 								target="_blank"
 								rel="noopener noreferrer"
+								title="Detailed work and volunteer experience"
 							>
 								LinkedIn
 							</FancyLink>

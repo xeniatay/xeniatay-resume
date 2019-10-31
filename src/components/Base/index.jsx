@@ -8,7 +8,9 @@ import Text from "components/shared/Text";
 import Header from "components/Header";
 import Resume from "components/Resume";
 import Feedback from "components/Feedback";
-import Background from "./images/beige-paper.png";
+// import Background from "./images/beige-paper.png";
+// import Background from "./images/fabric-of-squares.png";
+import Background from "./images/inspiration-geometry.png";
 
 export const Body = styled.div`
 	line-height: 1.5;
@@ -17,10 +19,10 @@ export const Body = styled.div`
 	@media screen {
 		background-color: #ffffff;
 		background-image: url(${Background});
-		background-image: url("https://www.transparenttextures.com/patterns/fabric-of-squares.png");
-		background-image: url("https://www.transparenttextures.com/patterns/inspiration-geometry.png");
 
 		${getResponsiveValues({ value: { xs: "0.5rem", lg: "10mm" }, style: "padding" })};
+
+		max-width: 1824px;
 
 		a {
 			text-decoration: none;
