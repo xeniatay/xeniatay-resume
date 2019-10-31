@@ -3,7 +3,7 @@ import styled, { ThemeProvider } from "styled-components";
 
 import theme from "theme";
 
-import Block from "components/shared/Block";
+import Block, { getResponsiveValues } from "components/shared/Block";
 import Text from "components/shared/Text";
 import Header from "components/Header";
 import Resume from "components/Resume";
@@ -20,7 +20,7 @@ export const Body = styled.div`
 		background-image: url("https://www.transparenttextures.com/patterns/fabric-of-squares.png");
 		background-image: url("https://www.transparenttextures.com/patterns/inspiration-geometry.png");
 
-		padding: 10mm;
+		${getResponsiveValues({ value: { xs: "0.5rem", lg: "10mm" }, style: "padding" })};
 
 		a {
 			text-decoration: none;
@@ -33,6 +33,13 @@ export const Body = styled.div`
 	}
 `;
 
+export const Wrapper = styled.div`
+	display: flex;
+	justify-content: space-around;
+
+	${getResponsiveValues({ value: { xs: "wrap", lg: "unset" }, style: "flex-wrap" })}
+`;
+
 export default class Base extends Component {
 	render() {
 		return (
@@ -40,14 +47,14 @@ export default class Base extends Component {
 				<Text>
 					<Header />
 					<Body>
-						<Block flex justifyContent="space-around">
-							<Block flexShrink={1} mr={1}>
+						<Wrapper>
+							<Block flexShrink={1} mr={{ xs: 0, lg: 1 }}>
 								<Resume />
 							</Block>
-							<Block flexShrink={3} flexGrow={1}>
+							<Block flexShrink={3}>
 								<Feedback />
 							</Block>
-						</Block>
+						</Wrapper>
 					</Body>
 				</Text>
 			</ThemeProvider>

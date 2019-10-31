@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 
 import Block from "components/shared/Block";
+import Text from "components/shared/Text";
 
 import { TAGS, FEEDBACK } from "./constants";
 
@@ -207,7 +208,6 @@ export default class Feedback extends Component {
 	renderPoint = (point, i) => {
 		const { selectedTags } = this.state;
 
-		console.log(point, i);
 		return (
 			<BulletPointContainer key={i} tags={point.tags} selectedTags={selectedTags}>
 				<BulletPoint>{point.content}</BulletPoint>
@@ -228,7 +228,9 @@ export default class Feedback extends Component {
 		return (
 			<Container>
 				<Block mh="auto" mb="2">
-					<Block backgroundColor="gray1">Previous teammates agree that I excel in:</Block>
+					<Block backgroundColor="gray1">
+						<Text bold>Past teammates appreciate that I am good at:</Text>
+					</Block>
 					<Block flex justifyContent="space-between">
 						<Block flex flexWrap="wrap" alignItems="center">
 							{Object.keys(TAGS).map(key => {

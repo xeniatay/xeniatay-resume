@@ -10,7 +10,15 @@ import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 
-import { XS_AND_UP, SM_AND_UP, MD_AND_UP, LG_AND_UP, XL_AND_UP, SCREEN_ONLY, PRINT_ONLY } from "./constants";
+import {
+	XS_AND_UP,
+	SM_AND_UP,
+	MD_AND_UP,
+	LG_AND_UP,
+	XL_AND_UP,
+	SCREEN_ONLY,
+	PRINT_ONLY
+} from "./constants";
 
 import theme from "theme";
 
@@ -145,7 +153,14 @@ Block.propTypes = {
 	 * Align items within a flex element on the main axis
 	 * Can be `flex-start`, `flex-end`, `center`, `baseline`, `stretch`
 	 */
-	justifyContent: PropTypes.oneOf(["flex-start", "flex-end", "center", "space-between", "space-around", "space-evenly"]),
+	justifyContent: PropTypes.oneOf([
+		"flex-start",
+		"flex-end",
+		"center",
+		"space-between",
+		"space-around",
+		"space-evenly"
+	]),
 
 	/**
 	 * Height: 100%
@@ -199,7 +214,16 @@ Block.propTypes = {
 	 * `middle`, `top`, `bottom`
 	 *
 	 */
-	verticalAlign: PropTypes.oneOf(["baseline", "bottom", "middle", "sub", "super", "text-bottom", "text-top", "top"]),
+	verticalAlign: PropTypes.oneOf([
+		"baseline",
+		"bottom",
+		"middle",
+		"sub",
+		"super",
+		"text-bottom",
+		"text-top",
+		"top"
+	]),
 
 	/**
 	 * Height
@@ -330,7 +354,7 @@ const getDimension = ({ fluid, rule, value }) => {
 	}
 };
 
-const getResponsiveValues = ({ value: responsiveValues, unit = "", style }) => {
+export const getResponsiveValues = ({ value: responsiveValues = {}, unit = "", style }) => {
 	const responsiveStyles = Object.keys(responsiveValues).map(size => {
 		const styleRule = `${style}: ${responsiveValues[size]}${unit};`;
 
@@ -345,6 +369,8 @@ const getResponsiveValues = ({ value: responsiveValues, unit = "", style }) => {
 				return LG_AND_UP(styleRule);
 			case "xl":
 				return XL_AND_UP(styleRule);
+			case "print":
+				return `@media print { ${styleRule} }`;
 			default:
 				return "";
 		}
