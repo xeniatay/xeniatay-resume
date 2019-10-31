@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-import Block from "components/shared/Block";
+import Block, { getResponsiveValues } from "components/shared/Block";
 import Text from "components/shared/Text";
 
 import { TAGS, FEEDBACK } from "./constants";
@@ -21,17 +21,27 @@ export const shouldDisplayFeedback = (tags, selectedTags) => {
 	});
 };
 
-export const isTagSelected = (tag, selectedTags) => (selectedTags.length === 0 ? false : selectedTags.indexOf(tag) !== -1);
+export const Title = styled.span`
+	font-weight: bold;
+	${getResponsiveValues({
+		value: { xs: "0.9rem", lg: "1rem" },
+		style: "font-size"
+	})}
+`;
+
+export const isTagSelected = (tag, selectedTags) =>
+	selectedTags.length === 0 ? false : selectedTags.indexOf(tag) !== -1;
 
 export const Container = styled.div`
-    transition: all ease-in-out 200ms;
-    width: 100%;
-	/* border-top: 1px solid ${p => p.theme.palette.gray4}; */
-	/* border-bottom: 1px solid ${p => p.theme.palette.gray4}; */
-    /* background-color: ${p => p.theme.palette.geekblue1}; */
-	padding: 1rem;
-    margin: 1rem auto 3rem auto;
-    max-width: 1100px;
+	transition: all ease-in-out 200ms;
+	width: 100%;
+	${getResponsiveValues({ value: { lg: "1rem" }, style: "padding" })}
+	${getResponsiveValues({
+		value: { xs: "0.5rem auto", lg: "1rem auto 3rem auto" },
+		style: "margin"
+	})}
+	
+    max-width: 1100px; // 3 columns
 
 	@media print {
 		display: none;
@@ -56,17 +66,22 @@ export const SeeAll = styled.div`
 	}
 `;
 
+export const TagWrapper = styled.div`
+	display: flex;
+	justify-content: space-between;
+	${getResponsiveValues({ value: { xs: "wrap", lg: "unset" }, style: "flex-wrap" })}
+`;
+
 export const Tag = styled.div`
 	transition: all ease-in-out 100ms;
-	margin: 0.5rem 0.5rem 0.5rem 0;
-	/* border-bottom: 2px solid ${p => p.theme.palette.primaryComplement}; */
-	cursor: pointer;
-
-    font-size: 0.9rem;
-    padding: 0.1rem 0.4rem;
-    background-color: ${p => p.theme.palette.gray1};
-    border: 1px solid ${p => p.theme.palette.transparent};
+	${getResponsiveValues({ value: { xs: "0.25rem", lg: "0.5rem" }, style: "margin" })}
+	margin-left: 0;
+	padding: 0.1rem 0.4rem;
+	background-color: ${p => p.theme.palette.gray1};
+	border: 1px solid ${p => p.theme.palette.transparent};
 	box-shadow: 1px 1px 1px 0 ${p => p.theme.palette.gray8};
+	${getResponsiveValues({ value: { xs: "0.8rem", lg: "0.9rem" }, style: "font-size" })}
+	cursor: pointer;
 
 	${p =>
 		isTagSelected(p.tag, p.selectedTags)
@@ -81,17 +96,15 @@ export const Tag = styled.div`
 	&:hover {
 		color: ${p => p.theme.palette.gray9};
 		box-shadow: 2px 2px 2px 0px ${p => p.theme.palette.gray7};
-        background-color: ${p => p.theme.palette.white};
+		background-color: ${p => p.theme.palette.white};
 	}
 `;
 
 export const BulletPointContainer = styled.div`
-	/* background-image: radial-gradient(circle, ${p => p.theme.palette.gray2}, transparent 80%); */
-	margin: 1rem 0;
 	flex-basis: 300px;
 	flex-grow: 1;
-
-	padding: 0 1.5rem;
+	${getResponsiveValues({ value: { xs: "0.5rem 0", lg: "1rem 0" }, style: "margin" })}
+	${getResponsiveValues({ value: { xs: "0.5rem", lg: "1.5rem" }, style: "padding" })}
 
 	${p =>
 		shouldDisplayFeedback(p.tags, p.selectedTags)
@@ -103,14 +116,16 @@ export const BulletPointContainer = styled.div`
 	&:nth-child(even) {
 		em {
 			/* color: ${p => p.theme.palette.primary}; */
-            background-image: linear-gradient(-100deg, transparent, ${p => p.theme.palette.tertiaryComplement} 85%, transparent);
+            background-image: linear-gradient(-100deg, transparent, ${p =>
+				p.theme.palette.tertiaryComplement} 85%, transparent);
 		}
 	}
 
 	&:nth-child(odd) {
 		em {
             /* color: ${p => p.theme.palette.secondary}; */
-            background-image: linear-gradient(-100deg, transparent, ${p => p.theme.palette.tertiary} 85%, transparent);
+            background-image: linear-gradient(-100deg, transparent, ${p =>
+				p.theme.palette.tertiary} 85%, transparent);
 		}
 	}
 
@@ -125,7 +140,7 @@ export const BulletPoint = styled.div`
 	}
 
 	line-height: 1.5;
-	font-size: 0.9rem;
+	${getResponsiveValues({ value: { xs: "0.8rem", lg: "0.9rem" }, style: "font-size" })}
 	color: ${p => p.theme.palette.gray9};
 	background-color: ${p => p.theme.palette.gray1};
 `;
@@ -137,7 +152,7 @@ export const AttributedTo = styled.div`
 
 	margin-top: 0.3rem;
 	text-align: right;
-	font-size: 0.7rem;
+	${getResponsiveValues({ value: { xs: "0.7rem", lg: "0.7rem" }, style: "font-size" })}
 	color: ${p => p.theme.palette.gray8};
 	background-color: ${p => p.theme.palette.gray1};
 `;
@@ -229,15 +244,20 @@ export default class Feedback extends Component {
 			<Container>
 				<Block mh="auto" mb="2">
 					<Block backgroundColor="gray1">
-						<Text bold>Past teammates appreciate that I am good at:</Text>
+						<Title>Past teammates appreciate that I am good at:</Title>
 					</Block>
-					<Block flex justifyContent="space-between">
+					<TagWrapper>
 						<Block flex flexWrap="wrap" alignItems="center">
 							{Object.keys(TAGS).map(key => {
 								const value = TAGS[key];
 
 								return (
-									<Tag key={key} tag={key} onClick={() => this.onClickTag(key)} selectedTags={selectedTags}>
+									<Tag
+										key={key}
+										tag={key}
+										onClick={() => this.onClickTag(key)}
+										selectedTags={selectedTags}
+									>
 										{value}
 										{/* ({tagStats[value]}) */}
 									</Tag>
@@ -245,11 +265,14 @@ export default class Feedback extends Component {
 							})}
 						</Block>
 						<div>
-							<SeeAll onClick={this.showAllFeedback} disabled={selectedTags.length === Object.keys(TAGS).length}>
+							<SeeAll
+								onClick={this.showAllFeedback}
+								disabled={selectedTags.length === Object.keys(TAGS).length}
+							>
 								Show All
 							</SeeAll>
 						</div>
-					</Block>
+					</TagWrapper>
 				</Block>
 				<Block flex flexWrap="wrap" justifyContent="space-around">
 					{FEEDBACK.map(this.renderPoint)}
