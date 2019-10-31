@@ -13,7 +13,7 @@ export const Container = styled.div`
 		padding: 3rem;
 		/* border: 0.5rem solid ${p => p.theme.palette.primaryComplement}; */
 		background-color: ${p => p.theme.palette.gray1};
-		box-shadow: 0 0 10px 0px ${p => p.theme.palette.gray5};
+		box-shadow: 0 0 8px 0px ${p => p.theme.palette.gray5};
 		margin: 1rem auto 3rem auto;
 	}
 `;

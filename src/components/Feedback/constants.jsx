@@ -62,7 +62,7 @@ export const FEEDBACK = [
 		),
 		author: "Engineering Teammate",
 		company: "Patreon",
-		tags: [TAGS.DOCUMENTATION, TAGS.COMMUNICATION, TAGS.PRODUCT]
+		tags: [TAGS.DOCUMENTATION, TAGS.PRODUCT]
 	},
 	{
 		content: (

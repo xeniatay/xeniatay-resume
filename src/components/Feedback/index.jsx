@@ -41,15 +41,17 @@ export const SeeAll = styled.div`
 	margin-top: 0.5rem;
 	white-space: nowrap;
 	padding: 0.1rem 0.4rem;
-	font-size: 0.9rem;
+	font-size: 0.8em;
+	background-color: ${p => p.theme.palette.gray1};
+	text-decoration: underline;
+	color: ${p => p.theme.palette.gray8};
 	cursor: pointer;
 
-	&:before {
-		${p => (p.show ? 'content: "Show ";' : 'content: "Hide ";')};
-	}
+	${p => (p.disabled ? `opacity: 0.5; pointer-events: none;` : "")}
 
 	&:hover {
 		text-decoration: underline;
+		color: ${p => p.theme.palette.secondary};
 	}
 `;
 
@@ -64,22 +66,21 @@ export const Tag = styled.div`
     background-color: ${p => p.theme.palette.gray1};
     border: 1px solid ${p => p.theme.palette.transparent};
 	box-shadow: 1px 1px 1px 0 ${p => p.theme.palette.gray8};
-	opacity: 0.9;
 
 	${p =>
 		isTagSelected(p.tag, p.selectedTags)
 			? `
-				box-shadow: 1px 1px 1px 0 ${p.theme.palette.secondary};
+				box-shadow: 1px 1px 2px 0 ${p.theme.palette.secondary};
 	`
 			: `
-				opacity: 0.3;
-	`}
+				color: ${p.theme.palette.gray7};
+				box-shadow: 1px 1px 1px 0 ${p.theme.palette.gray4};
+			`}
 
 	&:hover {
-        /* background-color: ${p => p.theme.palette.tertiaryComplement}; */
-        /* border-color: ${p => p.theme.palette.secondary}; */
-		box-shadow: 2px 2px 2px 0px ${p => p.theme.palette.gray8};
-		opacity: 1;
+		color: ${p => p.theme.palette.gray9};
+		box-shadow: 2px 2px 2px 0px ${p => p.theme.palette.gray7};
+        background-color: ${p => p.theme.palette.white};
 	}
 `;
 
@@ -123,8 +124,9 @@ export const BulletPoint = styled.div`
 	}
 
 	line-height: 1.5;
-	font-size: 0.8rem;
+	font-size: 0.9rem;
 	color: ${p => p.theme.palette.gray9};
+	background-color: ${p => p.theme.palette.gray1};
 `;
 
 export const AttributedTo = styled.div`
@@ -132,12 +134,11 @@ export const AttributedTo = styled.div`
 		content: "— ";
 	}
 
-	margin-top: 0.5rem;
+	margin-top: 0.3rem;
 	text-align: right;
-	font-size: 0.8rem;
+	font-size: 0.7rem;
 	color: ${p => p.theme.palette.gray8};
-	/* max-width: 60%;
-    float: right; */
+	background-color: ${p => p.theme.palette.gray1};
 `;
 
 export default class Feedback extends Component {
@@ -186,7 +187,7 @@ export default class Feedback extends Component {
 		return stats;
 	};
 
-	toggleFeedback = () => {
+	showAllFeedback = () => {
 		const { selectedTags } = this.state;
 
 		if (selectedTags.length !== Object.keys(TAGS).length) {
@@ -194,12 +195,13 @@ export default class Feedback extends Component {
 			this.setState({
 				selectedTags: Object.keys(TAGS)
 			});
-		} else {
-			// Hide all
-			this.setState({
-				selectedTags: []
-			});
 		}
+		// else {
+		// 	// Hide all
+		// 	this.setState({
+		// 		selectedTags: []
+		// 	});
+		// }
 	};
 
 	renderPoint = (point, i) => {
@@ -226,7 +228,7 @@ export default class Feedback extends Component {
 		return (
 			<Container>
 				<Block mh="auto" mb="2">
-					<Block>Previous teammates agree that I excel in:</Block>
+					<Block backgroundColor="gray1">Previous teammates agree that I excel in:</Block>
 					<Block flex justifyContent="space-between">
 						<Block flex flexWrap="wrap" alignItems="center">
 							{Object.keys(TAGS).map(key => {
@@ -240,9 +242,11 @@ export default class Feedback extends Component {
 								);
 							})}
 						</Block>
-						<SeeAll onClick={this.toggleFeedback} show={selectedTags.length !== Object.keys(TAGS).length}>
-							All
-						</SeeAll>
+						<div>
+							<SeeAll onClick={this.showAllFeedback} disabled={selectedTags.length === Object.keys(TAGS).length}>
+								Show All
+							</SeeAll>
+						</div>
 					</Block>
 				</Block>
 				<Block flex flexWrap="wrap" justifyContent="space-around">

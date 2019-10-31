@@ -22,6 +22,7 @@ const StyledText = styled.span`
 	}
 
 	${p.fontVariant ? `font-variant: ${p.fontVariant};` : ""}
+	${p.textShadow ? `text-shadow: ${p.textShadow};` : ""}
 	${p.letterSpacing ? `letter-spacing: ${p.letterSpacing};` : ""}
 	${p.lineHeight ? `line-height: ${p.lineHeight};` : ""}
 ${p.italic ? "font-style: italic;" : ""}

@@ -17,6 +17,9 @@ export const Body = styled.div`
 	@media screen {
 		background-color: #ffffff;
 		background-image: url(${Background});
+		background-image: url("https://www.transparenttextures.com/patterns/fabric-of-squares.png");
+		background-image: url("https://www.transparenttextures.com/patterns/inspiration-geometry.png");
+
 		padding: 10mm;
 
 		a {
@@ -41,7 +44,7 @@ export default class Base extends Component {
 							<Block flexShrink={1} mr={1}>
 								<Resume />
 							</Block>
-							<Block flexShrink={3}>
+							<Block flexShrink={3} flexGrow={1}>
 								<Feedback />
 							</Block>
 						</Block>

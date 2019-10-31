@@ -7,7 +7,8 @@ import Text from "components/shared/Text";
 // import Background from "./images/burger.jpg";
 // import Background from "./images/flower.jpg";
 // import Background from "./images/eye.jpg";
-import Background from "./images/eyedark.jpg";
+// import Background from "./images/eyedark.jpg";
+import Background from "./images/eyedark2.jpg";
 
 const EMAIL = "tay.xenia@gmail.com";
 const GITHUB = "github.com/xeniatay";
@@ -21,41 +22,29 @@ export const Container = styled.div`
 	margin: 0 auto;
 
 	@media screen {
+		position: relative; // To make box shadow appear
 		background-color: black;
-        background-image: url(${Background});
-        background-position: 50% center;
-        background-repeat: no-repeat;
-        background-size: cover;
-
-        > div {
-			background-image: radial-gradient(circle, ${p => p.theme.palette.volcano1}, transparent 95%, ${p => p.theme.palette.gray9});
-			height: 100vh;
-			box-shadow: 0 0 8px 0 black;
-        }
-
-        text-align: center;
-	}
-`;
-
-export const Screen = styled.div`
-	height: 100%;
-
-	@media print {
-		display: none;
+		background-image: url(${Background});
+		background-position: center 45%;
+		background-repeat: no-repeat;
+		background-size: 80%;
+		text-align: center;
+		/* box-shadow: 0 0 4px 0 ${p => p.theme.palette.gray9}; */
 	}
 `;
 
 export const FancyLink = styled.a`
 	transition: all ease-in-out 100ms;
 	display: block;
-	padding: 0.5rem 1rem;
+	padding: 0.3rem 1rem;
 	margin: 1rem;
 	font-weight: bold;
 	font-variant: small-caps;
 	letter-spacing: 2px;
 	background-image: linear-gradient(-100deg, transparent, ${p => p.theme.palette.tertiary} 55%, ${p => p.theme.palette.tertiaryComplement} 85%, transparent);
 	text-decoration: none;
-	color: ${p => p.theme.palette.gray9};
+	color: ${p => p.theme.palette.gray8};
+	font-size: 0.9rem;
 
 	&:hover {
 		color: ${p => p.theme.palette.blue9};
@@ -65,69 +54,59 @@ export const FancyLink = styled.a`
 	}
 `;
 
-export const Print = styled.div`
-	@media screen {
-		display: none;
-	}
-`;
-
 export default class Header extends Component {
 	render() {
 		return (
 			<Container>
-				<div>
-					<Screen>
-						<Block flex maxWidth="9in" mh="auto" alignItems="center" justifyContent='center' fluidHeight>
-							<Block flex flexDirection="column" alignItems="center" fluidWidth>
-								<Text bold header size="7rem">
-									Xenia Tay
-								</Text>
-								<Block mv={1} textAlign="left" maxWidth="600px">
-									<Text lineHeight={2} size="xl">
-										{EXPERIENCE}
-										{CULTURE}
-										{PRODUCT}
-									</Text>
-								</Block>
-							</Block>
-							<Block flex flexDirection="column" textAlign="left">
-								<FancyLink href={`http://${LINKEDIN}`} target="_blank" rel="noopener noreferrer">
-									LinkedIn
-								</FancyLink>
-								<FancyLink href={`http://${GITHUB}`} target="_blank" rel="noopener noreferrer" title="GitHub @xeniatay">
-									GitHub
-								</FancyLink>
-								<FancyLink href={`mailto:${EMAIL}`} target="_blank" rel="noopener noreferrer" title="xeniatzy@gmail.com">
-									Email
-								</FancyLink>
-							</Block>
-						</Block>
-					</Screen>
-					<Print>
-						<Block flex alignItems="center" justifyContent="space-between">
-							<Text size="xxl" bold>
-								Xenia Tay
+				<Block flex maxWidth="9in" justifyContent="flex-start" alignItems="center" screen pv={3} ml="auto" mr="20%">
+					<Block flex flexDirection="column">
+						<Text bold header size="3rem" color="volcano1" textShadow="0 0 3px black">
+							Xenia Tay
+						</Text>
+						<Block mv={1} textAlign="left" maxWidth="500px">
+							<Text lineHeight={2} color="volcano1" textShadow="0 0 3px black">
+								{EXPERIENCE}
+								{CULTURE}
+								{PRODUCT}
 							</Text>
-							<Block flex flexGrow={1} justifyContent="space-between" maxWidth="420px" mr={1}>
-								<a href={`mailto:${EMAIL}`} target="_blank" rel="noopener noreferrer">
-									{EMAIL}
-								</a>
-								<a href={`http://${GITHUB}`} target="_blank" rel="noopener noreferrer">
-									{GITHUB}
-								</a>
-								<a href={`http://${WEBSITE}`} target="_blank" rel="noopener noreferrer">
-									{WEBSITE}
-								</a>
-							</Block>
 						</Block>
-						<Block mv={1}>
-							{EXPERIENCE}
-							{CULTURE}
-							<br />
-							{PRODUCT}
+					</Block>
+					<Block flex flexDirection="column" textAlign="left" ml={4}>
+						<FancyLink href={`http://${LINKEDIN}`} target="_blank" rel="noopener noreferrer">
+							LinkedIn
+						</FancyLink>
+						<FancyLink href={`http://${GITHUB}`} target="_blank" rel="noopener noreferrer" title="GitHub @xeniatay">
+							GitHub
+						</FancyLink>
+						<FancyLink href={`mailto:${EMAIL}`} target="_blank" rel="noopener noreferrer" title="xeniatzy@gmail.com">
+							Email
+						</FancyLink>
+					</Block>
+				</Block>
+				<Block print>
+					<Block flex alignItems="center" justifyContent="space-between">
+						<Text size="xxl" bold>
+							Xenia Tay
+						</Text>
+						<Block flex flexGrow={1} justifyContent="space-between" maxWidth="420px" mr={1}>
+							<a href={`mailto:${EMAIL}`} target="_blank" rel="noopener noreferrer">
+								{EMAIL}
+							</a>
+							<a href={`http://${GITHUB}`} target="_blank" rel="noopener noreferrer">
+								{GITHUB}
+							</a>
+							<a href={`http://${WEBSITE}`} target="_blank" rel="noopener noreferrer">
+								{WEBSITE}
+							</a>
 						</Block>
-					</Print>
-				</div>
+					</Block>
+					<Block mv={1}>
+						{EXPERIENCE}
+						{CULTURE}
+						<br />
+						{PRODUCT}
+					</Block>
+				</Block>
 			</Container>
 		);
 	}

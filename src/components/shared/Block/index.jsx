@@ -6,42 +6,27 @@
  *
  */
 
-import PropTypes from 'prop-types';
-import React from 'react';
-import styled from 'styled-components';
+import PropTypes from "prop-types";
+import React from "react";
+import styled from "styled-components";
 
-import {
-	XS_SCREEN_AND_UP,
-	SM_SCREEN_AND_UP,
-	MD_SCREEN_AND_UP,
-	LG_SCREEN_AND_UP,
-	XL_SCREEN_AND_UP
-} from './constants';
+import { XS_AND_UP, SM_AND_UP, MD_AND_UP, LG_AND_UP, XL_AND_UP, SCREEN_ONLY, PRINT_ONLY } from "./constants";
 
-import theme from 'theme';
+import theme from "theme";
 
-const Block = ({ children, ...props }) => (
-	<StyledBlock {...props}>{children}</StyledBlock>
-);
+const Block = ({ children, ...props }) => <StyledBlock {...props}>{children}</StyledBlock>;
 
 Block.defaultProps = {
-	backgroundColor: 'transparent',
-	borderColor: 'gray4',
+	backgroundColor: "transparent",
+	borderColor: "gray4",
 	borderWidth: 0,
-	display: 'block',
+	display: "block",
 	fluidHeight: false,
 	fluidWidth: false,
-	position: 'relative'
+	position: "relative"
 };
 
-const displayType = PropTypes.oneOf([
-	'inline',
-	'block',
-	'inline-block',
-	'inherit',
-	'flex',
-	'none'
-]);
+const displayType = PropTypes.oneOf(["inline", "block", "inline-block", "inherit", "flex", "none"]);
 
 export const responsiveDisplayType = PropTypes.oneOfType([
 	displayType,
@@ -67,10 +52,16 @@ export const responsiveSizes = PropTypes.oneOfType([
 ]);
 
 Block.propTypes = {
+	/* Show elements only on screen */
+	screen: PropTypes.bool,
+
+	/* Show elements only in print */
+	print: PropTypes.bool,
+
 	/**
 	 * `left` `center` `right`
 	 */
-	textAlign: PropTypes.oneOf(['left', 'center', 'right']),
+	textAlign: PropTypes.oneOf(["left", "center", "right"]),
 
 	children: PropTypes.node,
 
@@ -83,31 +74,11 @@ Block.propTypes = {
 	 * bb: borderBottom
 	 * bl: borderLeft
 	 */
-	border: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.bool,
-		PropTypes.number
-	]),
-	bt: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.bool,
-		PropTypes.number
-	]),
-	br: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.bool,
-		PropTypes.number
-	]),
-	bb: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.bool,
-		PropTypes.number
-	]),
-	bl: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.bool,
-		PropTypes.number
-	]),
+	border: PropTypes.oneOfType([PropTypes.string, PropTypes.bool, PropTypes.number]),
+	bt: PropTypes.oneOfType([PropTypes.string, PropTypes.bool, PropTypes.number]),
+	br: PropTypes.oneOfType([PropTypes.string, PropTypes.bool, PropTypes.number]),
+	bb: PropTypes.oneOfType([PropTypes.string, PropTypes.bool, PropTypes.number]),
+	bl: PropTypes.oneOfType([PropTypes.string, PropTypes.bool, PropTypes.number]),
 
 	/**
 	 * Background color
@@ -132,7 +103,7 @@ Block.propTypes = {
 	 * Border style
 	 * Can be any valid stroke style value
 	 */
-	borderStyle: PropTypes.oneOf(['none', 'solid', 'dashed', 'dotted']),
+	borderStyle: PropTypes.oneOf(["none", "solid", "dashed", "dotted"]),
 
 	/**
 	 * Display
@@ -151,23 +122,12 @@ Block.propTypes = {
 	 * Align items within a flex element on the cross axis
 	 * Can be `flex-start`, `flex-end`, `center`, `baseline`, `stretch`
 	 */
-	alignItems: PropTypes.oneOf([
-		'flex-start',
-		'flex-end',
-		'center',
-		'baseline',
-		'stretch'
-	]),
+	alignItems: PropTypes.oneOf(["flex-start", "flex-end", "center", "baseline", "stretch"]),
 
 	/**
 	 * Establishes the main axis of the flex element
 	 */
-	flexDirection: PropTypes.oneOf([
-		'row',
-		'row-reverse',
-		'column',
-		'column-reverse'
-	]),
+	flexDirection: PropTypes.oneOf(["row", "row-reverse", "column", "column-reverse"]),
 
 	/**
 	 * Allows a child of a flex element to grow.
@@ -179,20 +139,13 @@ Block.propTypes = {
 	/**
 	 * Allows items within flex element to wrap as needed
 	 */
-	flexWrap: PropTypes.oneOf(['nowrap', 'wrap', 'wrap-reverse']),
+	flexWrap: PropTypes.oneOf(["nowrap", "wrap", "wrap-reverse"]),
 
 	/**
 	 * Align items within a flex element on the main axis
 	 * Can be `flex-start`, `flex-end`, `center`, `baseline`, `stretch`
 	 */
-	justifyContent: PropTypes.oneOf([
-		'flex-start',
-		'flex-end',
-		'center',
-		'space-between',
-		'space-around',
-		'space-evenly'
-	]),
+	justifyContent: PropTypes.oneOf(["flex-start", "flex-end", "center", "space-between", "space-around", "space-evenly"]),
 
 	/**
 	 * Height: 100%
@@ -220,22 +173,16 @@ Block.propTypes = {
 	 * Can be: 'hidden', 'visible', 'scroll'
 	 *
 	 */
-	overflow: PropTypes.oneOf(['hidden', 'visible', 'scroll']),
-	overflowX: PropTypes.oneOf(['hidden', 'visible', 'scroll']),
-	overflowY: PropTypes.oneOf(['hidden', 'visible', 'scroll']),
+	overflow: PropTypes.oneOf(["hidden", "visible", "scroll"]),
+	overflowX: PropTypes.oneOf(["hidden", "visible", "scroll"]),
+	overflowY: PropTypes.oneOf(["hidden", "visible", "scroll"]),
 
 	/**
 	 * Position
 	 * Can be: `static` `relative` `absolute` `fixed`, `sticky`
 	 *
 	 */
-	position: PropTypes.oneOf([
-		'absolute',
-		'fixed',
-		'relative',
-		'static',
-		'sticky'
-	]),
+	position: PropTypes.oneOf(["absolute", "fixed", "relative", "static", "sticky"]),
 
 	/**
 	 * Top/Right/Bottom/Left
@@ -252,16 +199,7 @@ Block.propTypes = {
 	 * `middle`, `top`, `bottom`
 	 *
 	 */
-	verticalAlign: PropTypes.oneOf([
-		'baseline',
-		'bottom',
-		'middle',
-		'sub',
-		'super',
-		'text-bottom',
-		'text-top',
-		'top'
-	]),
+	verticalAlign: PropTypes.oneOf(["baseline", "bottom", "middle", "sub", "super", "text-bottom", "text-top", "top"]),
 
 	/**
 	 * Height
@@ -319,73 +257,61 @@ Block.propTypes = {
 };
 
 // Generate style rules for border
-const getBorderValues = ({
-	theme,
-	shorthand,
-	color,
-	width,
-	v,
-	h,
-	t,
-	r,
-	b,
-	l
-}) => {
-	const unit = 'px';
-	const style = 'solid';
-	const getBorderString = widthValue =>
-		`${widthValue}${unit} ${style} ${theme.palette[color]}`;
+const getBorderValues = ({ theme, shorthand, color, width, v, h, t, r, b, l }) => {
+	const unit = "px";
+	const style = "solid";
+	const getBorderString = widthValue => `${widthValue}${unit} ${style} ${theme.palette[color]}`;
 	const defaultBorder = getBorderString(1);
 
 	return `
-		${typeof shorthand === 'boolean' ? `border: ${defaultBorder};` : ''}
-		${typeof shorthand === 'number' ? `border: ${getBorderString(shorthand)};` : ''}
+		${typeof shorthand === "boolean" ? `border: ${defaultBorder};` : ""}
+		${typeof shorthand === "number" ? `border: ${getBorderString(shorthand)};` : ""}
 
 		${
-			typeof v === 'boolean'
+			typeof v === "boolean"
 				? `
 			border-top: ${defaultBorder};
 			border-bottom: ${defaultBorder};
 		`
-				: ''
+				: ""
 		}
 		${
-			typeof v === 'number'
+			typeof v === "number"
 				? `
 				border-top: ${getBorderString(v)};
 				border-bottom: ${getBorderString(v)};
 			`
-				: ''
+				: ""
 		}
 
 			${
-				typeof h === 'boolean'
+				typeof h === "boolean"
 					? `
 			border-left: ${defaultBorder};
 			border-right: ${defaultBorder};
 		`
-					: ''
+					: ""
 			}
 		${
-			typeof h === 'number'
+			typeof h === "number"
 				? `
 				border-left: ${getBorderString(h)};
 				border-right: ${getBorderString(h)};
 			`
-				: ''
+				: ""
 		}
 			
-		${typeof t === 'boolean' ? `border-top: ${defaultBorder};` : ''}
-		${typeof t === 'number' ? `border-top: ${getBorderString(t)};` : ''}
+		${typeof t === "boolean" ? `border-top: ${defaultBorder};` : ""}
+		${typeof t === "number" ? `border-top: ${getBorderString(t)};` : ""}
 
-		${typeof r === 'boolean' ? `border-right: ${defaultBorder};` : ''}
-		${typeof r === 'number' ? `border-right: ${getBorderString(r)};` : ''}
+		${typeof r === "boolean" ? `border-right: ${defaultBorder};` : ""}
+		${typeof r === "number" ? `border-right: ${getBorderString(r)};` : ""}
 
-		${typeof b === 'boolean' ? `border-bottom: ${defaultBorder};` : ''}
-		${typeof b === 'number' ? `border-bottom: ${getBorderString(b)};` : ''}
+		${typeof b === "boolean" ? `border-bottom: ${defaultBorder};` : ""}
+		${typeof b === "number" ? `border-bottom: ${getBorderString(b)};` : ""}
 
-		${typeof l === 'boolean' ? `border-left: ${defaultBorder};` : ''}
-		${typeof l === 'number' ? `border-left: ${getBorderString(l)};` : ''}
+		${typeof l === "boolean" ? `border-left: ${defaultBorder};` : ""}
+		${typeof l === "number" ? `border-left: ${getBorderString(l)};` : ""}
 		
 	`;
 };
@@ -394,52 +320,52 @@ const getDimension = ({ fluid, rule, value }) => {
 	if (fluid) {
 		return `${rule}: 100%;`;
 	} else if (value === undefined) {
-		return '';
-	} else if (typeof value === 'object') {
+		return "";
+	} else if (typeof value === "object") {
 		return getResponsiveValues({ value, style: rule });
-	} else if (typeof value === 'string') {
+	} else if (typeof value === "string") {
 		return `${rule}: ${value};`;
-	} else if (typeof value === 'number') {
+	} else if (typeof value === "number") {
 		return `${rule}: ${value}px;`;
 	}
 };
 
-const getResponsiveValues = ({ value: responsiveValues, unit = '', style }) => {
+const getResponsiveValues = ({ value: responsiveValues, unit = "", style }) => {
 	const responsiveStyles = Object.keys(responsiveValues).map(size => {
 		const styleRule = `${style}: ${responsiveValues[size]}${unit};`;
 
 		switch (size) {
-			case 'xs':
-				return XS_SCREEN_AND_UP(styleRule);
-			case 'sm':
-				return SM_SCREEN_AND_UP(styleRule);
-			case 'md':
-				return MD_SCREEN_AND_UP(styleRule);
-			case 'lg':
-				return LG_SCREEN_AND_UP(styleRule);
-			case 'xl':
-				return XL_SCREEN_AND_UP(styleRule);
-			default: 
-				return '';
+			case "xs":
+				return XS_AND_UP(styleRule);
+			case "sm":
+				return SM_AND_UP(styleRule);
+			case "md":
+				return MD_AND_UP(styleRule);
+			case "lg":
+				return LG_AND_UP(styleRule);
+			case "xl":
+				return XL_AND_UP(styleRule);
+			default:
+				return "";
 		}
 	});
 
-	return responsiveStyles.join('\n');
+	return responsiveStyles.join("\n");
 };
 
 // Generate style rules for top/right/bottom/left options
-const getTrblValues = ({ rule, shorthand, v, h, t, r, b, l, unit = '' }) => {
+const getTrblValues = ({ rule, shorthand, v, h, t, r, b, l, unit = "" }) => {
 	if (!rule) {
 		return;
 	}
 
 	const getValue = ({ value, style }) => {
 		let val;
-		if (typeof value === 'string') {
+		if (typeof value === "string") {
 			val = `${style}: ${value};`;
-		} else if (typeof value === 'number') {
+		} else if (typeof value === "number") {
 			val = `${style}: ${value}${unit};`;
-		} else if (typeof value === 'object') {
+		} else if (typeof value === "object") {
 			val = getResponsiveValues({ value, unit, style });
 		}
 
@@ -447,11 +373,7 @@ const getTrblValues = ({ rule, shorthand, v, h, t, r, b, l, unit = '' }) => {
 	};
 
 	return `
-		${
-			shorthand !== undefined
-				? `${getValue({ value: shorthand, style: rule })};`
-				: ''
-		}
+		${shorthand !== undefined ? `${getValue({ value: shorthand, style: rule })};` : ""}
 
 		${
 			v !== undefined
@@ -459,7 +381,7 @@ const getTrblValues = ({ rule, shorthand, v, h, t, r, b, l, unit = '' }) => {
 			${getValue({ value: v, style: `${rule}-top` })}
 			${getValue({ value: v, style: `${rule}-bottom` })}
 		`
-				: ''
+				: ""
 		}
 
 		${
@@ -468,69 +390,78 @@ const getTrblValues = ({ rule, shorthand, v, h, t, r, b, l, unit = '' }) => {
 			${getValue({ value: h, style: `${rule}-right` })}
 			${getValue({ value: h, style: `${rule}-left` })}
 		`
-				: ''
+				: ""
 		}
 
-		${t !== undefined ? `${getValue({ value: t, style: `${rule}-top` })}` : ''}
-		${r !== undefined ? `${getValue({ value: r, style: `${rule}-right` })}` : ''}
-		${b !== undefined ? `${getValue({ value: b, style: `${rule}-bottom` })}` : ''}
-		${l !== undefined ? `${getValue({ value: l, style: `${rule}-left` })}` : ''}
+		${t !== undefined ? `${getValue({ value: t, style: `${rule}-top` })}` : ""}
+		${r !== undefined ? `${getValue({ value: r, style: `${rule}-right` })}` : ""}
+		${b !== undefined ? `${getValue({ value: b, style: `${rule}-bottom` })}` : ""}
+		${l !== undefined ? `${getValue({ value: l, style: `${rule}-left` })}` : ""}
 	`;
 };
 
+const getDisplayMedium = (p, styles) => {
+	if (p.screen) {
+		return SCREEN_ONLY(styles);
+	} else if (p.print) {
+		return PRINT_ONLY(styles);
+	} else {
+		return styles;
+	}
+};
+
 const StyledBlock = styled.div`
-	${p => `
+	${p =>
+		getDisplayMedium(
+			p,
+			`
 				transition: all 100ms ease-in-out;
         box-sizing: border-box;
         display: ${p.display};
         position: ${p.position};
-        ${p.top !== undefined ? `top: ${p.top}rem;` : ''}
-        ${p.right !== undefined ? `right: ${p.right}rem;` : ''}
-        ${p.bottom !== undefined ? `bottom: ${p.bottom}rem;` : ''}
-        ${p.left !== undefined ? `left: ${p.left}rem;` : ''}
+        ${p.top !== undefined ? `top: ${p.top}rem;` : ""}
+        ${p.right !== undefined ? `right: ${p.right}rem;` : ""}
+        ${p.bottom !== undefined ? `bottom: ${p.bottom}rem;` : ""}
+        ${p.left !== undefined ? `left: ${p.left}rem;` : ""}
 
-        ${p.flex ? 'display: flex;' : ''}
-        ${p.alignItems ? `align-items: ${p.alignItems};` : ''}
-        ${p.flexDirection ? `flex-direction: ${p.flexDirection};` : ''}
-        ${p.flexShrink ? `flex-shrink: ${p.flexShrink};` : ''}
-        ${p.flexGrow ? `flex-grow: ${p.flexGrow};` : ''}
-        ${p.flexWrap ? `flex-wrap: ${p.flexWrap};` : ''}
-        ${p.justifyContent ? `justify-content: ${p.justifyContent};` : ''}
+        ${p.flex ? "display: flex;" : ""}
+        ${p.alignItems ? `align-items: ${p.alignItems};` : ""}
+        ${p.flexDirection ? `flex-direction: ${p.flexDirection};` : ""}
+        ${p.flexShrink ? `flex-shrink: ${p.flexShrink};` : ""}
+        ${p.flexGrow ? `flex-grow: ${p.flexGrow};` : ""}
+        ${p.flexWrap ? `flex-wrap: ${p.flexWrap};` : ""}
+        ${p.justifyContent ? `justify-content: ${p.justifyContent};` : ""}
 
-        ${p.overflow ? `overflow: ${p.overflow};` : ''}
-        ${p.overflowX ? `overflow-x: ${p.overflowX};` : ''}
-        ${p.overflowY ? `overflow-y: ${p.overflowY};` : ''}
-        ${p.verticalAlign ? `vertical-align: ${p.verticalAlign};` : ''}
-        ${p.textAlign ? `text-align: ${p.textAlign};` : ''}
-        ${
-			p.backgroundColor
-				? `background-color: ${p.theme.palette[p.backgroundColor]};`
-				: ''
-		}
+        ${p.overflow ? `overflow: ${p.overflow};` : ""}
+        ${p.overflowX ? `overflow-x: ${p.overflowX};` : ""}
+        ${p.overflowY ? `overflow-y: ${p.overflowY};` : ""}
+        ${p.verticalAlign ? `vertical-align: ${p.verticalAlign};` : ""}
+        ${p.textAlign ? `text-align: ${p.textAlign};` : ""}
+        ${p.backgroundColor ? `background-color: ${p.theme.palette[p.backgroundColor]};` : ""}
 
         /* max-width */
         ${getDimension({
-			rule: 'max-width',
+			rule: "max-width",
 			value: p.maxWidth
 		})}
 
         /* max-height */
         ${getDimension({
-			rule: 'max-height',
+			rule: "max-height",
 			value: p.maxHeight
 		})}
 
         /* width */
         ${getDimension({
 			fluid: p.fluidWidth,
-			rule: 'width',
+			rule: "width",
 			value: p.width
 		})}
 
         /* height */
         ${getDimension({
 			fluid: p.fluidHeight,
-			rule: 'height',
+			rule: "height",
 			value: p.height
 		})}
 
@@ -562,7 +493,7 @@ const StyledBlock = styled.div`
          * padding-left
          */
         ${getTrblValues({
-			rule: 'padding',
+			rule: "padding",
 			shorthand: p.p,
 			v: p.pv,
 			h: p.ph,
@@ -570,7 +501,7 @@ const StyledBlock = styled.div`
 			r: p.pr,
 			b: p.pb,
 			l: p.pl,
-			unit: 'rem'
+			unit: "rem"
 		})}
 
         /*
@@ -581,7 +512,7 @@ const StyledBlock = styled.div`
          * margin-left
          */
         ${getTrblValues({
-			rule: 'margin',
+			rule: "margin",
 			shorthand: p.m,
 			v: p.mv,
 			h: p.mh,
@@ -589,9 +520,10 @@ const StyledBlock = styled.div`
 			r: p.mr,
 			b: p.mb,
 			l: p.ml,
-			unit: 'rem'
+			unit: "rem"
 		})}
-    `}
+    `
+		)}
 `;
 
 StyledBlock.defaultProps = {
