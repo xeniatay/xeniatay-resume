@@ -168,6 +168,7 @@ palette = {
 
 // from _ant-theme.less
 const typography = {
+	fontSizeXs: "0.8rem",
 	fontSizeSm: "0.9rem",
 	fontSizeBase: "1rem",
 	fontSizeMd: "1rem",

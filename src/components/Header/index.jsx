@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-import Block from "components/shared/Block";
+import Block, { getResponsiveValues } from "components/shared/Block";
+import { SCREEN_ONLY } from "components/shared/Block/constants";
 import Text from "components/shared/Text";
 
 // import Background from "./images/burger.jpg";
@@ -33,6 +34,46 @@ export const Container = styled.div`
 	}
 `;
 
+export const ScreenHeader = styled.div`
+	${SCREEN_ONLY(
+		`
+			display: flex;
+			margin-left: auto;
+			max-width: 864px; // 9in, to vaguely match resume
+			align-items: center;
+			text-align: left;
+			${getResponsiveValues({
+				value: { xs: "space-around", lg: "flex-start" },
+				style: "justify-content"
+			})}
+			${getResponsiveValues({ value: { xs: "0.5rem", sm: "1rem", lg: "3rem 2rem" }, style: "padding" })}
+			${getResponsiveValues({ value: { xs: "auto", lg: "10%", xl: "20%" }, style: "margin-right" })}
+	`
+	)}
+`;
+
+export const XeniaTay = styled.div`
+	font-weight: bold;
+	font-family: ${p => p.theme.typography.fontFamilyHeader};
+	${getResponsiveValues({ value: { xs: "1.5rem", md: "2rem", lg: "3rem" }, style: "font-size" })}
+	color: ${p => p.theme.palette.volcano1};
+	text-shadow: 0 0 3px black;
+`;
+
+export const Summary = styled.div`
+	color: ${p => p.theme.palette.volcano1};
+	text-shadow: 0 0 3px black;
+	${getResponsiveValues({ value: { xs: "1.5", lg: "2" }, style: "line-height" })}
+	${p =>
+		getResponsiveValues({
+			value: {
+				xs: p.theme.typography.fontSizeXs,
+				lg: p.theme.typography.fontSizeBase
+			},
+			style: "font-size"
+		})}
+`;
+
 export const FancyLink = styled.a`
 	transition: all ease-in-out 100ms;
 	display: block;
@@ -40,7 +81,13 @@ export const FancyLink = styled.a`
 	margin: 1rem;
 	font-weight: bold;
 	letter-spacing: 1px;
-	background-image: linear-gradient(-100deg, transparent, ${p => p.theme.palette.tertiary} 55%, ${p => p.theme.palette.tertiaryComplement} 85%, transparent);
+	background-image: linear-gradient(
+		-100deg,
+		transparent,
+		${p => p.theme.palette.tertiary} 55%,
+		${p => p.theme.palette.tertiaryComplement} 85%,
+		transparent
+	);
 	text-decoration: none;
 	color: ${p => p.theme.palette.volcano9};
 	font-size: 0.9rem;
@@ -57,37 +104,55 @@ export default class Header extends Component {
 	render() {
 		return (
 			<Container>
-				<Block flex maxWidth="9in" justifyContent="flex-start" alignItems="center" screen pv={3} ml="auto" mr="20%">
+				<ScreenHeader>
 					<Block flex flexDirection="column">
-						<Text bold header size="3rem" color="volcano1" textShadow="0 0 3px black">
-							Xenia Tay
-						</Text>
-						<Block mv={1} textAlign="left" maxWidth="500px">
-							<Text lineHeight={2} color="volcano1" textShadow="0 0 3px black">
+						<XeniaTay>Xenia Tay</XeniaTay>
+						<Block mv={1} textAlign="left" maxWidth={{ md: "500px" }}>
+							<Summary>
 								{EXPERIENCE}
 								{CULTURE}
 								{PRODUCT}
-							</Text>
+							</Summary>
 						</Block>
 					</Block>
 					<Block flex flexDirection="column" textAlign="left" ml={4}>
-						<FancyLink href={`http://${LINKEDIN}`} target="_blank" rel="noopener noreferrer">
+						<FancyLink
+							href={`http://${LINKEDIN}`}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
 							LinkedIn
 						</FancyLink>
-						<FancyLink href={`http://${GITHUB}`} target="_blank" rel="noopener noreferrer" title="GitHub @xeniatay">
+						<FancyLink
+							href={`http://${GITHUB}`}
+							target="_blank"
+							rel="noopener noreferrer"
+							title="GitHub @xeniatay"
+						>
 							GitHub
 						</FancyLink>
-						<FancyLink href={`mailto:${EMAIL}`} target="_blank" rel="noopener noreferrer" title="xeniatzy@gmail.com">
+						<FancyLink
+							href={`mailto:${EMAIL}`}
+							target="_blank"
+							rel="noopener noreferrer"
+							title="xeniatzy@gmail.com"
+						>
 							Email
 						</FancyLink>
 					</Block>
-				</Block>
+				</ScreenHeader>
 				<Block print>
 					<Block flex alignItems="center" justifyContent="space-between">
 						<Text size="xxl" bold>
 							Xenia Tay
 						</Text>
-						<Block flex flexGrow={1} justifyContent="space-between" maxWidth="420px" mr={1}>
+						<Block
+							flex
+							flexGrow={1}
+							justifyContent="space-between"
+							maxWidth="420px"
+							mr={1}
+						>
 							<a href={`mailto:${EMAIL}`} target="_blank" rel="noopener noreferrer">
 								{EMAIL}
 							</a>
