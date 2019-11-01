@@ -1,5 +1,6 @@
 html {
 	scroll-behavior: smooth;
+	font-size: 16px; /* Explicitly set rem, fixes a bug in mobile Chrome (landscape) */
 }
 
 body {
