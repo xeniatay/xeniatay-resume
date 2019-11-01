@@ -177,7 +177,7 @@ const typography = {
 	fontSizeXxl: "1.3rem",
 	// https://www.canva.com/learn/resume-fonts/
 	fontFamilyHeader: "'Indie Flower', sans-serif",
-	fontFamilySerif: "Cambria, Constantia, serif",
+	fontFamilySerif: "Cambria, Garamond, Constantia, serif",
 	fontFamily: "Raleway, Calibri, Arial, sans-serif"
 };
 
