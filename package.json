@@ -8,10 +8,12 @@
 		"react-scripts": "3.0.1"
 	},
 	"scripts": {
-		"start": "react-scripts start",
+		"start": "PORT=8080 react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
-		"eject": "react-scripts eject"
+		"eject": "react-scripts eject",
+		"generate": "npx babel-node scripts/generate-pdf.js",
+		"deploy": "npm run build && npm run generate"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
@@ -29,6 +31,9 @@
 		]
 	},
 	"devDependencies": {
+		"@babel/core": "^7.6.4",
+		"@babel/node": "^7.6.3",
+		"puppeteer": "^2.0.0",
 		"styled-components": "^4.3.2"
 	}
 }
