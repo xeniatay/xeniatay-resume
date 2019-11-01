@@ -114,9 +114,9 @@ export const BulletPointContainer = styled.div`
 
 	&:nth-child(even) {
 		em {
-			/* color: ${p => p.theme.palette.primary}; */
-            background-image: linear-gradient(-100deg, white, ${p =>
-				p.theme.palette.tertiaryComplement} 85%, white);
+			background-color: ${p => p.theme.palette.tertiaryComplement};
+            background-image: linear-gradient(-100deg, rgba(255, 255, 255, 1) , ${p =>
+				p.theme.palette.tertiaryComplement} 85%, rgba(255, 255, 255, 1));
 		}
 	}
 

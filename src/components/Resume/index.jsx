@@ -316,8 +316,8 @@ export default class Resume extends Component {
 						Bachelor of Computer Science (Honours) and Fine Arts Studio Minor
 					</Text>
 					<Block>University of Waterloo, 2015 </Block>
-					<Block>
-						Interned at Bandpage, Wanderable, Indochino, BazaarVoice, <br />
+					<Block maxWidth="600px">
+						Interned at Bandpage, Wanderable, Indochino, BazaarVoice, 
 						and WatrHub during the Waterloo co-op program.
 					</Block>
 				</Block>
