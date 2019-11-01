@@ -17,7 +17,7 @@ const WEBSITE = "xeniatay.com";
 const LINKEDIN = "linkedin.com/in/xeniatay/";
 const RESUME = "#resume";
 const TESTIMONIALS = "#strengths";
-const EXPERIENCE = "5+ years of frontend product development. ";
+const EXPERIENCE = "I have 5+ years of frontend product development experience. ";
 const CULTURE = "I value empathetic and inclusive work cultures. ";
 const PRODUCT = "I enjoy building product that relieves user pain and domain inefficiencies. ";
 
@@ -26,8 +26,14 @@ export const Container = styled.div`
 
 	@media screen {
 		position: relative; // To make box shadow appear
-		background-color: black;
-		background-image: url(${Background});
+		${getResponsiveValues({
+			value: { md: "black" },
+			style: "background-color"
+		})}
+		${getResponsiveValues({
+			value: { xs: "none", md: `url(${Background})` },
+			style: "background-image"
+		})}
 		background-position: center 45%;
 		background-repeat: no-repeat;
 		background-size: 80%;
@@ -57,15 +63,21 @@ export const ScreenHeader = styled.div`
 export const XeniaTay = styled.div`
 	font-weight: bold;
 	font-family: ${p => p.theme.typography.fontFamilyHeader};
-	${getResponsiveValues({ value: { xs: "1.5rem", md: "2rem", lg: "3rem" }, style: "font-size" })}
 	color: ${p => p.theme.palette.volcano1};
 	text-shadow: 0 0 3px black;
+	${getResponsiveValues({ value: { xs: "1.5rem", md: "2rem", lg: "3rem" }, style: "font-size" })}
+	${getResponsiveValues({ value: { xs: "none", md: "block" }, style: "display" })}
 `;
 
 export const Summary = styled.div`
-	color: ${p => p.theme.palette.volcano1};
-	text-shadow: 0 0 3px black;
-	max-width: 500px;
+	&:before {
+		${getResponsiveValues({ value: { xs: `"Hi, I'm Xenia. "`, md: "''" }, style: "content" })}
+	}
+
+	${getResponsiveValues({ value: { xs: "100%", md: "500px" }, style: "max-width" })}
+	${getResponsiveValues({ value: { xs: "white", md: "none" }, style: "background" })}
+	${getResponsiveValues({ value: { md: "0 0 3px black" }, style: "text-shadow" })}
+	${p => getResponsiveValues({ value: { md: p.theme.palette.volcano1 }, style: "color" })}
 	${getResponsiveValues({ value: { xs: "1.5", lg: "2" }, style: "line-height" })}
 	${p =>
 		getResponsiveValues({
@@ -80,21 +92,36 @@ export const Summary = styled.div`
 export const FancyLink = styled.a`
 	transition: all ease-in-out 100ms;
 	display: block;
-	padding: 0.2rem 1rem;
-	margin-right: 2rem;
-	${getResponsiveValues({ value: { xs: "1rem", lg: "2rem" }, style: "margin-right" })}
+	${getResponsiveValues({ value: { md: "0.2rem 1rem" }, style: "padding" })}
+	${getResponsiveValues({
+		value: { xs: "1rem", lg: "2rem" },
+		style: "margin-right"
+	})}
 	margin-bottom: 0.5rem;
 	font-weight: bold;
 	letter-spacing: 1px;
-	background-image: linear-gradient(
-		-100deg,
-		transparent,
-		${p => p.theme.palette.volcano2} 35%,
-		${p => p.theme.palette.tertiaryComplement} 85%,
-		transparent
-	);
+	${p =>
+		getResponsiveValues({
+			value: {
+				xs: "1rem",
+				md: `
+					linear-gradient(
+						-100deg,
+						transparent,
+						${p.theme.palette.volcano2} 35%,
+						${p.theme.palette.tertiaryComplement} 85%,
+						transparent
+					)
+				`
+			},
+			style: "background-image"
+		})}
 	text-decoration: none;
-	color: ${p => p.theme.palette.gray9};
+	${p =>
+		getResponsiveValues({
+			value: { xs: p.theme.palette.secondary, md: p.theme.palette.gray9 },
+			style: "color"
+		})}
 	${p =>
 		getResponsiveValues({
 			value: {
@@ -103,11 +130,14 @@ export const FancyLink = styled.a`
 			},
 			style: "font-size"
 		})}
+	${getResponsiveValues({
+		value: { xs: "underline", md: "none" },
+		style: "text-decoration"
+	})}
 
 	&:hover {
+		${getResponsiveValues({ value: { md: "0.2rem 0.9rem 0.2rem 1.1rem" }, style: "padding" })}
 		text-decoration: underline;
-		padding-left: 1.1rem;
-		padding-right: 0.9rem;
 	}
 `;
 

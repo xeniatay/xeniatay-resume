@@ -12,14 +12,18 @@ import Feedback from "components/Feedback";
 // import Background from "./images/fabric-of-squares.png";
 import Background from "./images/inspiration-geometry.png";
 
+export const BackgroundWrapper = styled.div`
+	@media screen {
+		background-color: #ffffff;
+		background-image: url(${Background});
+	}
+`;
+
 export const Body = styled.div`
 	line-height: 1.5;
 	margin: 0 auto;
 
 	@media screen {
-		background-color: #ffffff;
-		background-image: url(${Background});
-
 		${getResponsiveValues({ value: { xs: "0.5rem", lg: "10mm" }, style: "padding" })};
 
 		max-width: 1824px;
@@ -47,17 +51,19 @@ export default class Base extends Component {
 		return (
 			<ThemeProvider theme={theme}>
 				<Text>
-					<Header />
-					<Body>
-						<Wrapper>
-							<Block flexShrink={1} mr={{ xs: 0, lg: 1 }}>
-								<Resume />
-							</Block>
-							<Block flexShrink={3}>
-								<Feedback />
-							</Block>
-						</Wrapper>
-					</Body>
+					<BackgroundWrapper>
+						<Header />
+						<Body>
+							<Wrapper>
+								<Block flexShrink={1} mr={{ xs: 0, lg: 1 }}>
+									<Resume />
+								</Block>
+								<Block flexShrink={3}>
+									<Feedback />
+								</Block>
+							</Wrapper>
+						</Body>
+					</BackgroundWrapper>
 				</Text>
 			</ThemeProvider>
 		);

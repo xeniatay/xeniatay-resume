@@ -22,7 +22,10 @@ export const shouldDisplayFeedback = (tags, selectedTags) => {
 };
 
 export const Title = styled.span`
+	display: block;
 	font-weight: bold;
+	margin-bottom: 0.5rem;
+	line-height: 1.3;
 	${getResponsiveValues({
 		value: { xs: "0.9rem", lg: "1rem" },
 		style: "font-size"
@@ -33,15 +36,12 @@ export const isTagSelected = (tag, selectedTags) =>
 	selectedTags.length === 0 ? false : selectedTags.indexOf(tag) !== -1;
 
 export const Container = styled.div`
+	box-sizing: border-box;
 	transition: all ease-in-out 200ms;
 	width: 100%;
-	${getResponsiveValues({ value: { lg: "1rem" }, style: "padding" })}
-	${getResponsiveValues({
-		value: { xs: "0.5rem auto", lg: "1rem auto 3rem auto" },
-		style: "margin"
-	})}
-	
-    max-width: 1100px; // 3 columns
+	margin: 1rem auto 3rem auto;
+	max-width: 1100px; // 3 columns
+	${getResponsiveValues({ value: { xs: "0.5rem", lg: "1rem" }, style: "padding" })}
 
 	@media print {
 		display: none;
@@ -69,7 +69,7 @@ export const SeeAll = styled.div`
 export const TagWrapper = styled.div`
 	display: flex;
 	justify-content: space-between;
-	${getResponsiveValues({ value: { xs: "wrap", lg: "unset" }, style: "flex-wrap" })}
+	${getResponsiveValues({ value: { xs: "wrap", md: "unset" }, style: "flex-wrap" })}
 `;
 
 export const Tag = styled.div`
@@ -115,8 +115,8 @@ export const BulletPointContainer = styled.div`
 	&:nth-child(even) {
 		em {
 			/* color: ${p => p.theme.palette.primary}; */
-            background-image: linear-gradient(-100deg, transparent, ${p =>
-				p.theme.palette.tertiaryComplement} 85%, transparent);
+            background-image: linear-gradient(-100deg, white, ${p =>
+				p.theme.palette.tertiaryComplement} 85%, white);
 		}
 	}
 
