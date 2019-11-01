@@ -275,6 +275,7 @@ export default class Resume extends Component {
 						</BulletPoints>
 					</CompanyContent>
 				</Company>
+				<PageBreak />
 				<Company>
 					<Position>Frontend Engineer</Position>
 					<CompanyName>Zenreach</CompanyName>
