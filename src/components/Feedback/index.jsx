@@ -115,16 +115,23 @@ export const BulletPointContainer = styled.div`
 	&:nth-child(even) {
 		em {
 			background-color: ${p => p.theme.palette.tertiaryComplement};
-            background-image: linear-gradient(-100deg, rgba(255, 255, 255, 1) , ${p =>
-				p.theme.palette.tertiaryComplement} 85%, rgba(255, 255, 255, 1));
+			background-image: linear-gradient(
+				-100deg,
+				rgba(255, 255, 255, 1),
+				${p => p.theme.palette.tertiaryComplement} 85%,
+				rgba(255, 255, 255, 1)
+			);
 		}
 	}
 
 	&:nth-child(odd) {
 		em {
-            /* color: ${p => p.theme.palette.secondary}; */
-            background-image: linear-gradient(-100deg, transparent, ${p =>
-				p.theme.palette.tertiary} 85%, transparent);
+			background-image: linear-gradient(
+				-100deg,
+				rgba(255, 255, 255, 1),
+				${p => p.theme.palette.tertiary} 85%,
+				rgba(255, 255, 255, 1)
+			);
 		}
 	}
 
