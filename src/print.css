@@ -1,6 +1,7 @@
 html {
 	scroll-behavior: smooth;
-	font-size: 16px; /* Explicitly set rem, fixes a bug in mobile Chrome (landscape) */
+	/* https://stackoverflow.com/questions/2710764/preserve-html-font-size-when-iphone-orientation-changes-from-portrait-to-landsca */
+	-webkit-text-size-adjust: 100%;
 }
 
 body {
