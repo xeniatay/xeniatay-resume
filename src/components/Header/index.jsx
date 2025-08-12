@@ -76,14 +76,7 @@ export const Summary = styled.div`
 	${getResponsiveValues({ value: { md: "0 0 3px black" }, style: "text-shadow" })}
 	${p => getResponsiveValues({ value: { md: p.theme.palette.volcano1 }, style: "color" })}
 	${getResponsiveValues({ value: { xs: "1.5", lg: "2" }, style: "line-height" })}
-	${p =>
-		getResponsiveValues({
-			value: {
-				xs: p.theme.typography.fontSizeXs,
-				lg: p.theme.typography.fontSizeBase
-			},
-			style: "font-size"
-		})}
+	font-size: ${p => p.theme.typography.fontSizeBase};
 `;
 
 export const FancyLink = styled.a`
@@ -91,9 +84,9 @@ export const FancyLink = styled.a`
 	display: block;
 	${getResponsiveValues({ value: { md: "0.5rem" }, style: "padding" })}
 	${getResponsiveValues({
-		value: { xs: "1rem", lg: "2rem" },
-		style: "margin-right"
-	})}
+	value: { xs: "1rem", lg: "2rem" },
+	style: "margin-right"
+})}
 	margin-bottom: 0.5rem;
 	${getResponsiveValues({ value: { md: "2px solid white" }, style: "border" })}
 	font-weight: bold;
