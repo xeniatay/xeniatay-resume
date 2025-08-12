@@ -12,11 +12,15 @@ body {
 @page {
 	size: auto; /* auto is the initial value */
 
-	/* this affects the margin in the printer settings */
 	margin: 15mm 10mm;
 }
 
 @media print {
+	@page {
+		/* this affects the margin in the printer settings */
+		margin: 20mm 18mm;
+	}
+
 	*,
 	*:before,
 	*:after,

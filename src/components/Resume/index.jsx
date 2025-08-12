@@ -220,11 +220,9 @@ export default class Resume extends Component {
 							<Date>2019</Date>
 							<Location>San Francisco</Location>
 							<Tools>
-								NextJS, ES6
+								NextJS
 								<br />
 								styled-components
-								<br />
-								Ant Design System
 								<br />
 								Apollo, GraphQL
 							</Tools>
@@ -248,12 +246,13 @@ export default class Resume extends Component {
 					</CompanyContent>
 				</Company>
 
+				{/* <PageBreak /> */}
 				<Company>
 					<Position>Senior Frontend Engineer</Position>
 					<CompanyName>Patreon</CompanyName>
 					<CompanySummary>
 						A platform where creatives connect with and earn money directly from their
-						fans, 1B valuation.
+						fans.
 					</CompanySummary>
 					<CompanyContent>
 						<CompanyDetails>
@@ -335,7 +334,6 @@ export default class Resume extends Component {
 						</BulletPoints>
 					</CompanyContent>
 				</Company>
-				{/* <PageBreak /> */}
 				<Block mv={2}>
 					<Text bold>
 						Bachelor of Computer Science (Honours) and Fine Arts Studio Minor
