@@ -43,7 +43,7 @@ export const Date = styled.span`
 	font-weight: bold;
 	font-size: 0.9rem;
 	text-align: right;
-	display: block;
+	${getResponsiveValues({ value: { xs: "inline", md: "block", print: "block" }, style: "display" })}
 
 	@media screen {
 		color: ${p => p.theme.palette.secondary};
@@ -66,6 +66,10 @@ export const Position = styled.span`
 export const Location = styled.span`
 	font-size: 0.9rem;
 	text-align: right;
+
+	&:before {
+		${getResponsiveValues({ value: { xs: "',  '", md: "unset", print: "unset" }, style: "content" })}
+	}
 `;
 
 export const Tools = styled.span`
@@ -77,6 +81,7 @@ export const Tools = styled.span`
 	value: { md: "0.5rem", print: "0.5rem" },
 	style: "margin-top"
 })}
+	${getResponsiveValues({ value: { xs: "none", md: "unset", print: "unset" }, style: "display" })}
 
 	&:before {
 		${getResponsiveValues({
@@ -118,10 +123,6 @@ export const CompanyDetails = styled.div`
 	${getResponsiveValues({ value: { md: "0.5rem", print: "1rem" }, style: "margin-left" })}
 	${getResponsiveValues({ value: { xs: "100%", md: "unset", print: "unset" }, style: "min-width" })}
 	${getResponsiveValues({ value: { xs: "0.5rem", md: "0", print: "0" }, style: "margin-bottom" })}
-
-	> span {
-		${getResponsiveValues({ value: { xs: "inline", md: "block", print: "block" }, style: "display" })}
-	}
 `;
 
 export const BulletPoints = styled.div`

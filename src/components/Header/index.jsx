@@ -89,20 +89,19 @@ export const Summary = styled.div`
 export const FancyLink = styled.a`
 	transition: all ease-in-out 100ms;
 	display: block;
-	${getResponsiveValues({ value: { md: "0.5rem 1rem" }, style: "padding" })}
+	${getResponsiveValues({ value: { md: "0.5rem" }, style: "padding" })}
 	${getResponsiveValues({
-	value: { xs: "1rem", lg: "2rem" },
-	style: "margin-right"
-})}
+		value: { xs: "1rem", lg: "2rem" },
+		style: "margin-right"
+	})}
 	margin-bottom: 0.5rem;
-	padding: 0.5rem;
-	border: 2px solid white;
+	${getResponsiveValues({ value: { md: "2px solid white" }, style: "border" })}
 	font-weight: bold;
 	letter-spacing: 1px;
 	text-decoration: none;
 	${p =>
 		getResponsiveValues({
-			value: { xs: p.theme.palette.white },
+			value: { xs: p.theme.palette.black, md: p.theme.palette.volcano1 },
 			style: "color"
 		})}
 	${p =>
