@@ -190,8 +190,7 @@ export default class Resume extends Component {
 					<Position>Founding Engineer</Position>
 					<CompanyName>Agora Systems</CompanyName>
 					<CompanySummary>
-						Materials and supply chain management software for the construction
-						industry.
+						Materials and supply chain procurement software for the construction industry, 275M valuation, 20M revenue.
 					</CompanySummary>
 					<CompanyContent>
 						<CompanyDetails>
@@ -231,7 +230,7 @@ export default class Resume extends Component {
 					<CompanyName>Patreon</CompanyName>
 					<CompanySummary>
 						A platform where creatives connect with and earn money directly from their
-						fans.
+						fans, 1B valuation.
 					</CompanySummary>
 					<CompanyContent>
 						<CompanyDetails>

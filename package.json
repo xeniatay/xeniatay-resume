@@ -15,7 +15,7 @@
 		"eject": "react-scripts eject",
 		"generate": "npx babel-node scripts/generate-pdf.js",
 		"predeploy": "npm run build",
-		"deploy:gh": "gh-pages -d build"
+		"deploy:gh": "npm run build && gh-pages -d build"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
