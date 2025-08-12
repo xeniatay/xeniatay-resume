@@ -44,6 +44,7 @@ export const ScreenHeader = styled.div`
 	`
 			display: flex;
 			margin-left: auto;
+			margin-right: auto;
 			max-width: 864px; // 9in, to vaguely match resume
 			align-items: center;
 			text-align: left;
@@ -52,7 +53,6 @@ export const ScreenHeader = styled.div`
 		style: "justify-content"
 	})}
 			${getResponsiveValues({ value: { xs: "0.5rem", sm: "1rem", lg: "3rem 2rem" }, style: "padding" })}
-			${getResponsiveValues({ value: { xs: "auto", lg: "10%", xl: "20%" }, style: "margin-right" })}
 	`
 )}
 `;
@@ -89,34 +89,20 @@ export const Summary = styled.div`
 export const FancyLink = styled.a`
 	transition: all ease-in-out 100ms;
 	display: block;
-	${getResponsiveValues({ value: { md: "0.2rem 1rem" }, style: "padding" })}
+	${getResponsiveValues({ value: { md: "0.5rem 1rem" }, style: "padding" })}
 	${getResponsiveValues({
-	value: { xs: "1rem", lg: "2rem" },
-	style: "margin-right"
-})}
+		value: { xs: "1rem", lg: "2rem" },
+		style: "margin-right"
+	})}
 	margin-bottom: 0.5rem;
+	padding: 0.5rem;
+	border: 2px solid white;
 	font-weight: bold;
 	letter-spacing: 1px;
-	${p =>
-		getResponsiveValues({
-			value: {
-				xs: "1rem",
-				md: `
-					linear-gradient(
-						-100deg,
-						transparent,
-						${p.theme.palette.volcano2} 35%,
-						${p.theme.palette.tertiaryComplement} 85%,
-						transparent
-					)
-				`
-			},
-			style: "background-image"
-		})}
 	text-decoration: none;
 	${p =>
 		getResponsiveValues({
-			value: { xs: p.theme.palette.secondary, md: p.theme.palette.gray9 },
+			value: { xs: p.theme.palette.white },
 			style: "color"
 		})}
 	${p =>
@@ -133,7 +119,7 @@ export const FancyLink = styled.a`
 		})}
 
 	&:hover {
-		${getResponsiveValues({ value: { md: "0.2rem 0.9rem 0.2rem 1.1rem" }, style: "padding" })}
+		${getResponsiveValues({ value: { md: "0.5rem 0.9rem 0.5rem 1.1rem" }, style: "padding" })}
 		text-decoration: underline;
 	}
 `;
