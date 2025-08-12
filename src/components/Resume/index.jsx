@@ -8,7 +8,7 @@ export const Container = styled.div`
 	position: relative;
 
 	@media screen {
-		max-width: 9in;
+		max-width: 9.3in;
 		zoom: 0.9;
 		background-color: ${p => p.theme.palette.gray1};
 		${getResponsiveValues({ value: { xs: "0.5rem", md: "1rem", lg: "3rem" }, style: "padding" })}
@@ -155,7 +155,7 @@ export default class Resume extends Component {
 					<Position>Senior Software Engineer</Position>
 					<CompanyName>Google</CompanyName>
 					<CompanySummary>
-						Core Infrastructure - making it dramatically easier for Google developers to view, triage and analyze build and test results.
+						Core Infrastructure - making it dramatically easier for Google devs to view, triage and analyze build/test results.
 					</CompanySummary>
 					<CompanyContent>
 						<CompanyDetails>
