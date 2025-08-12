@@ -9,7 +9,7 @@ import Text from "components/shared/Text";
 // import Background from "./images/flower.jpg";
 // import Background from "./images/eye.jpg";
 // import Background from "./images/eyedark.jpg";
-import Background from "./images/eyedark2.jpg";
+// import Background from "./images/eyedark2.jpg";
 
 const EMAIL = "tay.xenia@gmail.com";
 const GITHUB = "github.com/xeniatay";
@@ -17,9 +17,10 @@ const WEBSITE = "xeniatay.com";
 const LINKEDIN = "linkedin.com/in/xeniatay/";
 const RESUME = "#resume";
 const TESTIMONIALS = "#strengths";
-const EXPERIENCE = "I have 5+ years of frontend product development experience. ";
-const CULTURE = "I value empathetic and inclusive work cultures. ";
-const PRODUCT = "I enjoy building product that relieves user pain and domain inefficiencies. ";
+const EXPERIENCE = `I've been a frontend product engineer (web) for over a decade.
+ My career has taken me from startups of less than 10 people, to founding engineer, to one of eighty thousand engineers at scale.
+ I'm looking to join a small, driven team, with a transparent and autonomous culture.
+`;
 
 export const Container = styled.div`
 	margin: 0 auto;
@@ -27,13 +28,9 @@ export const Container = styled.div`
 	@media screen {
 		position: relative; // To make box shadow appear
 		${getResponsiveValues({
-			value: { md: "black" },
-			style: "background-color"
-		})}
-		${getResponsiveValues({
-			value: { xs: "none", md: `url(${Background})` },
-			style: "background-image"
-		})}
+	value: { md: "black" },
+	style: "background-color"
+})}
 		background-position: center 45%;
 		background-repeat: no-repeat;
 		background-size: 80%;
@@ -44,20 +41,20 @@ export const Container = styled.div`
 
 export const ScreenHeader = styled.div`
 	${SCREEN_ONLY(
-		`
+	`
 			display: flex;
 			margin-left: auto;
 			max-width: 864px; // 9in, to vaguely match resume
 			align-items: center;
 			text-align: left;
 			${getResponsiveValues({
-				value: { xs: "space-around", lg: "flex-start" },
-				style: "justify-content"
-			})}
+		value: { xs: "space-around", lg: "flex-start" },
+		style: "justify-content"
+	})}
 			${getResponsiveValues({ value: { xs: "0.5rem", sm: "1rem", lg: "3rem 2rem" }, style: "padding" })}
 			${getResponsiveValues({ value: { xs: "auto", lg: "10%", xl: "20%" }, style: "margin-right" })}
 	`
-	)}
+)}
 `;
 
 export const XeniaTay = styled.div`
@@ -94,9 +91,9 @@ export const FancyLink = styled.a`
 	display: block;
 	${getResponsiveValues({ value: { md: "0.2rem 1rem" }, style: "padding" })}
 	${getResponsiveValues({
-		value: { xs: "1rem", lg: "2rem" },
-		style: "margin-right"
-	})}
+	value: { xs: "1rem", lg: "2rem" },
+	style: "margin-right"
+})}
 	margin-bottom: 0.5rem;
 	font-weight: bold;
 	letter-spacing: 1px;
@@ -131,9 +128,9 @@ export const FancyLink = styled.a`
 			style: "font-size"
 		})}
 	${getResponsiveValues({
-		value: { xs: "underline", md: "none" },
-		style: "text-decoration"
-	})}
+			value: { xs: "underline", md: "none" },
+			style: "text-decoration"
+		})}
 
 	&:hover {
 		${getResponsiveValues({ value: { md: "0.2rem 0.9rem 0.2rem 1.1rem" }, style: "padding" })}
@@ -151,8 +148,6 @@ export default class Header extends Component {
 						<Block mv={1} textAlign="left" maxWidth={{ md: "500px" }}>
 							<Summary>
 								{EXPERIENCE}
-								{CULTURE}
-								{PRODUCT}
 							</Summary>
 						</Block>
 						<Block flex flexWrap="wrap">
@@ -198,7 +193,7 @@ export default class Header extends Component {
 							flex
 							flexGrow={1}
 							justifyContent="space-between"
-							maxWidth="420px"
+							maxWidth="300px"
 							mr={1}
 						>
 							<a href={`mailto:${EMAIL}`} target="_blank" rel="noopener noreferrer">
@@ -207,16 +202,13 @@ export default class Header extends Component {
 							<a href={`http://${GITHUB}`} target="_blank" rel="noopener noreferrer">
 								{GITHUB}
 							</a>
-							<a href={`http://${WEBSITE}`} target="_blank" rel="noopener noreferrer">
+							{/* <a href={`http://${WEBSITE}`} target="_blank" rel="noopener noreferrer">
 								{WEBSITE}
-							</a>
+							</a> */}
 						</Block>
 					</Block>
 					<Block mv={1}>
 						{EXPERIENCE}
-						{CULTURE}
-						<br />
-						{PRODUCT}
 					</Block>
 				</Block>
 			</Container>

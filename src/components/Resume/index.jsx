@@ -14,10 +14,10 @@ export const Container = styled.div`
 		${getResponsiveValues({ value: { xs: "0.5rem", md: "1rem", lg: "3rem" }, style: "padding" })}
 		${getResponsiveValues({ value: { md: "0.5rem auto", lg: "1rem auto 3rem auto" }, style: "margin" })}
 		${p =>
-			getResponsiveValues({
-				value: { lg: `0 0 8px 0px ${p.theme.palette.gray5}` },
-				style: "box-shadow"
-			})}
+		getResponsiveValues({
+			value: { lg: `0 0 8px 0px ${p.theme.palette.gray5}` },
+			style: "box-shadow"
+		})}
 	}
 `;
 
@@ -35,12 +35,14 @@ export const CompanyName = styled.span`
 `;
 
 export const CompanySummary = styled.span`
+  font-weight: bold;
 	${getResponsiveValues({ value: { xs: "none", md: "block", print: "block" }, style: "display" })}
 `;
 
 export const Date = styled.span`
 	font-weight: bold;
 	font-size: 0.9rem;
+	text-align: right;
 	display: block;
 
 	@media screen {
@@ -58,41 +60,42 @@ export const Position = styled.span`
 	&:after {
 		content: " at ";
 		color: black;
-		font-weight: normal;
 	}
 `;
 
 export const Location = styled.span`
 	font-size: 0.9rem;
+	text-align: right;
 `;
 
 export const Tools = styled.span`
 	display: block;
 	font-size: 0.9rem;
+	text-align: right;
 	${getResponsiveValues({ value: { md: "1.8", print: "1.8" }, style: "line-height" })}
 	${getResponsiveValues({
-		value: { md: "0.5rem", print: "0.5rem" },
-		style: "margin-top"
-	})}
-	
+	value: { md: "0.5rem", print: "0.5rem" },
+	style: "margin-top"
+})}
+
 	&:before {
 		${getResponsiveValues({
-			value: { xs: "', Tools: '", md: "unset", print: "unset" },
-			style: "content"
-		})}
+	value: { xs: "', Tools: '", md: "unset", print: "unset" },
+	style: "content"
+})}
 	}
 
 	> br {
 		${getResponsiveValues({
-			value: { xs: "''", md: "unset", print: "unset" },
-			style: "content"
-		})}
+	value: { xs: "''", md: "unset", print: "unset" },
+	style: "content"
+})}
 
 		&:after {
 			${getResponsiveValues({
-				value: { xs: "', '", md: "unset", print: "unset" },
-				style: "content"
-			})}
+	value: { xs: "', '", md: "unset", print: "unset" },
+	style: "content"
+})}
 		}
 	}
 `;
@@ -103,9 +106,9 @@ export const CompanyContent = styled.div`
 	flex-direction: row-reverse;
 	justify-content: space-between;
 	${getResponsiveValues({
-		value: { xs: "wrap", md: "unset", print: "unset" },
-		style: "flex-wrap"
-	})}
+	value: { xs: "wrap", md: "unset", print: "unset" },
+	style: "flex-wrap"
+})}
 `;
 
 export const CompanyDetails = styled.div`
@@ -122,7 +125,7 @@ export const CompanyDetails = styled.div`
 `;
 
 export const BulletPoints = styled.div`
-	flex-basis: 80%;
+	flex-basis: 100%;
 	flex-grow: 1;
 `;
 
@@ -149,6 +152,41 @@ export default class Resume extends Component {
 		return (
 			<Container id="resume">
 				<Company>
+					<Position>Senior Software Engineer</Position>
+					<CompanyName>Google</CompanyName>
+					<CompanySummary>
+						Core Infrastructure - making it dramatically easier for Google developers to view, triage and analyze build and test results.
+					</CompanySummary>
+					<CompanyContent>
+						<CompanyDetails>
+							<Date>2020-2025</Date>
+							<Location>New York</Location>
+							<Tools>
+								Angular JS
+								<br />
+								SCSS
+								<br />
+								Google Material <br />Design
+							</Tools>
+						</CompanyDetails>
+						<BulletPoints>
+							<BulletPoint>
+								Launched a Continuous Integration (CI) dashboard that achieved 163,000 hits within a year and received over 90% user satisfaction, by leading the entire product lifecycle from product requirements, design, and implementation to gathering launch and landing metrics.
+							</BulletPoint>
+							<BulletPoint>
+								Drove the successful launch of a CI troubleshooting tool, which was loaded 1.3 million times by 108,000 devices, by managing the end-to-end launch process, taking on backend responsibilities, and creating self-service onboarding documentation.
+							</BulletPoint>
+							<BulletPoint>
+								Designed and developed a critical UI for Google Axion, Google's first Arm-based CPU effort, by collaborating with 5+ stakeholder teams and single-handedly implementing the frontend solution.
+							</BulletPoint>
+							<BulletPoint>
+								Refactored legacy code, standardized workflows, and consolidated technical knowledge to improve team efficiency and reduce technical debt. Mentored eight junior engineers, through hands-on coaching and architectural guidance, resulting in streamlined development and increased technical autonomy.
+							</BulletPoint>
+						</BulletPoints>
+					</CompanyContent>
+				</Company>
+
+				<Company>
 					<Position>Founding Engineer</Position>
 					<CompanyName>Agora Systems</CompanyName>
 					<CompanySummary>
@@ -158,7 +196,7 @@ export default class Resume extends Component {
 					<CompanyContent>
 						<CompanyDetails>
 							<Date>2019</Date>
-							{/* <Location>San Francisco</Location> */}
+							<Location>San Francisco</Location>
 							<Tools>
 								NextJS, ES6
 								<br />
@@ -198,7 +236,7 @@ export default class Resume extends Component {
 					<CompanyContent>
 						<CompanyDetails>
 							<Date>2017 - 2018</Date>
-							{/* <Location>San Francisco</Location> */}
+							<Location>San Francisco</Location>
 							<Tools>
 								ReactJS, ES6
 								<br />
@@ -245,8 +283,8 @@ export default class Resume extends Component {
 							<BulletPoint>
 								Sole web engineer on{" "}
 								<a href="https://techcrunch.com/2018/02/06/patreon-lens/">Lens</a>{" "}
-								(ephemeral content), launching a complex cross-platform (mobile/web)
-								feature across three user types (creator/patron/follower) with zero
+								(ephemeral content), launched a complex cross-platform
+								feature across three user types (creator/patron/follower), zero
 								bugs reported post-launch.
 							</BulletPoint>
 							<BulletPoint>
@@ -259,7 +297,7 @@ export default class Resume extends Component {
 								Improved clarity about promotions, accountability of managers, and
 								recognition of teammates as one of the authors of{" "}
 								<a
-									href="http://levels.patreon.com"
+									href="https://gigabody.com/2019/09/25/how-patreon-levels-engineers/"
 									target="_blank"
 									rel="noopener noreferrer"
 								>
@@ -275,56 +313,16 @@ export default class Resume extends Component {
 						</BulletPoints>
 					</CompanyContent>
 				</Company>
-				<PageBreak />
-				<Company>
-					<Position>Frontend Engineer</Position>
-					<CompanyName>Zenreach</CompanyName>
-					<CompanySummary>
-						A WiFi platform that enables digital marketing to brick-and-mortar
-						customers.
-					</CompanySummary>
-					<CompanyContent>
-						<CompanyDetails>
-							<Date>2016</Date>
-							{/* <Location>San Francisco</Location> */}
-							<Tools>
-								ReactJS, ExpressJS
-								<br />
-								Webpack, Babel, ES6
-								<br />
-								Django, Python
-							</Tools>
-						</CompanyDetails>
-						<BulletPoints>
-							<BulletPoint>
-								Owned Web Widgets, a tool that creates white-label embedded mailing
-								list forms. Customers’ most requested feature for two years,
-								delivered in two months.
-							</BulletPoint>
-							<BulletPoint>
-								Built two WYSIWYG platforms: email composer and Wifi portal
-								customizer, with features like drag-and-drop, undo/redo, and custom
-								templates supporting an immense variety of devices and email
-								clients.
-							</BulletPoint>
-						</BulletPoints>
-					</CompanyContent>
-				</Company>
-
+				{/* <PageBreak /> */}
 				<Block mv={2}>
 					<Text bold>
 						Bachelor of Computer Science (Honours) and Fine Arts Studio Minor
 					</Text>
 					<Block>University of Waterloo, 2015 </Block>
 					<Block maxWidth="600px">
-						Interned at Bandpage, Wanderable, Indochino, BazaarVoice, 
+						Interned at startups like Bandpage, Wanderable, Indochino, BazaarVoice,
 						and WatrHub during the Waterloo co-op program.
 					</Block>
-				</Block>
-				<Block>
-					<Text bold>Canadian University Software Engineering Conference (CUSEC)</Text>
-					<br />
-					Director of Sponsorship (2015), Website & Resume Upload (2014)
 				</Block>
 			</Container>
 		);

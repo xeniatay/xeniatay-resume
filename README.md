@@ -1,3 +1,12 @@
+## 2025
+
+- Ran npm install --save --save-exact react-scripts@5.0.1 to update CRA
+- Ran `npm start` to run on http://localhost:8080
+- Updated content
+- Ctrl+p to print .pdf version
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
