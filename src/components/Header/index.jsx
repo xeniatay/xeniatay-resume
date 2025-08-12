@@ -28,7 +28,7 @@ export const Container = styled.div`
 	@media screen {
 		position: relative; // To make box shadow appear
 		${getResponsiveValues({
-	value: { md: "#ffe5c5" },
+	value: { md: "black" },
 	style: "background-color"
 })}
 		background-position: center 45%;
@@ -60,8 +60,8 @@ export const ScreenHeader = styled.div`
 export const XeniaTay = styled.div`
 	font-weight: bold;
 	font-family: ${p => p.theme.typography.fontFamilyHeader};
-	color: ${p => p.theme.palette.black};
-	text-shadow: 1px 0 2px black;
+	color: ${p => p.theme.palette.volcano1};
+	text-shadow: 0 0 3px black;
 	${getResponsiveValues({ value: { xs: "1.5rem", md: "2rem", lg: "3rem" }, style: "font-size" })}
 	${getResponsiveValues({ value: { xs: "none", md: "block" }, style: "display" })}
 `;
@@ -73,7 +73,8 @@ export const Summary = styled.div`
 
 	${getResponsiveValues({ value: { xs: "100%", md: "500px" }, style: "max-width" })}
 	${getResponsiveValues({ value: { xs: "white", md: "none" }, style: "background" })}
-	${p => getResponsiveValues({ value: { md: p.theme.palette.black }, style: "color" })}
+	${getResponsiveValues({ value: { md: "0 0 3px black" }, style: "text-shadow" })}
+	${p => getResponsiveValues({ value: { md: p.theme.palette.volcano1 }, style: "color" })}
 	${getResponsiveValues({ value: { xs: "1.5", lg: "2" }, style: "line-height" })}
 	${p =>
 		getResponsiveValues({
@@ -95,13 +96,13 @@ export const FancyLink = styled.a`
 })}
 	margin-bottom: 0.5rem;
 	padding: 0.5rem;
-	border: 2px solid black;
+	border: 2px solid white;
 	font-weight: bold;
 	letter-spacing: 1px;
 	text-decoration: none;
 	${p =>
 		getResponsiveValues({
-			value: { xs: p.theme.palette.black},
+			value: { xs: p.theme.palette.white },
 			style: "color"
 		})}
 	${p =>
