@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/xeniatay-resume/static/css/main.e4915f07.css",
+    "main.js": "/xeniatay-resume/static/js/main.2d008eb4.js",
+    "static/media/eyedark2.jpg": "/xeniatay-resume/static/media/eyedark2.d3b77e44cbeade8c3b3f.jpg",
+    "index.html": "/xeniatay-resume/index.html",
+    "main.e4915f07.css.map": "/xeniatay-resume/static/css/main.e4915f07.css.map",
+    "main.2d008eb4.js.map": "/xeniatay-resume/static/js/main.2d008eb4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e4915f07.css",
+    "static/js/main.2d008eb4.js"
+  ]
+}
