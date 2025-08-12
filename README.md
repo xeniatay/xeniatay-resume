@@ -1,9 +1,9 @@
 ## 2025
 
-- Ran npm install --save --save-exact react-scripts@5.0.1 to update CRA
-- Ran `npm start` to run on http://localhost:8080
-- Updated content
-- Ctrl+p to print .pdf version
+- Ran `npm install --save --save-exact react-scripts@5.0.1` to update CRA
+- Run `npm start` to run on http://localhost:8080
+- Update content, `ctrl+p` to print .pdf version
+- `npm run build` && `npm run deploy:gh` to deploy to https://xeniatay.github.io/xeniatay-resume/.
 
 ---
 
