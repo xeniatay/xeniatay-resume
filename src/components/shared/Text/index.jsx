@@ -19,6 +19,8 @@ const StyledText = styled.span`
 
 	@media print {
 		font-family: ${p.theme.typography.fontFamilySerif} !important;
+		font-size: ${p.theme.typography.fontSizeXxl};
+		line-height: 1.6;
 	}
 
 	${p.fontVariant ? `font-variant: ${p.fontVariant};` : ""}

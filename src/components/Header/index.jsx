@@ -171,7 +171,7 @@ export default class Header extends Component {
 							flex
 							flexGrow={1}
 							justifyContent="space-between"
-							maxWidth="300px"
+							maxWidth="430px"
 							mr={1}
 						>
 							<a href={`mailto:${EMAIL}`} target="_blank" rel="noopener noreferrer">

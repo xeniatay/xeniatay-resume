@@ -41,7 +41,14 @@ export const CompanySummary = styled.span`
 
 export const Date = styled.span`
 	font-weight: bold;
-	font-size: 0.9rem;
+	${p =>
+		getResponsiveValues({
+			value: {
+				xs: p.theme.typography.fontSizeSm,
+				print: p.theme.typography.fontSizeXl
+			},
+			style: "font-size"
+		})}
 	text-align: right;
 	${getResponsiveValues({ value: { xs: "inline", md: "block", print: "block" }, style: "display" })}
 
@@ -64,8 +71,16 @@ export const Position = styled.span`
 `;
 
 export const Location = styled.span`
-	font-size: 0.9rem;
+	${p =>
+		getResponsiveValues({
+			value: {
+				xs: p.theme.typography.fontSizeSm,
+				print: p.theme.typography.fontSizeXl
+			},
+			style: "font-size"
+		})}
 	text-align: right;
+	${getResponsiveValues({ value: { xs: "unset", md: "block", print: "block" }, style: "display" })}
 
 	&:before {
 		${getResponsiveValues({ value: { xs: "',  '", md: "unset", print: "unset" }, style: "content" })}
@@ -74,14 +89,21 @@ export const Location = styled.span`
 
 export const Tools = styled.span`
 	display: block;
-	font-size: 0.9rem;
+	${p =>
+		getResponsiveValues({
+			value: {
+				xs: p.theme.typography.fontSizeSm,
+				print: p.theme.typography.fontSizeXl
+			},
+			style: "font-size"
+		})}
 	text-align: right;
 	${getResponsiveValues({ value: { md: "1.8", print: "1.8" }, style: "line-height" })}
 	${getResponsiveValues({
 	value: { md: "0.5rem", print: "0.5rem" },
 	style: "margin-top"
 })}
-	${getResponsiveValues({ value: { xs: "none", md: "unset", print: "unset" }, style: "display" })}
+	${getResponsiveValues({ value: { xs: "none", md: "block", print: "block" }, style: "display" })}
 
 	&:before {
 		${getResponsiveValues({
@@ -167,12 +189,12 @@ export default class Resume extends Component {
 								<br />
 								SCSS
 								<br />
-								Google Material <br />Design
+								Material Design
 							</Tools>
 						</CompanyDetails>
 						<BulletPoints>
 							<BulletPoint>
-								Launched a Continuous Integration (CI) dashboard that achieved 163,000 hits within a year and received over 90% user satisfaction, by leading the entire product lifecycle from product requirements, design, and implementation to gathering launch and landing metrics.
+								Launched a Continuous Integration (CI) dashboard that achieved 163,000 hits within a year and received over 90% user satisfaction, by executing the entire product lifecycle from product requirements, design, and implementation to gathering launch and landing metrics.
 							</BulletPoint>
 							<BulletPoint>
 								Drove the successful launch of a CI troubleshooting tool, which was loaded 1.3 million times by 108,000 devices, by managing the end-to-end launch process, taking on backend responsibilities, and creating self-service onboarding documentation.
@@ -181,7 +203,7 @@ export default class Resume extends Component {
 								Designed and developed a critical UI for Google Axion, Google's first Arm-based CPU effort, by collaborating with 5+ stakeholder teams and single-handedly implementing the frontend solution.
 							</BulletPoint>
 							<BulletPoint>
-								Refactored legacy code, standardized workflows, and consolidated technical knowledge to improve team efficiency and reduce technical debt. Mentored eight junior engineers, through hands-on coaching and architectural guidance, resulting in streamlined development and increased technical autonomy.
+								Refactored legacy code, standardized workflows, and consolidated technical knowledge to improve team efficiency and reduce technical debt. Mentored eight junior engineers through hands-on coaching and architectural guidance.
 							</BulletPoint>
 						</BulletPoints>
 					</CompanyContent>
