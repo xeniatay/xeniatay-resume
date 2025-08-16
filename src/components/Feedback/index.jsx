@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-import Block, { getResponsiveValues } from "components/shared/Block";
+import Block, { setRspv } from "components/shared/Block";
 import Text from "components/shared/Text";
 
 import { TAGS, FEEDBACK } from "./constants";
@@ -26,7 +26,7 @@ export const Title = styled.span`
 	font-weight: bold;
 	margin-bottom: 0.5rem;
 	line-height: 1.3;
-	${getResponsiveValues({
+	${setRspv({
 		value: { xs: "0.9rem", lg: "1rem" },
 		style: "font-size"
 	})}
@@ -41,7 +41,7 @@ export const Container = styled.div`
 	width: 100%;
 	margin: 1rem auto 3rem auto;
 	max-width: 1100px; // 3 columns
-	${getResponsiveValues({ value: { xs: "0.5rem", lg: "1rem" }, style: "padding" })}
+	${setRspv({ value: { xs: "0.5rem", lg: "1rem" }, style: "padding" })}
 
 	@media print {
 		display: none;
@@ -69,18 +69,18 @@ export const SeeAll = styled.div`
 export const TagWrapper = styled.div`
 	display: flex;
 	justify-content: space-between;
-	${getResponsiveValues({ value: { xs: "wrap", md: "unset" }, style: "flex-wrap" })}
+	${setRspv({ value: { xs: "wrap", md: "unset" }, style: "flex-wrap" })}
 `;
 
 export const Tag = styled.div`
 	transition: all ease-in-out 100ms;
-	${getResponsiveValues({ value: { xs: "0.25rem", lg: "0.25rem 0.5rem" }, style: "margin" })}
+	${setRspv({ value: { xs: "0.25rem", lg: "0.25rem 0.5rem" }, style: "margin" })}
 	margin-left: 0 !important;
 	padding: 0.1rem 0.4rem;
 	background-color: ${p => p.theme.palette.gray1};
 	border: 1px solid ${p => p.theme.palette.transparent};
 	box-shadow: 1px 1px 1px 0 ${p => p.theme.palette.gray8};
-	${getResponsiveValues({ value: { xs: "0.8rem", lg: "0.9rem" }, style: "font-size" })}
+	${setRspv({ value: { xs: "0.8rem", lg: "0.9rem" }, style: "font-size" })}
 	cursor: pointer;
 
 	${p =>
@@ -103,7 +103,7 @@ export const Tag = styled.div`
 export const BulletPointContainer = styled.div`
 	flex-basis: 300px;
 	flex-grow: 1;
-	${getResponsiveValues({ value: { xs: "0.5rem", lg: "1rem" }, style: "padding" })}
+	${setRspv({ value: { xs: "0.5rem", lg: "1rem" }, style: "padding" })}
 
 	${p =>
 		shouldDisplayFeedback(p.tags, p.selectedTags)
@@ -146,7 +146,7 @@ export const BulletPoint = styled.div`
 	}
 
 	line-height: 1.5;
-	${getResponsiveValues({ value: { xs: "0.8rem", lg: "0.9rem" }, style: "font-size" })}
+	${setRspv({ value: { xs: "0.8rem", lg: "0.9rem" }, style: "font-size" })}
 	color: ${p => p.theme.palette.gray9};
 	background-color: ${p => p.theme.palette.gray1};
 `;
@@ -158,7 +158,7 @@ export const AttributedTo = styled.div`
 
 	margin-top: 0.3rem;
 	text-align: right;
-	${getResponsiveValues({ value: { xs: "0.7rem", lg: "0.7rem" }, style: "font-size" })}
+	${setRspv({ value: { xs: "0.7rem", lg: "0.7rem" }, style: "font-size" })}
 	color: ${p => p.theme.palette.gray8};
 	background-color: ${p => p.theme.palette.gray1};
 `;

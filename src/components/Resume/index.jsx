@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-import Block, { getResponsiveValues } from "components/shared/Block";
+import Block, { setRspv } from "components/shared/Block";
 import Text from "components/shared/Text";
 
 export const Container = styled.div`
@@ -11,10 +11,10 @@ export const Container = styled.div`
 		max-width: 9.3in;
 		zoom: 0.9;
 		background-color: ${p => p.theme.palette.gray1};
-		${getResponsiveValues({ value: { xs: "0.5rem", md: "1rem", lg: "3rem" }, style: "padding" })}
-		${getResponsiveValues({ value: { md: "0.5rem auto", lg: "1rem auto 3rem auto" }, style: "margin" })}
+		${setRspv({ value: { xs: "0.5rem", md: "1rem", lg: "3rem" }, style: "padding" })}
+		${setRspv({ value: { md: "0.5rem auto", lg: "1rem auto 3rem auto" }, style: "margin" })}
 		${p =>
-		getResponsiveValues({
+		setRspv({
 			value: { lg: `0 0 8px 0px ${p.theme.palette.gray5}` },
 			style: "box-shadow"
 		})}
@@ -36,13 +36,13 @@ export const CompanyName = styled.span`
 
 export const CompanySummary = styled.span`
   font-weight: bold;
-	${getResponsiveValues({ value: { xs: "none", md: "block", print: "block" }, style: "display" })}
+	${setRspv({ value: { xs: "none", md: "block", print: "block" }, style: "display" })}
 `;
 
 export const Date = styled.span`
 	font-weight: bold;
 	${p =>
-		getResponsiveValues({
+		setRspv({
 			value: {
 				xs: p.theme.typography.fontSizeSm,
 				print: p.theme.typography.fontSizeXl
@@ -50,7 +50,7 @@ export const Date = styled.span`
 			style: "font-size"
 		})}
 	text-align: right;
-	${getResponsiveValues({ value: { xs: "inline", md: "block", print: "block" }, style: "display" })}
+	${setRspv({ value: { xs: "inline", md: "block", print: "block" }, style: "display" })}
 
 	@media screen {
 		color: ${p => p.theme.palette.secondary};
@@ -72,7 +72,7 @@ export const Position = styled.span`
 
 export const Location = styled.span`
 	${p =>
-		getResponsiveValues({
+		setRspv({
 			value: {
 				xs: p.theme.typography.fontSizeSm,
 				print: p.theme.typography.fontSizeXl
@@ -80,17 +80,17 @@ export const Location = styled.span`
 			style: "font-size"
 		})}
 	text-align: right;
-	${getResponsiveValues({ value: { xs: "unset", md: "block", print: "block" }, style: "display" })}
+	${setRspv({ value: { xs: "unset", md: "block", print: "block" }, style: "display" })}
 
 	&:before {
-		${getResponsiveValues({ value: { xs: "',  '", md: "unset", print: "unset" }, style: "content" })}
+		${setRspv({ value: { xs: "',  '", md: "unset", print: "unset" }, style: "content" })}
 	}
 `;
 
 export const Tools = styled.span`
 	display: block;
 	${p =>
-		getResponsiveValues({
+		setRspv({
 			value: {
 				xs: p.theme.typography.fontSizeSm,
 				print: p.theme.typography.fontSizeXl
@@ -98,31 +98,31 @@ export const Tools = styled.span`
 			style: "font-size"
 		})}
 	text-align: right;
-	${getResponsiveValues({ value: { md: "1.8", print: "1.8" }, style: "line-height" })}
-	${getResponsiveValues({
-	value: { md: "0.5rem", print: "0.5rem" },
-	style: "margin-top"
-})}
-	${getResponsiveValues({ value: { xs: "none", md: "block", print: "block" }, style: "display" })}
+	${setRspv({ value: { md: "1.8", print: "1.8" }, style: "line-height" })}
+	${setRspv({
+			value: { md: "0.5rem", print: "0.5rem" },
+			style: "margin-top"
+		})}
+	${setRspv({ value: { xs: "none", md: "block", print: "block" }, style: "display" })}
 
 	&:before {
-		${getResponsiveValues({
-	value: { xs: "', Tools: '", md: "unset", print: "unset" },
-	style: "content"
-})}
+		${setRspv({
+			value: { xs: "', Tools: '", md: "unset", print: "unset" },
+			style: "content"
+		})}
 	}
 
 	> br {
-		${getResponsiveValues({
-	value: { xs: "''", md: "unset", print: "unset" },
-	style: "content"
-})}
+		${setRspv({
+			value: { xs: "''", md: "unset", print: "unset" },
+			style: "content"
+		})}
 
 		&:after {
-			${getResponsiveValues({
-	value: { xs: "', '", md: "unset", print: "unset" },
-	style: "content"
-})}
+			${setRspv({
+			value: { xs: "', '", md: "unset", print: "unset" },
+			style: "content"
+		})}
 		}
 	}
 `;
@@ -132,7 +132,7 @@ export const CompanyContent = styled.div`
 	display: flex;
 	flex-direction: row-reverse;
 	justify-content: space-between;
-	${getResponsiveValues({
+	${setRspv({
 	value: { xs: "wrap", md: "unset", print: "unset" },
 	style: "flex-wrap"
 })}
@@ -141,10 +141,10 @@ export const CompanyContent = styled.div`
 export const CompanyDetails = styled.div`
 	flex-basis: 20%;
 	flex-grow: 1;
-	${getResponsiveValues({ value: { md: "1rem", print: "1rem" }, style: "padding-left" })}
-	${getResponsiveValues({ value: { md: "0.5rem", print: "1rem" }, style: "margin-left" })}
-	${getResponsiveValues({ value: { xs: "100%", md: "unset", print: "unset" }, style: "min-width" })}
-	${getResponsiveValues({ value: { xs: "0.5rem", md: "0", print: "0" }, style: "margin-bottom" })}
+	${setRspv({ value: { md: "1rem", print: "1rem" }, style: "padding-left" })}
+	${setRspv({ value: { md: "0.5rem", print: "1rem" }, style: "margin-left" })}
+	${setRspv({ value: { xs: "100%", md: "unset", print: "unset" }, style: "min-width" })}
+	${setRspv({ value: { xs: "0.5rem", md: "0", print: "0" }, style: "margin-bottom" })}
 `;
 
 export const BulletPoints = styled.div`
@@ -194,16 +194,16 @@ export default class Resume extends Component {
 						</CompanyDetails>
 						<BulletPoints>
 							<BulletPoint>
-								Launched a Continuous Integration (CI) dashboard that achieved 163,000 hits within a year and received over 90% user satisfaction, by executing the entire product lifecycle from product requirements, design, and implementation to gathering launch and landing metrics.
+								Launched a Continuous Integration (CI) troubleshooting tool loaded 1.3 million times by 108,000 devices, by managing the end-to-end launch process, taking on backend responsibilities, and creating self-service onboarding documentation.
 							</BulletPoint>
 							<BulletPoint>
-								Drove the successful launch of a CI troubleshooting tool, which was loaded 1.3 million times by 108,000 devices, by managing the end-to-end launch process, taking on backend responsibilities, and creating self-service onboarding documentation.
+								Created from scratch a CI dashboard that achieved 163,000 hits within a year and received over 90% user satisfaction, by executing the entire product lifecycle from product requirements, design, and implementation to gathering launch and landing metrics.
 							</BulletPoint>
 							<BulletPoint>
-								Designed and developed a critical UI for Google Axion, Google's first Arm-based CPU effort, by collaborating with 5+ stakeholder teams and single-handedly implementing the frontend solution.
+								Designed and developed a critical UI for <a href="https://cloud.google.com/blog/products/compute/introducing-googles-new-arm-based-cpu" target="_blank">Google Axion</a>, Google's first Arm-based CPU effort, by collaborating with 5+ stakeholder teams, creating mocks in Figma and single-handedly implementing the frontend solution.
 							</BulletPoint>
 							<BulletPoint>
-								Refactored legacy code, standardized workflows, and consolidated technical knowledge to improve team efficiency and reduce technical debt. Mentored eight junior engineers through hands-on coaching and architectural guidance.
+								As frontend lead, consolidated knowledge on the team into formal documentation. Managed two MIT interns and mentored a total of eight junior engineers over five years, through hands-on coaching and architectural guidance.
 							</BulletPoint>
 						</BulletPoints>
 					</CompanyContent>

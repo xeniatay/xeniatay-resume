@@ -324,7 +324,7 @@ const getBorderValues = ({ theme, shorthand, color, width, v, h, t, r, b, l }) =
 			`
 				: ""
 		}
-			
+
 		${typeof t === "boolean" ? `border-top: ${defaultBorder};` : ""}
 		${typeof t === "number" ? `border-top: ${getBorderString(t)};` : ""}
 
@@ -336,7 +336,7 @@ const getBorderValues = ({ theme, shorthand, color, width, v, h, t, r, b, l }) =
 
 		${typeof l === "boolean" ? `border-left: ${defaultBorder};` : ""}
 		${typeof l === "number" ? `border-left: ${getBorderString(l)};` : ""}
-		
+
 	`;
 };
 
@@ -346,7 +346,7 @@ const getDimension = ({ fluid, rule, value }) => {
 	} else if (value === undefined) {
 		return "";
 	} else if (typeof value === "object") {
-		return getResponsiveValues({ value, style: rule });
+		return setRspv({ value, style: rule });
 	} else if (typeof value === "string") {
 		return `${rule}: ${value};`;
 	} else if (typeof value === "number") {
@@ -354,7 +354,8 @@ const getDimension = ({ fluid, rule, value }) => {
 	}
 };
 
-export const getResponsiveValues = ({ value: responsiveValues = {}, unit = "", style }) => {
+/** Set responsive values across screen sizes. */
+export const setRspv = ({ value: responsiveValues = {}, unit = "", style }) => {
 	const responsiveStyles = Object.keys(responsiveValues).map(size => {
 		const styleRule = `${style}: ${responsiveValues[size]}${unit};`;
 
@@ -392,7 +393,7 @@ const getTrblValues = ({ rule, shorthand, v, h, t, r, b, l, unit = "" }) => {
 		} else if (typeof value === "number") {
 			val = `${style}: ${value}${unit};`;
 		} else if (typeof value === "object") {
-			val = getResponsiveValues({ value, unit, style });
+			val = setRspv({ value, unit, style });
 		}
 
 		return val;
@@ -492,7 +493,7 @@ const StyledBlock = styled.div`
 		})}
 
         /*
-         * border 
+         * border
          * border-top
          * border-right
          * border-bottom
@@ -512,7 +513,7 @@ const StyledBlock = styled.div`
 		})}
 
         /*
-         * padding 
+         * padding
          * padding-top
          * padding-right
          * padding-bottom
@@ -531,7 +532,7 @@ const StyledBlock = styled.div`
 		})}
 
         /*
-         * margin 
+         * margin
          * margin-top
          * margin-right
          * margin-bottom

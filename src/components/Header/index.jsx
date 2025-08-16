@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-import Block, { getResponsiveValues } from "components/shared/Block";
+import Block, { setRspv } from "components/shared/Block";
 import { SCREEN_ONLY } from "components/shared/Block/constants";
 import Text from "components/shared/Text";
 
@@ -27,7 +27,7 @@ export const Container = styled.div`
 
 	@media screen {
 		position: relative; // To make box shadow appear
-		${getResponsiveValues({
+		${setRspv({
 	value: { md: "black" },
 	style: "background-color"
 })}
@@ -48,11 +48,11 @@ export const ScreenHeader = styled.div`
 			max-width: 864px; // 9in, to vaguely match resume
 			align-items: center;
 			text-align: left;
-			${getResponsiveValues({
+			${setRspv({
 		value: { xs: "space-around", lg: "flex-start" },
 		style: "justify-content"
 	})}
-			${getResponsiveValues({ value: { xs: "0.5rem", sm: "1rem", lg: "3rem 2rem" }, style: "padding" })}
+			${setRspv({ value: { xs: "0.5rem", sm: "1rem", lg: "3rem 2rem" }, style: "padding" })}
 	`
 )}
 `;
@@ -62,56 +62,56 @@ export const XeniaTay = styled.div`
 	font-family: ${p => p.theme.typography.fontFamilyHeader};
 	color: ${p => p.theme.palette.volcano1};
 	text-shadow: 0 0 3px black;
-	${getResponsiveValues({ value: { xs: "1.5rem", md: "2rem", lg: "3rem" }, style: "font-size" })}
-	${getResponsiveValues({ value: { xs: "none", md: "block" }, style: "display" })}
+	${setRspv({ value: { xs: "1.5rem", md: "2rem", lg: "3rem" }, style: "font-size" })}
+	${setRspv({ value: { xs: "none", md: "block" }, style: "display" })}
 `;
 
 export const Summary = styled.div`
 	&:before {
-		${getResponsiveValues({ value: { xs: `"Hi, I'm Xenia. "`, md: "''" }, style: "content" })}
+		${setRspv({ value: { xs: `"Hi, I'm Xenia. "`, md: "''" }, style: "content" })}
 	}
 
-	${getResponsiveValues({ value: { xs: "100%", md: "500px" }, style: "max-width" })}
-	${getResponsiveValues({ value: { xs: "white", md: "none" }, style: "background" })}
-	${getResponsiveValues({ value: { md: "0 0 3px black" }, style: "text-shadow" })}
-	${p => getResponsiveValues({ value: { md: p.theme.palette.volcano1 }, style: "color" })}
-	${getResponsiveValues({ value: { xs: "1.5", lg: "2" }, style: "line-height" })}
+	${setRspv({ value: { xs: "100%", md: "500px" }, style: "max-width" })}
+	${setRspv({ value: { xs: "white", md: "none" }, style: "background" })}
+	${setRspv({ value: { md: "0 0 3px black" }, style: "text-shadow" })}
+	${p => setRspv({ value: { md: p.theme.palette.volcano1 }, style: "color" })}
+	${setRspv({ value: { xs: "1.5", lg: "2" }, style: "line-height" })}
 	font-size: ${p => p.theme.typography.fontSizeBase};
 `;
 
 export const FancyLink = styled.a`
 	transition: all ease-in-out 100ms;
 	display: block;
-	${getResponsiveValues({ value: { md: "0.5rem" }, style: "padding" })}
-	${getResponsiveValues({
+	${setRspv({ value: { md: "0.5rem" }, style: "padding" })}
+	${setRspv({
 	value: { xs: "1rem", lg: "2rem" },
 	style: "margin-right"
 })}
 	margin-bottom: 0.5rem;
-	${getResponsiveValues({ value: { md: "2px solid white" }, style: "border" })}
+	${setRspv({ value: { md: "2px solid white" }, style: "border" })}
 	font-weight: bold;
 	letter-spacing: 1px;
 	text-decoration: none;
 	${p =>
-		getResponsiveValues({
+		setRspv({
 			value: { xs: p.theme.palette.black, md: p.theme.palette.volcano1 },
 			style: "color"
 		})}
 	${p =>
-		getResponsiveValues({
+		setRspv({
 			value: {
 				xs: p.theme.typography.fontSizeXs,
 				lg: p.theme.typography.fontSizeSm
 			},
 			style: "font-size"
 		})}
-	${getResponsiveValues({
+	${setRspv({
 			value: { xs: "underline", md: "none" },
 			style: "text-decoration"
 		})}
 
 	&:hover {
-		${getResponsiveValues({ value: { md: "0.5rem 0.9rem 0.5rem 1.1rem" }, style: "padding" })}
+		${setRspv({ value: { md: "0.5rem 0.9rem 0.5rem 1.1rem" }, style: "padding" })}
 		text-decoration: underline;
 	}
 `;

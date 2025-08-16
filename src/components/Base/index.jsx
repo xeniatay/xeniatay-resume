@@ -3,7 +3,7 @@ import styled, { ThemeProvider } from "styled-components";
 
 import theme from "theme";
 
-import Block, { getResponsiveValues } from "components/shared/Block";
+import Block, { setRspv } from "components/shared/Block";
 import Text from "components/shared/Text";
 import Header from "components/Header";
 import Resume from "components/Resume";
@@ -24,7 +24,7 @@ export const Body = styled.div`
 	margin: 0 auto;
 
 	@media screen {
-		${getResponsiveValues({ value: { xs: "0.5rem", lg: "10mm" }, style: "padding" })};
+		${setRspv({ value: { xs: "0.5rem", lg: "10mm" }, style: "padding" })};
 
 		max-width: 1824px;
 
@@ -43,7 +43,7 @@ export const Wrapper = styled.div`
 	display: flex;
 	justify-content: space-around;
 
-	${getResponsiveValues({ value: { xs: "wrap", lg: "unset" }, style: "flex-wrap" })}
+	${setRspv({ value: { xs: "wrap", lg: "unset" }, style: "flex-wrap" })}
 `;
 
 export default class Base extends Component {
