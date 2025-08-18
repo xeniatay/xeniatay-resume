@@ -178,7 +178,7 @@ export default class Resume extends Component {
 					<Position>Senior Software Engineer</Position>
 					<CompanyName>Google</CompanyName>
 					<CompanySummary>
-						Core Infrastructure - making it dramatically easier for Google devs to view, triage and analyze build/test results.
+						Core Infrastructure - making it dramatically easier for Google devs to triage and analyze test results.
 					</CompanySummary>
 					<CompanyContent>
 						<CompanyDetails>
