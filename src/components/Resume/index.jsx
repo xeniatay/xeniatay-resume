@@ -186,6 +186,8 @@ export default class Resume extends Component {
 							<Location>New York</Location>
 							<Tools>
 								Angular JS
+								<br/>
+								RxJS
 								<br />
 								SCSS
 								<br />
@@ -194,16 +196,16 @@ export default class Resume extends Component {
 						</CompanyDetails>
 						<BulletPoints>
 							<BulletPoint>
-								Launched a Continuous Integration (CI) troubleshooting tool loaded 1.3 million times by 108,000 devices, by managing the end-to-end launch process, taking on backend responsibilities, and creating self-service onboarding documentation.
+								Launched a Continuous Integration (CI) troubleshooting tool loaded 1.3M times by 110k devices. Managed end-to-end launch process, took on backend responsibilities, created self-service onboarding documentation.
 							</BulletPoint>
 							<BulletPoint>
-								Created from scratch a CI dashboard that achieved 163,000 hits within a year and received over 90% user satisfaction, by executing the entire product lifecycle from product requirements, design, and implementation to gathering launch and landing metrics.
+								Created from scratch a CI dashboard that got 160k hits and received 90%+ user satisfaction. Executed entire product lifecycle - product requirements, design, implementation, launch, post-launch landing metrics.
 							</BulletPoint>
 							<BulletPoint>
-								Designed and developed a critical UI for <a href="https://cloud.google.com/blog/products/compute/introducing-googles-new-arm-based-cpu" target="_blank">Google Axion</a>, Google's first Arm-based CPU effort, by collaborating with 5+ stakeholder teams, creating mocks in Figma and single-handedly implementing the frontend solution.
+								Designed a critical UI for <a href="https://cloud.google.com/blog/products/compute/introducing-googles-new-arm-based-cpu" target="_blank">Google Axion</a>, Google's first Arm-based CPU effort. Collaborated with 5+ stakeholder teams, created mocks in Figma and single-handedly implemented frontend solution.
 							</BulletPoint>
 							<BulletPoint>
-								As frontend lead, managed two MIT interns and mentored a total of eight junior engineers over five years, through hands-on coaching and architectural guidance. Proactively identified and consolidated all anecdotal knowledge into formal documentation.
+								As frontend lead, managed two MIT interns and mentored a total of eight junior engineers over five years. Proactively identified and consolidated all anecdotal knowledge into formal documentation.
 							</BulletPoint>
 						</BulletPoints>
 					</CompanyContent>
