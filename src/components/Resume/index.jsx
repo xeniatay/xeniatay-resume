@@ -203,7 +203,7 @@ export default class Resume extends Component {
 								Designed and developed a critical UI for <a href="https://cloud.google.com/blog/products/compute/introducing-googles-new-arm-based-cpu" target="_blank">Google Axion</a>, Google's first Arm-based CPU effort, by collaborating with 5+ stakeholder teams, creating mocks in Figma and single-handedly implementing the frontend solution.
 							</BulletPoint>
 							<BulletPoint>
-								As frontend lead, consolidated knowledge on the team into formal documentation. Managed two MIT interns and mentored a total of eight junior engineers over five years, through hands-on coaching and architectural guidance.
+								As frontend lead, managed two MIT interns and mentored a total of eight junior engineers over five years, through hands-on coaching and architectural guidance. Proactively identified and consolidated all anecdotal knowledge into formal documentation.
 							</BulletPoint>
 						</BulletPoints>
 					</CompanyContent>
