@@ -178,7 +178,7 @@ export default class Resume extends Component {
 					<Position>Senior Software Engineer</Position>
 					<CompanyName>Google</CompanyName>
 					<CompanySummary>
-						Core Infrastructure - making it dramatically easier for Google devs to triage and analyze test results.
+						Core Infra - making it easy for Google developers to debug and triage build/test results.
 					</CompanySummary>
 					<CompanyContent>
 						<CompanyDetails>
@@ -196,16 +196,16 @@ export default class Resume extends Component {
 						</CompanyDetails>
 						<BulletPoints>
 							<BulletPoint>
-								Launched a Continuous Integration (CI) troubleshooting tool loaded 1.3M times by 110k devices. Managed end-to-end launch process, took on backend responsibilities, created self-service onboarding documentation.
+								As frontend lead, managed two MIT interns and mentored a total of eight junior engineers over five years. Consolidated all anecdotal knowledge into documentation.
 							</BulletPoint>
 							<BulletPoint>
-								Created from scratch a CI dashboard that got 160k hits and received 90%+ user satisfaction. Executed entire product lifecycle - product requirements, design, implementation, launch, post-launch landing metrics.
+								Launched a Continuous Integration (CI) troubleshooting tool loaded 1.3M times by 110k devices. Executed launch, backend, self-service onboarding documentation.
 							</BulletPoint>
 							<BulletPoint>
-								Designed a critical UI for <a href="https://cloud.google.com/blog/products/compute/introducing-googles-new-arm-based-cpu" target="_blank">Google Axion</a>, Google's first Arm-based CPU effort. Collaborated with 5+ stakeholder teams, created mocks in Figma and single-handedly implemented frontend solution.
+								Created from scratch a CI dashboard that got 160k hits and received 90%+ user satisfaction. Executed entire product lifecycle solo - product requirements, design, frontend implementation, launch, post-launch landing metrics.
 							</BulletPoint>
 							<BulletPoint>
-								As frontend lead, managed two MIT interns and mentored a total of eight junior engineers over five years. Proactively identified and consolidated all anecdotal knowledge into formal documentation.
+								Designed a critical UI for <a href="https://cloud.google.com/blog/products/compute/introducing-googles-new-arm-based-cpu" target="_blank">Google Axion</a>, Google's first Arm-based CPU effort.<br/>5+ stakeholder teams, created Figma mockups, implemented the frontend solo.
 							</BulletPoint>
 						</BulletPoints>
 					</CompanyContent>
@@ -215,7 +215,7 @@ export default class Resume extends Component {
 					<Position>Founding Engineer</Position>
 					<CompanyName>Agora Systems</CompanyName>
 					<CompanySummary>
-						Materials and supply chain procurement software for the construction industry, 275M valuation, 20M revenue.
+						Supply chain management for the construction industry. 275M valuation, 20M revenue.
 					</CompanySummary>
 					<CompanyContent>
 						<CompanyDetails>
@@ -236,9 +236,8 @@ export default class Resume extends Component {
 								mentorship, and recruiting.
 							</BulletPoint>
 							<BulletPoint>
-								Synthesized over 20 hours of user research with Product & Design,
-								iterating through 3 prototypes over 4 months to lock down
-								product/market fit through user testing.
+								Synthesized 20+ hours of user research with Product+Design,
+								iterated over 3 prototypes in 4 months to lock down product/market fit through user testing.
 							</BulletPoint>
 							<BulletPoint>
 								Led recruiting for Founding Designer role in all areas:
@@ -248,7 +247,6 @@ export default class Resume extends Component {
 					</CompanyContent>
 				</Company>
 
-				{/* <PageBreak /> */}
 				<Company>
 					<Position>Senior Frontend Engineer</Position>
 					<CompanyName>Patreon</CompanyName>
@@ -303,6 +301,7 @@ export default class Resume extends Component {
 								removed 2 years of tech debt, freeing teams from technical
 								constraints that were blocking core product strategy.
 							</BulletPoint>
+							<PageBreak />
 							<BulletPoint>
 								Sole web engineer on{" "}
 								<a href="https://techcrunch.com/2018/02/06/patreon-lens/">Lens</a>{" "}
