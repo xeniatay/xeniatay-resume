@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/xeniatay-resume/static/css/main.4fc56ca4.css",
-    "main.js": "/xeniatay-resume/static/js/main.ae8be850.js",
-    "index.html": "/xeniatay-resume/index.html",
-    "main.4fc56ca4.css.map": "/xeniatay-resume/static/css/main.4fc56ca4.css.map",
-    "main.ae8be850.js.map": "/xeniatay-resume/static/js/main.ae8be850.js.map"
+    "main.css": "/static/css/main.4fc56ca4.css",
+    "main.js": "/static/js/main.a24f773b.js",
+    "index.html": "/index.html",
+    "main.4fc56ca4.css.map": "/static/css/main.4fc56ca4.css.map",
+    "main.a24f773b.js.map": "/static/js/main.a24f773b.js.map"
   },
   "entrypoints": [
     "static/css/main.4fc56ca4.css",
-    "static/js/main.ae8be850.js"
+    "static/js/main.a24f773b.js"
   ]
 }
