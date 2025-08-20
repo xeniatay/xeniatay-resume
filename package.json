@@ -1,8 +1,8 @@
 {
-	"name": "xeniatay-resume",
+	"name": "xeniatay.github.io",
 	"version": "0.1.0",
 	"private": true,
-	"homepage": "https://xeniatay.github.io/xeniatay-resume",
+	"homepage": "https://xeniatay.github.io",
 	"dependencies": {
 		"react": "^16.8.6",
 		"react-dom": "^16.8.6",
