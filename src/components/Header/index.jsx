@@ -84,9 +84,9 @@ export const FancyLink = styled.a`
 	display: block;
 	${setRspv({ value: { md: "0.5rem" }, style: "padding" })}
 	${setRspv({
-	value: { xs: "1rem", lg: "2rem" },
-	style: "margin-right"
-})}
+		value: { xs: "1rem", lg: "2rem" },
+		style: "margin-right"
+	})}
 	margin-bottom: 0.5rem;
 	${setRspv({ value: { md: "2px solid white" }, style: "border" })}
 	font-weight: bold;
@@ -171,7 +171,7 @@ export default class Header extends Component {
 							flex
 							flexGrow={1}
 							justifyContent="space-between"
-							maxWidth="430px"
+							maxWidth="600px"
 							mr={1}
 						>
 							<a href={`mailto:${EMAIL}`} target="_blank" rel="noopener noreferrer">
@@ -180,9 +180,9 @@ export default class Header extends Component {
 							<a href={`http://${GITHUB}`} target="_blank" rel="noopener noreferrer">
 								{GITHUB}
 							</a>
-							{/* <a href={`http://${WEBSITE}`} target="_blank" rel="noopener noreferrer">
+							<a href={`http://${WEBSITE}`} target="_blank" rel="noopener noreferrer">
 								{WEBSITE}
-							</a> */}
+							</a>
 						</Block>
 					</Block>
 					<Block mv={1}>
